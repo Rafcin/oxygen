@@ -1,15 +1,39 @@
 {
-  "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
+      "outputs": ["dist/**", ".next/**"],
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "env": [
+        "NODE_ENV",
+        "NEXT_PUBLIC_GMAPS_API",
+        "NEXT_PUBLIC_GMAPS_DEV_API",
+        "NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID",
+        "NEXT_PUBLIC_GA_ID",
+        "NEXT_PUBLIC_DOMAIN_NAME",
+        "NEXT_PUBLIC_SITE"
+      ]
+    },
+    "clean": {
+      "cache": false
     },
     "lint": {
-      "outputs": []
+      "dependsOn": ["build"]
+    },
+    "tsc": {
+      "dependsOn": ["build"]
+    },
+    "test": {
+      "dependsOn": ["build"]
+    },
+    "storybook": {
+      "dependsOn": ["build"]
     },
     "dev": {
       "cache": false
+    },
+    "update-dependencies": {
+      "cache": false
     }
-  }
+  },
+  "globalDependencies": [".env", ".env.local", "tsconfig.json"]
 }

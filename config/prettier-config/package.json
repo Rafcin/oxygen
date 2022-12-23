@@ -1,0 +1,17 @@
+{
+  "private": false,
+  "license": "MIT",
+  "version": "0.0.0",
+  "name": "@oxygen/prettier-config",
+  "description": "ESLint Configuration",
+  "author": {
+    "name": "Rafael Szuminski",
+    "email": "rafcin.s@gmail.com",
+    "url": "https://raf.szuminski.com"
+  },
+  "repository": "rafcin/fox.git",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js"
+}

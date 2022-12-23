@@ -1,0 +1,27 @@
+{
+  "private": false,
+  "license": "MIT",
+  "version": "0.0.0",
+  "name": "eslint-config-custom-oxygen",
+  "description": "ESLint Configuration",
+  "author": {
+    "name": "Rafael Szuminski",
+    "email": "rafcin.s@gmail.com",
+    "url": "https://raf.szuminski.com"
+  },
+  "repository": "rafcin/fox.git",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "eslint-config-next": "^13.0.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "7.31.11",
+    "eslint-config-turbo": "latest"
+  },
+  "devDependencies": {
+    "@oxygen/prettier-config": "*",
+    "@oxygen/tsconfig": "*"
+  }
+}
