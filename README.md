@@ -53,3 +53,12 @@ There are a lot of utils. I'm not listing all of them, they are pretty self expl
 1. usePages - I really like use pages, it just makes pagination kinda easy.
 2. setNestedObjectValues - Comes from `formik` and I like it!
 3. mergeRefs - It merges refs, it makes my life easier somtimes. Don't judge me.
+
+## What's Next?
+
+- [ ] Add Storybooks for each component and hook.
+- [ ] Add tests for each component and hook.
+- [x] Add a better readme.
+- [ ] Migrate to Next 13 app dir and create a skeleton Next.js app. (Waiting on Emotion changes etc)
+- [ ] Cleanup tsconfigs and flesh out the eslint configs a bit more.
+- [ ] Sleep.
