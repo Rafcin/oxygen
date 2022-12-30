@@ -1,5 +1,5 @@
 import { componentsOverrides } from '../mui/components'
-import * as theme from './theme.json'
+import { default as theme } from './theme'
 
 const components = {
   prefix: 'mui',
@@ -8,6 +8,10 @@ const components = {
   },
 }
 
-const dls = Object.assign({}, JSON.parse(JSON.stringify(theme)), components)
+//const dls = Object.assign({}, JSON.parse(JSON.stringify(theme)), components)
+const dls = {
+  ...theme,
+  ...components,
+}
 
 export { dls }

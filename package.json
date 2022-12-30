@@ -71,7 +71,6 @@
     "eslint": "^8.28.0",
     "rimraf": "^3.0.2",
     "quicktype": "15.1.0",
-    "dts-gen": "0.6.1",
     "@types/cors": "^2.8.12",
     "@types/lodash": "^4.14.191",
     "@types/uuid": "^9.0.0",

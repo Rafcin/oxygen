@@ -67,6 +67,7 @@
     "[--- Utils ---]": "",
     "ts": "node -r esbuild-register",
     "size": "pnpm run size-limit",
+    "js:theme": "pnpm json-to-js -i ./src/core/theme/theme.json -o ./src/core/theme/theme.ts --ts",
     "dts:theme": "quicktype --top-level Theme -l typescript ./src/core/theme/theme.json -o ./src/types/theme/index.ts && ./scripts/prefix.sh ./src/types/theme/index.ts Oxygen"
   },
   "dependencies": {
@@ -100,7 +101,8 @@
     "use-places-autocomplete": "^4.0.0",
     "uuid": "^9.0.0",
     "yup": "^0.32.11",
-    "zustand": "^4.1.4"
+    "zustand": "^4.1.4",
+    "@oxygen/json-to-js": "*"
   },
   "peerDependenciesMeta": {
     "react": {
@@ -183,6 +185,7 @@
     "@mui/types": "7.2.2",
     "@oxygen/prettier-config": "*",
     "@oxygen/tsconfig": "*",
+    "@oxygen/json-to-js": "*",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-typescript": "^8.3.1",
     "@rollup/plugin-json": "^6.0.0",
@@ -195,7 +198,6 @@
     "rollup-plugin-node-externals": "^4.1.1",
     "rollup-plugin-styles": "^4.0.0",
     "rollup-plugin-terser": "^7.0.2",
-    "size-limit": "^7.0.8",
-    "ts-morph": "^17.0.1"
+    "size-limit": "^7.0.8"
   }
 }

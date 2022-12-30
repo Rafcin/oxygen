@@ -1,0 +1,76 @@
+{
+  "private": false,
+  "license": "Apache-2.0",
+  "version": "0.0.0",
+  "name": "@oxygen/json-to-js",
+  "description": "Convert JSON to a JS object",
+  "author": {
+    "name": "Raf Szuminski",
+    "email": "rafcin.s@gmail.com",
+    "url": "https://rafszuminski.com"
+  },
+  "repository": "rafcin/fox.git",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "json",
+    "js",
+    "object"
+  ],
+  "engines": {
+    "node": "^14.13.1 || >=16.0.0",
+    "pnpm": ">=7"
+  },
+  "main": "./dist/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "[--- Run ---]": "",
+    "json-to-js": "node ./dist/index",
+    "[--- Build ---]": "",
+    "prebuild": "rimraf dist",
+    "build": "pnpm run build:ts",
+    "build:ts": "rollup --config",
+    "[--- Dev ---]": "",
+    "dev": "tsup --watch",
+    "dev:build": "tsup",
+    "[--- Lint ---]": "",
+    "lint": "tsc --noEmit --project tsconfig.dev.json && pnpm eslint ./src --ext .js,.ts,.tsx",
+    "[--- Clean ---]": "",
+    "clean": "rimraf dist node_modules",
+    "[--- Utils ---]": "",
+    "ts": "node -r esbuild-register",
+    "size": "pnpm run size-limit"
+  },
+  "bin": {
+    "json-to-js": "./dist/index.js"
+  },
+  "dependencies": {
+    "commander": "^9.4.1"
+  },
+  "devDependencies": {
+    "@oxygen/prettier-config": "*",
+    "@oxygen/tsconfig": "*",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@size-limit/preset-big-lib": "^7.0.8",
+    "eslint-config-custom-oxygen": "*",
+    "rollup": "^2.70.0",
+    "rollup-plugin-node-externals": "^4.1.1",
+    "rollup-plugin-styles": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "size-limit": "^7.0.8"
+  }
+}
