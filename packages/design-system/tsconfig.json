@@ -33,6 +33,11 @@
     "importHelpers": true,
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/core/theme/types/index.tsx",
+    "src/core/theme/index.tsx"
+  ],
   "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.test.tsx"]
 }

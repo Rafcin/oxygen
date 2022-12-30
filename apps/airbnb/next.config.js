@@ -138,6 +138,11 @@ const nextConfig = {
         protocol,
         hostname: `images.unsplash.com`,
       },
+      // @note(remotePattern) Picsum
+      {
+        protocol,
+        hostname: `picsum.photos`,
+      }
     ],
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 18144000, // 1 month

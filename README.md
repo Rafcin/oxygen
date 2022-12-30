@@ -62,3 +62,4 @@ There are a lot of utils. I'm not listing all of them, they are pretty self expl
 - [ ] Migrate to Next 13 app dir and create a skeleton Next.js app. (Waiting on Emotion changes etc)
 - [ ] Cleanup tsconfigs and flesh out the eslint configs a bit more.
 - [ ] Sleep.
+- [ ] Migrate from Yup to Zod.

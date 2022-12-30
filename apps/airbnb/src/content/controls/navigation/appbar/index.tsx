@@ -51,9 +51,12 @@ export const Appbar = () => {
             backgroundColor: theme?.palette.background?.appbar,
             color: theme?.palette.text?.primary,
             height: navbarHeight,
+            '& .MuiToolbar-root': {
+              padding: 0,
+            },
           })}
         >
-          <Toolbar sx={{ height: '100%' }}>
+          <Toolbar sx={{ height: '100%', padding: 0 }}>
             <Container>
               <Grid
                 container

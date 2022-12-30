@@ -5,6 +5,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import styles from 'rollup-plugin-styles';
 import externals from 'rollup-plugin-node-externals';
+import json from '@rollup/plugin-json';
 
 //{ include: ['next', 'next-seo', /^@mui\//, /^@emotion\//] }
 
@@ -18,6 +19,7 @@ const config = defineConfig([
       sourcemap: false,
     },
     plugins: [
+      json(),
       commonjs(),
       externals({ peerDeps: true }),
       typescript({ declarationDir: 'dist/types', sourceMap: false }),
@@ -35,6 +37,7 @@ const config = defineConfig([
       sourcemap: false,
     },
     plugins: [
+      json(),
       commonjs(),
       externals({ peerDeps: true }),
       typescript({ outDir: 'dist/esm', declaration: false, sourceMap: false }),

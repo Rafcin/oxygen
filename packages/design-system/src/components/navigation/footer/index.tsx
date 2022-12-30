@@ -56,7 +56,7 @@ export const Footer = ({
             sx={{
               zIndex: 1000,
               boxShadow: 'rgb(0 0 0 / 8%) 0 1px 0',
-              background: theme?.palette.background?.default,
+              backgroundColor: theme?.palette?.footer?.background,
               color: theme?.palette.text?.primary,
               height: '110px',
               borderTop: `1px solid ${theme?.palette?.footer?.border}`,
