@@ -40,7 +40,7 @@ const config = defineConfig([
       json(),
       commonjs(),
       externals({ peerDeps: true }),
-      typescript({ declarationDir: 'dist/types', sourceMap: false }),
+      typescript({ outDir: 'dist/esm', declaration: false, sourceMap: false }),
       terser(),
     ],
   },
