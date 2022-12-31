@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/display-name */
 import { Box, Button, Container, useTheme } from '@mui/material'
-import { Loading, Grid, OxygenTheme } from '@oxygen/design-system'
+import { Loading, Grid } from '@oxygen/design-system'
 //import { default as Grid } from '@mui/material/Unstable_Grid2'
 import { HomeCard } from '@/content/ui/cards/home'
 import { v4 as uuidv4 } from 'uuid'

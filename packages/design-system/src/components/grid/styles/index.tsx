@@ -1,5 +1,5 @@
 import { styled } from '@mui/system'
-import { OxygenTheme } from 'src/types'
+import { OxygenTheme } from 'src/declarations'
 
 import { GridProps } from '../types'
 

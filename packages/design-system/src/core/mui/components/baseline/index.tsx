@@ -1,4 +1,4 @@
-import { dls } from '../../../theme'
+import { default as theme } from '../../../theme/theme'
 
 export default function Baseline() {
   return {
@@ -7,7 +7,7 @@ export default function Baseline() {
         enableColorScheme: true,
       },
       styleOverrides: () => ({
-        ...dls.baseline,
+        ...theme.baseline,
       }),
     },
   }

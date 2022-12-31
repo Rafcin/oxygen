@@ -33,11 +33,13 @@
     "importHelpers": true,
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/core/theme/types/index.tsx",
-    "src/core/theme/index.tsx"
-  ],
-  "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.test.tsx"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.stories.tsx",
+    "src/**/*.stories.ts",
+    "src/**/*.stories.@(js|jsx|ts|tsx)"
+  ]
 }
