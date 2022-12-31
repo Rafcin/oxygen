@@ -34,7 +34,6 @@ export const CarouselCard: React.FC<any> = React.memo(
     const [controlledSwiper, setControlledSwiper] = React.useState(null)
     return (
       <Box
-        ref={observeInView}
         component="div"
         sx={{
           borderRadius: '12px',
@@ -66,7 +65,7 @@ export const CarouselCard: React.FC<any> = React.memo(
               setMouseOver(false)
             }}
           >
-            <CardCover>
+            <CardCover ref={observeInView}>
               <Swiper
                 cssMode={true}
                 modules={[Controller, Virtual]}
@@ -86,14 +85,16 @@ export const CarouselCard: React.FC<any> = React.memo(
                               height: '100%',
                             }}
                           >
-                            <Image
-                              key={`carousel-image-${index}`}
-                              quality={45}
-                              fill
-                              src={src}
-                              alt="Carousel card"
-                              style={{ objectFit: 'cover' }}
-                            />
+                            {inView && (
+                              <Image
+                                key={`carousel-image-${index}`}
+                                quality={45}
+                                fill
+                                src={src}
+                                alt="Carousel card"
+                                style={{ objectFit: 'cover' }}
+                              />
+                            )}
                           </Box>
                         </SkeletonWrapper>
                       </Box>

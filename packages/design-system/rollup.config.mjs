@@ -6,6 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 import styles from 'rollup-plugin-styles';
 import externals from 'rollup-plugin-node-externals';
 import json from '@rollup/plugin-json';
+import analyze from 'rollup-plugin-analyzer'
 
 //{ include: ['next', 'next-seo', /^@mui\//, /^@emotion\//] }
 
@@ -24,6 +25,7 @@ const config = defineConfig([
       externals({ peerDeps: true }),
       typescript({ declarationDir: 'dist/types', sourceMap: false }),
       terser(),
+      analyze()
     ],
   },
   // ESM config
@@ -42,6 +44,7 @@ const config = defineConfig([
       externals({ peerDeps: true }),
       typescript({ outDir: 'dist/esm', declaration: false, sourceMap: false }),
       terser(),
+      analyze()
     ],
   },
   // CSS config

@@ -65,6 +65,7 @@
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-typescript": "^10.0.1",
+    "rollup-plugin-analyzer": "^4.0.0",
     "@size-limit/preset-big-lib": "^8.1.0",
     "eslint-config-custom-oxygen": "*",
     "rollup": "^3.9.0",

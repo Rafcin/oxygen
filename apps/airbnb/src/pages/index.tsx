@@ -1,14 +1,19 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/display-name */
-import { Box, Button, Container, useTheme } from '@mui/material'
-import { Loading, Grid } from '@oxygen/design-system'
+import { Box, Button, Container } from '@mui/material'
+import { Loading, Grid, OxygenTheme } from '@oxygen/design-system'
 //import { default as Grid } from '@mui/material/Unstable_Grid2'
 import { HomeCard } from '@/content/ui/cards/home'
 import { v4 as uuidv4 } from 'uuid'
-import { useQuery } from '@tanstack/react-query'
+import { Dayjs } from 'dayjs'
+import TextField from '@mui/material/TextField'
+import { LocalizationProvider } from '@mui/x-date-pickers-pro'
+import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs'
+import { StaticDateRangePicker } from '@mui/x-date-pickers-pro/StaticDateRangePicker'
+import { DateRange } from '@mui/x-date-pickers-pro/DateRangePicker'
+import * as React from 'react'
 
 const Home = () => {
-  const theme = useTheme()
   const images = [
     'https://picsum.photos/id/20/3670/2462',
     'https://picsum.photos/id/21/3008/2008',
@@ -47,7 +52,7 @@ const Home = () => {
             <HomeCard
               key={uuidv4()}
               direction="vertical"
-              waitBeforeShow={2500 + index * 150}
+              waitBeforeShow={1500 + index * 150}
               ar="20 / 19"
               srcs={images}
               isMetadataEnabled={true}

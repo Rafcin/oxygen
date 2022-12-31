@@ -36,6 +36,7 @@
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [
     "node_modules",
+    ".storybook",
     "src/**/*.test.ts",
     "src/**/*.test.tsx",
     "src/**/*.stories.tsx",
