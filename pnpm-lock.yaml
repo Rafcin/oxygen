@@ -432,6 +432,7 @@ importers:
       rollup-plugin-styles: ^4.0.0
       rollup-plugin-terser: ^7.0.2
       size-limit: ^8.1.0
+      trpc-shield: ^0.3.0
       zod: ^3.18.0
       zod-prisma: ^0.5.4
     dependencies:
@@ -441,6 +442,7 @@ importers:
       bcrypt: 5.1.0
       jsonwebtoken: 9.0.0
       prisma: 4.8.0
+      trpc-shield: 0.3.0
       zod: 3.20.2
     devDependencies:
       '@mermaid-js/mermaid-cli': 9.3.0
@@ -13109,6 +13111,12 @@ packages:
 
   /trough/2.1.0:
     resolution: {integrity: sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==}
+    dev: false
+
+  /trpc-shield/0.3.0:
+    resolution: {integrity: sha512-lMdDodAIn9M4y2oH4y3lqdv8csVtmINbDZByG9//gQJDsRT1UEX+BCaQJ3lVR7VZiwIJRaVVTnTS0nDQ6bF2lw==}
+    dependencies:
+      '@trpc/server': 10.7.0
     dev: false
 
   /ts-easing/0.2.0:

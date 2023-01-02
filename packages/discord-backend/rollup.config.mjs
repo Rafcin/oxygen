@@ -8,12 +8,10 @@ import externals from 'rollup-plugin-node-externals';
 import json from '@rollup/plugin-json';
 import analyze from 'rollup-plugin-analyzer'
 
-//{ include: ['next', 'next-seo', /^@mui\//, /^@emotion\//] }
-
 const config = defineConfig([
   // CJS config
   {
-    input: ['./src/index.tsx', './src/internal.tsx'],
+    input: ['./src/index.tsx'],
     output: {
       dir: 'dist',
       format: 'cjs',
@@ -30,7 +28,7 @@ const config = defineConfig([
   },
   // ESM config
   {
-    input: ['./src/index.tsx', './src/internal.tsx'],
+    input: ['./src/index.tsx'],
     output: {
       dir: 'dist/esm',
       format: 'es',
