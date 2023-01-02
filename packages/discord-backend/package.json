@@ -76,6 +76,7 @@
     "zod": "^3.18.0"
   },
   "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^9.3.0",
     "@oxygen/json-to-js": "*",
     "@oxygen/prettier-config": "*",
     "@oxygen/tsconfig": "*",
@@ -84,6 +85,8 @@
     "@rollup/plugin-typescript": "^10.0.1",
     "@size-limit/preset-big-lib": "^8.1.0",
     "eslint-config-custom-oxygen": "*",
+    "prisma-docs-generator": "^0.5.0",
+    "prisma-trpc-generator": "^1.0.2",
     "rollup": "^3.9.0",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-node-externals": "^5.0.3",
