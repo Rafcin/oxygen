@@ -1,1 +1,1 @@
-# `Json-To-JS`
+# `@oxygen/json-to-js`

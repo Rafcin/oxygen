@@ -1,1 +1,1 @@
-# `@oxygen/design-system`
+# `@oxygen/discord-backend`
