@@ -9,7 +9,7 @@
     "email": "rafcin.s@gmail.com",
     "url": "https://rafszuminski.com"
   },
-  "repository": "rafcin/fox.git",
+  "repository": "rafcin/oxygen.git",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

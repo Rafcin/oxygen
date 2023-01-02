@@ -14,6 +14,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
   "files.exclude": {
     "amplify/.config": true,
     "amplify/**/*-parameters.json": true,
@@ -25,6 +28,6 @@
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   //"eslint.workingDirectories": ["src"],
-  "javascript.suggestionActions.enabled": false,
+  "javascript.suggestionActions.enabled": false
   //"typescript.tsdk": "node_modules/typescript/lib"
 }

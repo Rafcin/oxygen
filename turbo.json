@@ -24,6 +24,12 @@
     },
     "update-dependencies": {
       "cache": false
+    },
+    "prisma:generate": {
+      "cache": false
+    },
+    "prisma:push": {
+      "cache": false
     }
   }
 }
