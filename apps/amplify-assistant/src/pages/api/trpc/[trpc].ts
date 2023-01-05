@@ -1,12 +1,12 @@
 import { createNextApiHandler } from "@trpc/server/adapters/next";
 
 import { env } from "../../../env/server.mjs";
-import { createTRPCContext, appRouter } from "@oxygen/discord-backend";
+import { createContext, appRouter } from "@oxygen/discord-backend";
 
 // export API handler
 export default createNextApiHandler({
   router: appRouter,
-  createContext: createTRPCContext,
+  createContext: createContext,
   onError:
     env.NODE_ENV === "development"
       ? ({ path, error }) => {

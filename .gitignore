@@ -77,3 +77,5 @@ amplifytools.xcconfig
 pnpm-lock.yaml
 #Rollup
 .rollup.cache
+#TS
+.tsbuildinfo
