@@ -1,9 +1,9 @@
 import * as trpc from "@trpc/server";
 import { permissions } from "../../shield/shield";
 
-import { Context } from '../../../../prisma/context';
+import { Context } from '../../../../backend/api/context';
 
-import trpcOptions from '../../../../prisma/trpcOptions';
+import trpcOptions from '../../../../backend/api/options';
 
 export const t = trpc.initTRPC.context<Context>().create(trpcOptions);
 

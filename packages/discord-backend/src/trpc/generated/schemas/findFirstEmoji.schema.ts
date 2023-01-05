@@ -1,14 +1,10 @@
 import { z } from 'zod';
-import { EmojiSelectObjectSchema } from './objects/EmojiSelect.schema';
-import { EmojiIncludeObjectSchema } from './objects/EmojiInclude.schema';
 import { EmojiOrderByWithRelationInputObjectSchema } from './objects/EmojiOrderByWithRelationInput.schema';
 import { EmojiWhereInputObjectSchema } from './objects/EmojiWhereInput.schema';
 import { EmojiWhereUniqueInputObjectSchema } from './objects/EmojiWhereUniqueInput.schema';
 import { EmojiScalarFieldEnumSchema } from './enums/EmojiScalarFieldEnum.schema';
 
 export const EmojiFindFirstSchema = z.object({
-  select: EmojiSelectObjectSchema.optional(),
-  include: EmojiIncludeObjectSchema.optional(),
   orderBy: z
     .union([
       EmojiOrderByWithRelationInputObjectSchema,

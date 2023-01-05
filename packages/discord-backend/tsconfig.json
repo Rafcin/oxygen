@@ -26,9 +26,9 @@
     "skipLibCheck": true,
     "strict": true,
     "strictBindCallApply": true,
-    "strictFunctionTypes": false,
-    "strictNullChecks": false,
-    "strictPropertyInitialization": false,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
     "target": "ES2015",
     "importHelpers": true,
     "tsBuildInfoFile": ".tsbuildinfo"
@@ -36,7 +36,6 @@
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [
     "node_modules",
-    ".storybook",
     "src/**/*.test.ts",
     "src/**/*.test.tsx",
     "src/**/*.stories.tsx",

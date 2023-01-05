@@ -5,8 +5,4 @@ module.exports = {
         project: 'tsconfig.json',
         tsconfigRootDir: __dirname,
     },
-    plugins: ["@typescript-eslint"],
-    rules: {
-        "@typescript-eslint/consistent-type-imports": "warn"
-    }
 };

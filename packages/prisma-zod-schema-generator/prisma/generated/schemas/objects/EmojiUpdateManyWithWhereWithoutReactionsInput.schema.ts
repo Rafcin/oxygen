@@ -1,0 +1,19 @@
+import { z } from 'zod';
+import { EmojiScalarWhereInputObjectSchema } from './EmojiScalarWhereInput.schema';
+import { EmojiUpdateManyMutationInputObjectSchema } from './EmojiUpdateManyMutationInput.schema';
+import { EmojiUncheckedUpdateManyWithoutEmojisInputObjectSchema } from './EmojiUncheckedUpdateManyWithoutEmojisInput.schema';
+
+import type { Prisma } from '@prisma/client';
+
+const Schema: z.ZodType<Prisma.EmojiUpdateManyWithWhereWithoutReactionsInput> =
+  z
+    .object({
+      where: z.lazy(() => EmojiScalarWhereInputObjectSchema),
+      data: z.union([
+        z.lazy(() => EmojiUpdateManyMutationInputObjectSchema),
+        z.lazy(() => EmojiUncheckedUpdateManyWithoutEmojisInputObjectSchema),
+      ]),
+    })
+    .strict();
+
+export const EmojiUpdateManyWithWhereWithoutReactionsInputObjectSchema = Schema;

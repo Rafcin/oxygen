@@ -1,0 +1,106 @@
+{
+  "private": false,
+  "license": "Apache-2.0",
+  "version": "0.0.0",
+  "name": "@oxygen/trpc-generator",
+  "description": "TRPC generator forked and modified from omar-dulaimi/prisma-trpc-generator",
+  "author": {
+    "name": "Raf Szuminski",
+    "email": "rafcin.s@gmail.com",
+    "url": "https://rafszuminski.com"
+  },
+  "repository": "rafcin/oxygen.git",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "backend",
+    "prisma",
+    "trpc",
+    "db",
+    "trpc"
+  ],
+  "engines": {
+    "node": "^14.13.1 || >=16.0.0",
+    "pnpm": ">=7"
+  },
+  "main": "./dist/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    },
+    "./primitives.json": "./dist/primitives.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "bin": {
+    "trpc-generator": "./dist/index.js"
+  },
+  "scripts": {
+    "[--- Run ---]": "",
+    "trpc-generator": "node ./dist/index",
+    "[--- Build ---]": "",
+    "prebuild": "rimraf dist",
+    "build": "pnpm run build:ts",
+    "build:ts": "rollup --config",
+    "[--- Dev ---]": "",
+    "dev": "tsup --watch",
+    "dev:build": "tsup",
+    "[--- Start ---]": "",
+    "start": "node ./dist/index.js",
+    "[--- Lint ---]": "",
+    "lint": "tsc --noEmit --project tsconfig.dev.json && pnpm eslint ./src --ext .js,.ts,.tsx",
+    "[--- Clean ---]": "",
+    "clean": "rimraf dist node_modules",
+    "[--- Test ---]": "",
+    "test": "pnpm test:unit",
+    "test:watch": "pnpm test:unit:watch",
+    "test:unit": "jest",
+    "test:unit:watch": "jest --watch",
+    "[--- Utils ---]": "",
+    "ts": "node -r esbuild-register",
+    "size": "pnpm run size-limit",
+    "[--- Prisma ---]": "",
+    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
+    "prisma:migrate": "prisma migrate",
+    "prisma:studio": "prisma studio",
+    "prisma:push": "prisma db push --skip-generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.8.0",
+    "@prisma/generator-helper": "^4.8.0",
+    "@prisma/internals": "^4.8.0",
+    "pluralize": "^8.0.0",
+    "prisma-trpc-shield-generator": "0.1.0",
+    "@oxygen/prisma-zod-schema-generator": "^*",
+    "ts-morph": "^17.0.1",
+    "tslib": "^2.4.1",
+    "zod-prisma": "^0.5.4"
+  },
+  "devDependencies": {
+    "@oxygen/prettier-config": "*",
+    "@oxygen/tsconfig": "*",
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-typescript": "^10.0.1",
+    "@size-limit/preset-big-lib": "^8.1.0",
+    "@trpc/server": "^10.7.0",
+    "@types/node": "^18.11.18",
+    "@types/pluralize": "^0.0.29",
+    "eslint-config-custom-oxygen": "*",
+    "prisma": "^4.8.0",
+    "rollup": "^3.9.1",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "rollup-plugin-node-externals": "^5.0.3",
+    "rollup-plugin-styles": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "size-limit": "^8.1.0",
+    "trpc-shield": "^0.3.0",
+    "zod": "^3.20.2"
+  }
+}

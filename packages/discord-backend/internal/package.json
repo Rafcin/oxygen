@@ -1,7 +1,0 @@
-{
-  "private": true,
-  "name": "@oxygen/design-system-internal",
-  "main": "../dist/internal.js",
-  "module": "../dist/esm/internal.js",
-  "types": "../dist/types/internal.d.ts"
-}

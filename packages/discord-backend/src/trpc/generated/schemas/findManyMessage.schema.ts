@@ -1,14 +1,10 @@
 import { z } from 'zod';
-import { MessageSelectObjectSchema } from './objects/MessageSelect.schema';
-import { MessageIncludeObjectSchema } from './objects/MessageInclude.schema';
 import { MessageOrderByWithRelationInputObjectSchema } from './objects/MessageOrderByWithRelationInput.schema';
 import { MessageWhereInputObjectSchema } from './objects/MessageWhereInput.schema';
 import { MessageWhereUniqueInputObjectSchema } from './objects/MessageWhereUniqueInput.schema';
 import { MessageScalarFieldEnumSchema } from './enums/MessageScalarFieldEnum.schema';
 
 export const MessageFindManySchema = z.object({
-  select: z.lazy(() => MessageSelectObjectSchema.optional()),
-  include: z.lazy(() => MessageIncludeObjectSchema.optional()),
   orderBy: z
     .union([
       MessageOrderByWithRelationInputObjectSchema,
