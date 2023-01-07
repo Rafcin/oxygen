@@ -6,7 +6,7 @@ import { NullableStringFieldUpdateOperationsInputObjectSchema } from './Nullable
 import { GuildUpdateOneRequiredWithoutRolesNestedInputObjectSchema } from './GuildUpdateOneRequiredWithoutRolesNestedInput.schema';
 import { EmojiUpdateOneWithoutRolesNestedInputObjectSchema } from './EmojiUpdateOneWithoutRolesNestedInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.RoleUpdateWithoutMessageInput> = z
   .object({

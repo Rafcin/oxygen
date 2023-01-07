@@ -3,7 +3,7 @@ import { RoleWhereUniqueInputObjectSchema } from './RoleWhereUniqueInput.schema'
 import { RoleUpdateWithoutGuildInputObjectSchema } from './RoleUpdateWithoutGuildInput.schema';
 import { RoleUncheckedUpdateWithoutGuildInputObjectSchema } from './RoleUncheckedUpdateWithoutGuildInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.RoleUpdateWithWhereUniqueWithoutGuildInput> = z
   .object({

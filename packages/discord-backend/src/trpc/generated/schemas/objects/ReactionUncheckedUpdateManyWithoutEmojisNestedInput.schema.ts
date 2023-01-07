@@ -8,7 +8,7 @@ import { ReactionUpdateWithWhereUniqueWithoutEmojisInputObjectSchema } from './R
 import { ReactionUpdateManyWithWhereWithoutEmojisInputObjectSchema } from './ReactionUpdateManyWithWhereWithoutEmojisInput.schema';
 import { ReactionScalarWhereInputObjectSchema } from './ReactionScalarWhereInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.ReactionUncheckedUpdateManyWithoutEmojisNestedInput> =
   z

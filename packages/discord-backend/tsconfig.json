@@ -33,7 +33,7 @@
     "importHelpers": true,
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "prisma/context.ts"],
   "exclude": [
     "node_modules",
     "src/**/*.test.ts",

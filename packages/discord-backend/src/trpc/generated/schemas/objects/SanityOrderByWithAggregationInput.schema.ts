@@ -4,7 +4,7 @@ import { SanityCountOrderByAggregateInputObjectSchema } from './SanityCountOrder
 import { SanityMaxOrderByAggregateInputObjectSchema } from './SanityMaxOrderByAggregateInput.schema';
 import { SanityMinOrderByAggregateInputObjectSchema } from './SanityMinOrderByAggregateInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.SanityOrderByWithAggregationInput> = z
   .object({

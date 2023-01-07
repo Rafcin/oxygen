@@ -8,7 +8,7 @@ import { GuildRelationFilterObjectSchema } from './GuildRelationFilter.schema';
 import { GuildWhereInputObjectSchema } from './GuildWhereInput.schema';
 import { ReactionListRelationFilterObjectSchema } from './ReactionListRelationFilter.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.EmojiWhereInput> = z
   .object({

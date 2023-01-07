@@ -20,24 +20,21 @@ const Home = () => {
     'https://picsum.photos/id/28/4928/3264',
     'https://picsum.photos/id/29/4000/2670',
   ]
-  const createSanity = trpc.sanity.upsertOneSanity.useMutation();
+  const createSanity = trpc.sanity.upsertOneSanity.useMutation()
   const handleCreateSanity = async () => {
     createSanity.mutate({
       isSane: true,
-    });
-  };
+    })
+  }
   return (
     <Box sx={{ marginTop: '30px', marginBottom: '80px' }}>
       <Container>
-      <button
-                onClick={handleCreateSanity}
-                disabled={createSanity.isLoading}
-              >
-                Sanity Check
-              </button>
-              {createSanity.error && (
-                <p>Something went wrong! {createSanity.error.message}</p>
-              )}
+        <button onClick={handleCreateSanity} disabled={createSanity.isLoading}>
+          Sanity Check
+        </button>
+        {createSanity.error && (
+          <p>Something went wrong! {createSanity.error.message}</p>
+        )}
         <Box
           component={Grid}
           rowGap="40px"

@@ -7,7 +7,7 @@ import { MessageWhereUniqueInputObjectSchema } from './MessageWhereUniqueInput.s
 import { MessageUpdateWithoutMention_rolesInputObjectSchema } from './MessageUpdateWithoutMention_rolesInput.schema';
 import { MessageUncheckedUpdateWithoutMention_rolesInputObjectSchema } from './MessageUncheckedUpdateWithoutMention_rolesInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageUpdateOneWithoutMention_rolesNestedInput> =
   z

@@ -8,7 +8,7 @@ import { EmojiUpdateWithWhereUniqueWithoutUsersInputObjectSchema } from './Emoji
 import { EmojiUpdateManyWithWhereWithoutUsersInputObjectSchema } from './EmojiUpdateManyWithWhereWithoutUsersInput.schema';
 import { EmojiScalarWhereInputObjectSchema } from './EmojiScalarWhereInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.EmojiUpdateManyWithoutUsersNestedInput> = z
   .object({

@@ -3,7 +3,7 @@ import { ReactionWhereUniqueInputObjectSchema } from './ReactionWhereUniqueInput
 import { ReactionUpdateWithoutMessagesInputObjectSchema } from './ReactionUpdateWithoutMessagesInput.schema';
 import { ReactionUncheckedUpdateWithoutMessagesInputObjectSchema } from './ReactionUncheckedUpdateWithoutMessagesInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.ReactionUpdateWithWhereUniqueWithoutMessagesInput> =
   z

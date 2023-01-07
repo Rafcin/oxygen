@@ -4,7 +4,7 @@ import { MessageUncheckedCreateWithoutUsersInputObjectSchema } from './MessageUn
 import { MessageCreateOrConnectWithoutUsersInputObjectSchema } from './MessageCreateOrConnectWithoutUsersInput.schema';
 import { MessageWhereUniqueInputObjectSchema } from './MessageWhereUniqueInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageCreateNestedManyWithoutUsersInput> = z
   .object({

@@ -9,7 +9,7 @@ import { ChannelCreateNestedManyWithoutUsersInputObjectSchema } from './ChannelC
 import { UserCreatechannelIdsInputObjectSchema } from './UserCreatechannelIdsInput.schema';
 import { AccountCreateNestedManyWithoutUserInputObjectSchema } from './AccountCreateNestedManyWithoutUserInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.UserCreateWithoutSessionsInput> = z
   .object({

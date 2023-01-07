@@ -6,7 +6,7 @@ import { IntNullableWithAggregatesFilterObjectSchema } from './IntNullableWithAg
 import { DateTimeNullableWithAggregatesFilterObjectSchema } from './DateTimeNullableWithAggregatesFilter.schema';
 import { StringNullableListFilterObjectSchema } from './StringNullableListFilter.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.UserScalarWhereWithAggregatesInput> = z
   .object({

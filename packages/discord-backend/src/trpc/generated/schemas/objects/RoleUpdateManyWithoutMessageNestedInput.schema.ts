@@ -9,7 +9,7 @@ import { RoleUpdateWithWhereUniqueWithoutMessageInputObjectSchema } from './Role
 import { RoleUpdateManyWithWhereWithoutMessageInputObjectSchema } from './RoleUpdateManyWithWhereWithoutMessageInput.schema';
 import { RoleScalarWhereInputObjectSchema } from './RoleScalarWhereInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.RoleUpdateManyWithoutMessageNestedInput> = z
   .object({

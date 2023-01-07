@@ -4,7 +4,7 @@ import { EmojiUpdateuserIdsInputObjectSchema } from './EmojiUpdateuserIdsInput.s
 import { NullableBoolFieldUpdateOperationsInputObjectSchema } from './NullableBoolFieldUpdateOperationsInput.schema';
 import { EmojiUpdatereactionIdsInputObjectSchema } from './EmojiUpdatereactionIdsInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.EmojiUpdateManyMutationInput> = z
   .object({

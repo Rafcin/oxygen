@@ -3,7 +3,7 @@ import { MessageWhereUniqueInputObjectSchema } from './MessageWhereUniqueInput.s
 import { MessageCreateWithoutMention_rolesInputObjectSchema } from './MessageCreateWithoutMention_rolesInput.schema';
 import { MessageUncheckedCreateWithoutMention_rolesInputObjectSchema } from './MessageUncheckedCreateWithoutMention_rolesInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageCreateOrConnectWithoutMention_rolesInput> =
   z

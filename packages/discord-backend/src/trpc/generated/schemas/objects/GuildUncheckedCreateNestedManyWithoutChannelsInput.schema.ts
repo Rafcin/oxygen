@@ -4,7 +4,7 @@ import { GuildUncheckedCreateWithoutChannelsInputObjectSchema } from './GuildUnc
 import { GuildCreateOrConnectWithoutChannelsInputObjectSchema } from './GuildCreateOrConnectWithoutChannelsInput.schema';
 import { GuildWhereUniqueInputObjectSchema } from './GuildWhereUniqueInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.GuildUncheckedCreateNestedManyWithoutChannelsInput> =
   z

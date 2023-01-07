@@ -14,7 +14,7 @@ import { ChannelUpdateManyWithoutUsersNestedInputObjectSchema } from './ChannelU
 import { UserUpdatechannelIdsInputObjectSchema } from './UserUpdatechannelIdsInput.schema';
 import { AccountUpdateManyWithoutUserNestedInputObjectSchema } from './AccountUpdateManyWithoutUserNestedInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.UserUpdateWithoutSessionsInput> = z
   .object({

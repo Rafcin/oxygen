@@ -3,7 +3,7 @@ import { ChannelWhereUniqueInputObjectSchema } from './ChannelWhereUniqueInput.s
 import { ChannelUpdateWithoutGuildsInputObjectSchema } from './ChannelUpdateWithoutGuildsInput.schema';
 import { ChannelUncheckedUpdateWithoutGuildsInputObjectSchema } from './ChannelUncheckedUpdateWithoutGuildsInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.ChannelUpdateWithWhereUniqueWithoutGuildsInput> =
   z

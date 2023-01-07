@@ -5,7 +5,7 @@ import { EmojiOrderByRelationAggregateInputObjectSchema } from './EmojiOrderByRe
 import { UserOrderByRelationAggregateInputObjectSchema } from './UserOrderByRelationAggregateInput.schema';
 import { ChannelOrderByRelationAggregateInputObjectSchema } from './ChannelOrderByRelationAggregateInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.GuildOrderByWithRelationInput> = z
   .object({

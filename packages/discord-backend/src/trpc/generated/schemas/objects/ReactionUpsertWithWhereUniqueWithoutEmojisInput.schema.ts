@@ -5,7 +5,7 @@ import { ReactionUncheckedUpdateWithoutEmojisInputObjectSchema } from './Reactio
 import { ReactionCreateWithoutEmojisInputObjectSchema } from './ReactionCreateWithoutEmojisInput.schema';
 import { ReactionUncheckedCreateWithoutEmojisInputObjectSchema } from './ReactionUncheckedCreateWithoutEmojisInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.ReactionUpsertWithWhereUniqueWithoutEmojisInput> =
   z

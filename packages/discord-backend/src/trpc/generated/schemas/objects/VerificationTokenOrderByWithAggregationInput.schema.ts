@@ -4,7 +4,7 @@ import { VerificationTokenCountOrderByAggregateInputObjectSchema } from './Verif
 import { VerificationTokenMaxOrderByAggregateInputObjectSchema } from './VerificationTokenMaxOrderByAggregateInput.schema';
 import { VerificationTokenMinOrderByAggregateInputObjectSchema } from './VerificationTokenMinOrderByAggregateInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.VerificationTokenOrderByWithAggregationInput> = z
   .object({

@@ -5,7 +5,7 @@ import { RoleUncheckedUpdateWithoutMessageInputObjectSchema } from './RoleUnchec
 import { RoleCreateWithoutMessageInputObjectSchema } from './RoleCreateWithoutMessageInput.schema';
 import { RoleUncheckedCreateWithoutMessageInputObjectSchema } from './RoleUncheckedCreateWithoutMessageInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.RoleUpsertWithWhereUniqueWithoutMessageInput> = z
   .object({

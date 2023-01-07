@@ -8,7 +8,7 @@ import { StringNullableWithAggregatesFilterObjectSchema } from './StringNullable
 import { IntWithAggregatesFilterObjectSchema } from './IntWithAggregatesFilter.schema';
 import { IntNullableWithAggregatesFilterObjectSchema } from './IntNullableWithAggregatesFilter.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageScalarWhereWithAggregatesInput> = z
   .object({

@@ -5,7 +5,7 @@ import { MessageUncheckedCreateNestedManyWithoutChannelsInputObjectSchema } from
 import { ChannelCreatemessageIdsInputObjectSchema } from './ChannelCreatemessageIdsInput.schema';
 import { ChannelCreateuserIdsInputObjectSchema } from './ChannelCreateuserIdsInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.ChannelUncheckedCreateWithoutUsersInput> = z
   .object({

@@ -8,7 +8,7 @@ import { StringNullableFilterObjectSchema } from './StringNullableFilter.schema'
 import { IntFilterObjectSchema } from './IntFilter.schema';
 import { IntNullableFilterObjectSchema } from './IntNullableFilter.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageScalarWhereInput> = z
   .object({

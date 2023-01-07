@@ -45,7 +45,7 @@
   },
   "scripts": {
     "[--- Run ---]": "",
-    "trpc-generator": "/dist/index",
+    "trpc-generator": "/dist/index.js",
     "[--- Build ---]": "",
     "prebuild": "rimraf dist",
     "build": "pnpm run build:ts",

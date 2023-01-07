@@ -7,7 +7,7 @@ import { MessageCreateuserIdsInputObjectSchema } from './MessageCreateuserIdsInp
 import { ChannelCreateNestedManyWithoutMessageInputObjectSchema } from './ChannelCreateNestedManyWithoutMessageInput.schema';
 import { MessageCreatechannelIdsInputObjectSchema } from './MessageCreatechannelIdsInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageCreateInput> = z
   .object({

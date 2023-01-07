@@ -4,7 +4,7 @@ import { EmojiUncheckedCreateWithoutReactionsInputObjectSchema } from './EmojiUn
 import { EmojiCreateOrConnectWithoutReactionsInputObjectSchema } from './EmojiCreateOrConnectWithoutReactionsInput.schema';
 import { EmojiWhereUniqueInputObjectSchema } from './EmojiWhereUniqueInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.EmojiUncheckedCreateNestedManyWithoutReactionsInput> =
   z

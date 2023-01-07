@@ -44,7 +44,7 @@
   "scripts": {
     "[--- Build ---]": "",
     "prebuild": "rimraf dist",
-    "build": "pnpm prisma:generate && pnpm run build:ts",
+    "build": "pnpm run build:ts",
     "build:ts": "rollup --config rollup.config.ts --configPlugin rollup-plugin-swc3",
     "[--- Dev ---]": "",
     "dev": "tsup --watch",
@@ -64,7 +64,7 @@
     "ts": "node -r esbuild-register",
     "size": "pnpm run size-limit",
     "[--- Prisma ---]": "",
-    "prisma:generate": "npx rimraf ./src/trpc && prisma generate --schema=./src/backend/schema.prisma",
+    "prisma:generate": "npx rimraf ./src/trpc && prisma generate",
     "prisma:migrate": "prisma migrate",
     "prisma:studio": "prisma studio",
     "prisma:push": "prisma db push --skip-generate"

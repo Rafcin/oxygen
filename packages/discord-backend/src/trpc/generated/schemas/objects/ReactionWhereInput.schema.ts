@@ -5,7 +5,7 @@ import { EmojiListRelationFilterObjectSchema } from './EmojiListRelationFilter.s
 import { StringNullableListFilterObjectSchema } from './StringNullableListFilter.schema';
 import { MessageListRelationFilterObjectSchema } from './MessageListRelationFilter.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.ReactionWhereInput> = z
   .object({

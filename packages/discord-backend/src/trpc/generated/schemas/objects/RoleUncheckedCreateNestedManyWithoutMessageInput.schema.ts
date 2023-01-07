@@ -5,7 +5,7 @@ import { RoleCreateOrConnectWithoutMessageInputObjectSchema } from './RoleCreate
 import { RoleCreateManyMessageInputEnvelopeObjectSchema } from './RoleCreateManyMessageInputEnvelope.schema';
 import { RoleWhereUniqueInputObjectSchema } from './RoleWhereUniqueInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.RoleUncheckedCreateNestedManyWithoutMessageInput> =
   z

@@ -5,7 +5,7 @@ import { GuildUncheckedUpdateWithoutUsersInputObjectSchema } from './GuildUnchec
 import { GuildCreateWithoutUsersInputObjectSchema } from './GuildCreateWithoutUsersInput.schema';
 import { GuildUncheckedCreateWithoutUsersInputObjectSchema } from './GuildUncheckedCreateWithoutUsersInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.GuildUpsertWithWhereUniqueWithoutUsersInput> = z
   .object({

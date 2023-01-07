@@ -21,7 +21,6 @@
     "eslint-config-turbo": "latest"
   },
   "devDependencies": {
-    "@oxygen/prettier-config": "*",
     "@oxygen/tsconfig": "*"
   }
 }

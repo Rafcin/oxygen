@@ -5,7 +5,7 @@ import { SessionCreateOrConnectWithoutUserInputObjectSchema } from './SessionCre
 import { SessionCreateManyUserInputEnvelopeObjectSchema } from './SessionCreateManyUserInputEnvelope.schema';
 import { SessionWhereUniqueInputObjectSchema } from './SessionWhereUniqueInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.SessionUncheckedCreateNestedManyWithoutUserInput> =
   z

@@ -8,7 +8,7 @@ import { ChannelUpdateWithWhereUniqueWithoutMessageInputObjectSchema } from './C
 import { ChannelUpdateManyWithWhereWithoutMessageInputObjectSchema } from './ChannelUpdateManyWithWhereWithoutMessageInput.schema';
 import { ChannelScalarWhereInputObjectSchema } from './ChannelScalarWhereInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.ChannelUpdateManyWithoutMessageNestedInput> = z
   .object({

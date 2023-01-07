@@ -5,7 +5,7 @@ import { UserUncheckedUpdateWithoutChannelsInputObjectSchema } from './UserUnche
 import { UserCreateWithoutChannelsInputObjectSchema } from './UserCreateWithoutChannelsInput.schema';
 import { UserUncheckedCreateWithoutChannelsInputObjectSchema } from './UserUncheckedCreateWithoutChannelsInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.UserUpsertWithWhereUniqueWithoutChannelsInput> =
   z

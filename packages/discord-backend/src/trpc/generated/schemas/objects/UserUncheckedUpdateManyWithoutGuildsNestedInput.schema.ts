@@ -8,7 +8,7 @@ import { UserUpdateWithWhereUniqueWithoutGuildsInputObjectSchema } from './UserU
 import { UserUpdateManyWithWhereWithoutGuildsInputObjectSchema } from './UserUpdateManyWithWhereWithoutGuildsInput.schema';
 import { UserScalarWhereInputObjectSchema } from './UserScalarWhereInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.UserUncheckedUpdateManyWithoutGuildsNestedInput> =
   z

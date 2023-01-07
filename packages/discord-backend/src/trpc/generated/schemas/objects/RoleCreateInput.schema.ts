@@ -3,7 +3,7 @@ import { GuildCreateNestedOneWithoutRolesInputObjectSchema } from './GuildCreate
 import { EmojiCreateNestedOneWithoutRolesInputObjectSchema } from './EmojiCreateNestedOneWithoutRolesInput.schema';
 import { MessageCreateNestedOneWithoutMention_rolesInputObjectSchema } from './MessageCreateNestedOneWithoutMention_rolesInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.RoleCreateInput> = z
   .object({

@@ -5,7 +5,7 @@ import { ReactionUpdateemojiIdsInputObjectSchema } from './ReactionUpdateemojiId
 import { MessageUncheckedUpdateManyWithoutReactionsNestedInputObjectSchema } from './MessageUncheckedUpdateManyWithoutReactionsNestedInput.schema';
 import { ReactionUpdatemessageIdsInputObjectSchema } from './ReactionUpdatemessageIdsInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.ReactionUncheckedUpdateInput> = z
   .object({

@@ -5,7 +5,7 @@ import { AccountCreateOrConnectWithoutUserInputObjectSchema } from './AccountCre
 import { AccountCreateManyUserInputEnvelopeObjectSchema } from './AccountCreateManyUserInputEnvelope.schema';
 import { AccountWhereUniqueInputObjectSchema } from './AccountWhereUniqueInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.AccountCreateNestedManyWithoutUserInput> = z
   .object({

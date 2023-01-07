@@ -7,7 +7,7 @@ import { ChannelOrderByRelationAggregateInputObjectSchema } from './ChannelOrder
 import { AccountOrderByRelationAggregateInputObjectSchema } from './AccountOrderByRelationAggregateInput.schema';
 import { SessionOrderByRelationAggregateInputObjectSchema } from './SessionOrderByRelationAggregateInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.UserOrderByWithRelationInput> = z
   .object({

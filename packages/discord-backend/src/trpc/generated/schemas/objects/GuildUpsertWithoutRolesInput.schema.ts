@@ -4,7 +4,7 @@ import { GuildUncheckedUpdateWithoutRolesInputObjectSchema } from './GuildUnchec
 import { GuildCreateWithoutRolesInputObjectSchema } from './GuildCreateWithoutRolesInput.schema';
 import { GuildUncheckedCreateWithoutRolesInputObjectSchema } from './GuildUncheckedCreateWithoutRolesInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.GuildUpsertWithoutRolesInput> = z
   .object({

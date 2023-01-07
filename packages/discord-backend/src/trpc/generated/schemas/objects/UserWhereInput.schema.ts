@@ -12,7 +12,7 @@ import { ChannelListRelationFilterObjectSchema } from './ChannelListRelationFilt
 import { AccountListRelationFilterObjectSchema } from './AccountListRelationFilter.schema';
 import { SessionListRelationFilterObjectSchema } from './SessionListRelationFilter.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.UserWhereInput> = z
   .object({

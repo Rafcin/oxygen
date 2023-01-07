@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { QueryModeSchema } from '../enums/QueryMode.schema';
 import { NestedStringNullableFilterObjectSchema } from './NestedStringNullableFilter.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.StringNullableFilter> = z
   .object({

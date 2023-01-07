@@ -10,7 +10,7 @@ import { EmojiWhereInputObjectSchema } from './EmojiWhereInput.schema';
 import { MessageRelationFilterObjectSchema } from './MessageRelationFilter.schema';
 import { MessageWhereInputObjectSchema } from './MessageWhereInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.RoleWhereInput> = z
   .object({

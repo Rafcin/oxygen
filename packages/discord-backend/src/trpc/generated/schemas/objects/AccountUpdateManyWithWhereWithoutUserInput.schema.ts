@@ -3,7 +3,7 @@ import { AccountScalarWhereInputObjectSchema } from './AccountScalarWhereInput.s
 import { AccountUpdateManyMutationInputObjectSchema } from './AccountUpdateManyMutationInput.schema';
 import { AccountUncheckedUpdateManyWithoutAccountsInputObjectSchema } from './AccountUncheckedUpdateManyWithoutAccountsInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.AccountUpdateManyWithWhereWithoutUserInput> = z
   .object({

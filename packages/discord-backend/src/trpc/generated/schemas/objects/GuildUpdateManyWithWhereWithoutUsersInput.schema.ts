@@ -3,7 +3,7 @@ import { GuildScalarWhereInputObjectSchema } from './GuildScalarWhereInput.schem
 import { GuildUpdateManyMutationInputObjectSchema } from './GuildUpdateManyMutationInput.schema';
 import { GuildUncheckedUpdateManyWithoutGuildsInputObjectSchema } from './GuildUncheckedUpdateManyWithoutGuildsInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.GuildUpdateManyWithWhereWithoutUsersInput> = z
   .object({

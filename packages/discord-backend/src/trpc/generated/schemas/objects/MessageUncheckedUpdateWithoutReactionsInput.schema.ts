@@ -13,7 +13,7 @@ import { MessageUpdateuserIdsInputObjectSchema } from './MessageUpdateuserIdsInp
 import { ChannelUncheckedUpdateManyWithoutMessageNestedInputObjectSchema } from './ChannelUncheckedUpdateManyWithoutMessageNestedInput.schema';
 import { MessageUpdatechannelIdsInputObjectSchema } from './MessageUpdatechannelIdsInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageUncheckedUpdateWithoutReactionsInput> = z
   .object({

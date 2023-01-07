@@ -3,7 +3,7 @@ import { ChannelWhereUniqueInputObjectSchema } from './ChannelWhereUniqueInput.s
 import { ChannelCreateWithoutGuildsInputObjectSchema } from './ChannelCreateWithoutGuildsInput.schema';
 import { ChannelUncheckedCreateWithoutGuildsInputObjectSchema } from './ChannelUncheckedCreateWithoutGuildsInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.ChannelCreateOrConnectWithoutGuildsInput> = z
   .object({

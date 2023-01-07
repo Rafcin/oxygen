@@ -3,7 +3,7 @@ import { RoleScalarWhereInputObjectSchema } from './RoleScalarWhereInput.schema'
 import { RoleUpdateManyMutationInputObjectSchema } from './RoleUpdateManyMutationInput.schema';
 import { RoleUncheckedUpdateManyWithoutRolesInputObjectSchema } from './RoleUncheckedUpdateManyWithoutRolesInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.RoleUpdateManyWithWhereWithoutEmojiInput> = z
   .object({

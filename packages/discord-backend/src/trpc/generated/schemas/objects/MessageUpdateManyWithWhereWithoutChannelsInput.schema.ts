@@ -3,7 +3,7 @@ import { MessageScalarWhereInputObjectSchema } from './MessageScalarWhereInput.s
 import { MessageUpdateManyMutationInputObjectSchema } from './MessageUpdateManyMutationInput.schema';
 import { MessageUncheckedUpdateManyWithoutMessageInputObjectSchema } from './MessageUncheckedUpdateManyWithoutMessageInput.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageUpdateManyWithWhereWithoutChannelsInput> =
   z

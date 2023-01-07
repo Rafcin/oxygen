@@ -3,7 +3,7 @@ import { NestedBoolNullableWithAggregatesFilterObjectSchema } from './NestedBool
 import { NestedIntNullableFilterObjectSchema } from './NestedIntNullableFilter.schema';
 import { NestedBoolNullableFilterObjectSchema } from './NestedBoolNullableFilter.schema';
 
-import type { Prisma } from '../../../../../node_modules/.prisma/client';
+import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.BoolNullableWithAggregatesFilter> = z
   .object({
