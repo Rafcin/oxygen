@@ -15,7 +15,7 @@ export const UserScalarFieldEnumSchema = z.enum([
   'email',
   'emailVerified',
   'flags',
-  'premium_class',
+  'premium_type',
   'public_flags',
   'guildIds',
   'emojiIds',

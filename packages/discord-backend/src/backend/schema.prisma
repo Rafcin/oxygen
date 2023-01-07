@@ -3,6 +3,7 @@
 
 generator client {
     provider = "prisma-client-js"
+    output   = "../../node_modules/.prisma/client"
 }
 
 generator docs {
@@ -36,13 +37,13 @@ model Sanity {
 model Account {
     id                String  @id @default(auto()) @map("_id") @db.ObjectId
     userId            String  @map("user_id") @db.ObjectId
-    account_class     String
+    account_type      String
     provider          String
     providerAccountId String  @map("provider_account_id")
     refresh_token     String?
     access_token      String?
     expires_at        Int?
-    token_class       String?
+    token_type        String?
     scope             String?
     id_token          String?
     session_state     String?
@@ -103,8 +104,8 @@ model User {
     emailVerified DateTime? @map("email_verified")
     ///Flags
     flags         Int?
-    ///Premium class
-    premium_class Int?
+    ///Premium type
+    premium_type  Int?
     ///Public Flags
     public_flags  Int?
     ///Users guilds
@@ -361,8 +362,8 @@ model Message {
     pinned           Boolean    @default(false)
     ///Webhook ID
     webhook_id       String?    @default("")
-    ///Message Class
-    message_class    Int
+    ///Message type
+    message_type     Int
     ///Flags
     flags            Int?       @default(0)
     ///Application ID
@@ -395,7 +396,7 @@ model Channel {
     /// GUILD_DIRECTORY	14	the channel in a hub containing the listed servers
     /// GUILD_FORUM	15	Channel that can only contain threads
     /// Renamed due to TS issues.
-    channel_class                 Int
+    channel_type                  Int
     ///Is thread
     thread                        Boolean   @default(false)
     ///Channel position

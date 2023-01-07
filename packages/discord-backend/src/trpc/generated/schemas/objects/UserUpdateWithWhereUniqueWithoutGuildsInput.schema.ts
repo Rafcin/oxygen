@@ -3,7 +3,7 @@ import { UserWhereUniqueInputObjectSchema } from './UserWhereUniqueInput.schema'
 import { UserUpdateWithoutGuildsInputObjectSchema } from './UserUpdateWithoutGuildsInput.schema';
 import { UserUncheckedUpdateWithoutGuildsInputObjectSchema } from './UserUncheckedUpdateWithoutGuildsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.UserUpdateWithWhereUniqueWithoutGuildsInput> = z
   .object({

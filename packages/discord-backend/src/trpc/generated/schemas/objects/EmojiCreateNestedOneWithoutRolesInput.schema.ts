@@ -4,7 +4,7 @@ import { EmojiUncheckedCreateWithoutRolesInputObjectSchema } from './EmojiUnchec
 import { EmojiCreateOrConnectWithoutRolesInputObjectSchema } from './EmojiCreateOrConnectWithoutRolesInput.schema';
 import { EmojiWhereUniqueInputObjectSchema } from './EmojiWhereUniqueInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.EmojiCreateNestedOneWithoutRolesInput> = z
   .object({

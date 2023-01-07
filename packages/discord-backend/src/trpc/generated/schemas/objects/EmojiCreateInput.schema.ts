@@ -6,7 +6,7 @@ import { GuildCreateNestedOneWithoutEmojisInputObjectSchema } from './GuildCreat
 import { ReactionCreateNestedManyWithoutEmojisInputObjectSchema } from './ReactionCreateNestedManyWithoutEmojisInput.schema';
 import { EmojiCreatereactionIdsInputObjectSchema } from './EmojiCreatereactionIdsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.EmojiCreateInput> = z
   .object({

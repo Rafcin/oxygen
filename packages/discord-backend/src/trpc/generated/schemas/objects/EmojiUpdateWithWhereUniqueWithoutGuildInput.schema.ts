@@ -3,7 +3,7 @@ import { EmojiWhereUniqueInputObjectSchema } from './EmojiWhereUniqueInput.schem
 import { EmojiUpdateWithoutGuildInputObjectSchema } from './EmojiUpdateWithoutGuildInput.schema';
 import { EmojiUncheckedUpdateWithoutGuildInputObjectSchema } from './EmojiUncheckedUpdateWithoutGuildInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.EmojiUpdateWithWhereUniqueWithoutGuildInput> = z
   .object({

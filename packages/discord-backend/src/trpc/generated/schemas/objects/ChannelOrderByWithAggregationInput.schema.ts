@@ -6,13 +6,13 @@ import { ChannelMaxOrderByAggregateInputObjectSchema } from './ChannelMaxOrderBy
 import { ChannelMinOrderByAggregateInputObjectSchema } from './ChannelMinOrderByAggregateInput.schema';
 import { ChannelSumOrderByAggregateInputObjectSchema } from './ChannelSumOrderByAggregateInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.ChannelOrderByWithAggregationInput> = z
   .object({
     id: z.lazy(() => SortOrderSchema).optional(),
     name: z.lazy(() => SortOrderSchema).optional(),
-    channel_class: z.lazy(() => SortOrderSchema).optional(),
+    channel_type: z.lazy(() => SortOrderSchema).optional(),
     thread: z.lazy(() => SortOrderSchema).optional(),
     position: z.lazy(() => SortOrderSchema).optional(),
     topic: z.lazy(() => SortOrderSchema).optional(),

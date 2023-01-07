@@ -3,11 +3,11 @@ import { StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdat
 import { NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
 import { NullableIntFieldUpdateOperationsInputObjectSchema } from './NullableIntFieldUpdateOperationsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.AccountUpdateManyMutationInput> = z
   .object({
-    account_class: z
+    account_type: z
       .union([
         z.string(),
         z.lazy(() => StringFieldUpdateOperationsInputObjectSchema),
@@ -46,7 +46,7 @@ const Schema: z.ZodType<Prisma.AccountUpdateManyMutationInput> = z
       ])
       .optional()
       .nullable(),
-    token_class: z
+    token_type: z
       .union([
         z.string(),
         z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema),

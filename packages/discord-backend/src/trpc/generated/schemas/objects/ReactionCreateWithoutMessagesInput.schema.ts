@@ -3,7 +3,7 @@ import { EmojiCreateNestedManyWithoutReactionsInputObjectSchema } from './EmojiC
 import { ReactionCreateemojiIdsInputObjectSchema } from './ReactionCreateemojiIdsInput.schema';
 import { ReactionCreatemessageIdsInputObjectSchema } from './ReactionCreatemessageIdsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.ReactionCreateWithoutMessagesInput> = z
   .object({

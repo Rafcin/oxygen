@@ -14,7 +14,7 @@ import { ChannelUpdateManyWithoutUsersNestedInputObjectSchema } from './ChannelU
 import { UserUpdatechannelIdsInputObjectSchema } from './UserUpdatechannelIdsInput.schema';
 import { AccountUpdateManyWithoutUserNestedInputObjectSchema } from './AccountUpdateManyWithoutUserNestedInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.UserUpdateWithoutSessionsInput> = z
   .object({
@@ -107,7 +107,7 @@ const Schema: z.ZodType<Prisma.UserUpdateWithoutSessionsInput> = z
       ])
       .optional()
       .nullable(),
-    premium_class: z
+    premium_type: z
       .union([
         z.number(),
         z.lazy(() => NullableIntFieldUpdateOperationsInputObjectSchema),

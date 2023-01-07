@@ -3,7 +3,7 @@ import { ReactionScalarWhereInputObjectSchema } from './ReactionScalarWhereInput
 import { ReactionUpdateManyMutationInputObjectSchema } from './ReactionUpdateManyMutationInput.schema';
 import { ReactionUncheckedUpdateManyWithoutReactionsInputObjectSchema } from './ReactionUncheckedUpdateManyWithoutReactionsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.ReactionUpdateManyWithWhereWithoutMessagesInput> =
   z

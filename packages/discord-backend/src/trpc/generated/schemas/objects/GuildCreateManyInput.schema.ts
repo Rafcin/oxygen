@@ -4,7 +4,7 @@ import { FeaturesSchema } from '../enums/Features.schema';
 import { GuildCreateuserIdsInputObjectSchema } from './GuildCreateuserIdsInput.schema';
 import { GuildCreatechannelIdsInputObjectSchema } from './GuildCreatechannelIdsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.GuildCreateManyInput> = z
   .object({

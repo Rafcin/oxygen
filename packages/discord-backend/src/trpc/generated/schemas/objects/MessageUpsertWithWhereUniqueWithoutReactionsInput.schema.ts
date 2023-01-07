@@ -5,7 +5,7 @@ import { MessageUncheckedUpdateWithoutReactionsInputObjectSchema } from './Messa
 import { MessageCreateWithoutReactionsInputObjectSchema } from './MessageCreateWithoutReactionsInput.schema';
 import { MessageUncheckedCreateWithoutReactionsInputObjectSchema } from './MessageUncheckedCreateWithoutReactionsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageUpsertWithWhereUniqueWithoutReactionsInput> =
   z

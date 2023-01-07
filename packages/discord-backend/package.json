@@ -25,26 +25,27 @@
     "node": "^14.13.1 || >=16.0.0",
     "pnpm": ">=7"
   },
-  "main": "./dist/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
     },
+    "./styles.css": "./dist/styles.css",
     "./primitives.json": "./dist/primitives.json"
   },
   "files": [
     "dist",
-    "internal",
     "README.md"
   ],
   "scripts": {
     "[--- Build ---]": "",
     "prebuild": "rimraf dist",
-    "build": "pnpm run build:ts",
-    "build:ts": "rollup --config",
+    "build": "pnpm prisma:generate && pnpm run build:ts",
+    "build:ts": "rollup --config rollup.config.ts --configPlugin rollup-plugin-swc3",
     "[--- Dev ---]": "",
     "dev": "tsup --watch",
     "dev:build": "tsup",
@@ -63,40 +64,28 @@
     "ts": "node -r esbuild-register",
     "size": "pnpm run size-limit",
     "[--- Prisma ---]": "",
-    "prisma:generate": "prisma generate --schema=./src/backend/schema.prisma",
+    "prisma:generate": "npx rimraf ./src/trpc && prisma generate --schema=./src/backend/schema.prisma",
     "prisma:migrate": "prisma migrate",
     "prisma:studio": "prisma studio",
     "prisma:push": "prisma db push --skip-generate"
   },
   "dependencies": {
-    "@prisma/client": "^4.8.0",
+    "@prisma/client": "^4.8.1",
     "@trpc/server": "^10.7.0",
     "axios": "^1.2.2",
     "bcrypt": "^5.1.0",
     "jsonwebtoken": "^9.0.0",
-    "prisma": "^4.8.0",
+    "prisma": "^4.8.1",
     "superjson": "1.12.1",
     "trpc-shield": "^0.3.0",
-    "zod": "^3.20.2"
+    "zod": "^3.20.2",
+    "@oxygen/trpc-generator": "*"
   },
   "devDependencies": {
-    "@mermaid-js/mermaid-cli": "^9.3.0",
     "@oxygen/json-to-js": "*",
-    "@oxygen/prettier-config": "*",
-    "@oxygen/tsconfig": "*",
-    "@rollup/plugin-commonjs": "^24.0.0",
-    "@rollup/plugin-json": "^6.0.0",
-    "@rollup/plugin-typescript": "^10.0.1",
-    "@size-limit/preset-big-lib": "^8.1.0",
-    "eslint-config-custom-oxygen": "*",
-    "prisma-docs-generator": "^0.5.0",
     "@oxygen/trpc-generator": "*",
-    "rollup": "^3.9.1",
-    "rollup-plugin-analyzer": "^4.0.0",
-    "rollup-plugin-node-externals": "^5.0.3",
-    "rollup-plugin-styles": "^4.0.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "size-limit": "^8.1.0",
-    "zod-prisma": "^0.5.4"
+    "prisma-docs-generator": "^0.5.0",
+    "zod-prisma": "^0.5.4",
+    "@oxygen/rollup-swc-config": "*"
   }
 }

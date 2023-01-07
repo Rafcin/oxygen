@@ -4,7 +4,7 @@ import { MessageUncheckedUpdateWithoutMention_rolesInputObjectSchema } from './M
 import { MessageCreateWithoutMention_rolesInputObjectSchema } from './MessageCreateWithoutMention_rolesInput.schema';
 import { MessageUncheckedCreateWithoutMention_rolesInputObjectSchema } from './MessageUncheckedCreateWithoutMention_rolesInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageUpsertWithoutMention_rolesInput> = z
   .object({

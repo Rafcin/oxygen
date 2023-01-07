@@ -7,7 +7,7 @@ import { ChannelOrderByRelationAggregateInputObjectSchema } from './ChannelOrder
 import { AccountOrderByRelationAggregateInputObjectSchema } from './AccountOrderByRelationAggregateInput.schema';
 import { SessionOrderByRelationAggregateInputObjectSchema } from './SessionOrderByRelationAggregateInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.UserOrderByWithRelationInput> = z
   .object({
@@ -25,7 +25,7 @@ const Schema: z.ZodType<Prisma.UserOrderByWithRelationInput> = z
     email: z.lazy(() => SortOrderSchema).optional(),
     emailVerified: z.lazy(() => SortOrderSchema).optional(),
     flags: z.lazy(() => SortOrderSchema).optional(),
-    premium_class: z.lazy(() => SortOrderSchema).optional(),
+    premium_type: z.lazy(() => SortOrderSchema).optional(),
     public_flags: z.lazy(() => SortOrderSchema).optional(),
     guilds: z
       .lazy(() => GuildOrderByRelationAggregateInputObjectSchema)

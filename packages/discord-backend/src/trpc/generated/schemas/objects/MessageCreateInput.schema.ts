@@ -7,7 +7,7 @@ import { MessageCreateuserIdsInputObjectSchema } from './MessageCreateuserIdsInp
 import { ChannelCreateNestedManyWithoutMessageInputObjectSchema } from './ChannelCreateNestedManyWithoutMessageInput.schema';
 import { MessageCreatechannelIdsInputObjectSchema } from './MessageCreatechannelIdsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageCreateInput> = z
   .object({
@@ -34,7 +34,7 @@ const Schema: z.ZodType<Prisma.MessageCreateInput> = z
     nonce: z.string().optional().nullable(),
     pinned: z.boolean().optional(),
     webhook_id: z.string().optional().nullable(),
-    message_class: z.number(),
+    message_type: z.number(),
     flags: z.number().optional().nullable(),
     application_id: z.string().optional().nullable(),
     position: z.number().optional().nullable(),

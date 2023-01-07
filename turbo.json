@@ -22,14 +22,13 @@
     "dev": {
       "cache": false
     },
-    "update-dependencies": {
-      "cache": false
+    "@oxygen/trpc-generator#build": {
+      "dependsOn": ["@oxygen/prisma-zod-schema-generator#build"],
+      "inputs": ["src/**", "package.json"]
     },
-    "prisma:generate": {
-      "cache": false
-    },
-    "prisma:push": {
-      "cache": false
+    "@oxygen/discord-backend#build": {
+      "dependsOn": ["@oxygen/trpc-generator#build"],
+      "inputs": ["src/**", "package.json"]
     }
   }
 }

@@ -1,11 +1,11 @@
 import { z } from 'zod';
 import { SortOrderSchema } from '../enums/SortOrder.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.ChannelAvgOrderByAggregateInput> = z
   .object({
-    channel_class: z.lazy(() => SortOrderSchema).optional(),
+    channel_type: z.lazy(() => SortOrderSchema).optional(),
     position: z.lazy(() => SortOrderSchema).optional(),
     bitrate: z.lazy(() => SortOrderSchema).optional(),
     user_limit: z.lazy(() => SortOrderSchema).optional(),

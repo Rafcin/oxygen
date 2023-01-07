@@ -9,7 +9,7 @@ import { IntFieldUpdateOperationsInputObjectSchema } from './IntFieldUpdateOpera
 import { GuildUpdateuserIdsInputObjectSchema } from './GuildUpdateuserIdsInput.schema';
 import { GuildUpdatechannelIdsInputObjectSchema } from './GuildUpdatechannelIdsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.GuildUncheckedUpdateManyWithoutGuildsInput> = z
   .object({

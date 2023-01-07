@@ -7,7 +7,7 @@ import { EmojiWhereUniqueInputObjectSchema } from './EmojiWhereUniqueInput.schem
 import { EmojiUpdateWithoutRolesInputObjectSchema } from './EmojiUpdateWithoutRolesInput.schema';
 import { EmojiUncheckedUpdateWithoutRolesInputObjectSchema } from './EmojiUncheckedUpdateWithoutRolesInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.EmojiUpdateOneWithoutRolesNestedInput> = z
   .object({

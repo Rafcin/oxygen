@@ -13,7 +13,7 @@ import { MessageUpdateuserIdsInputObjectSchema } from './MessageUpdateuserIdsInp
 import { ChannelUpdateManyWithoutMessageNestedInputObjectSchema } from './ChannelUpdateManyWithoutMessageNestedInput.schema';
 import { MessageUpdatechannelIdsInputObjectSchema } from './MessageUpdatechannelIdsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.MessageUpdateWithoutMention_rolesInput> = z
   .object({
@@ -89,7 +89,7 @@ const Schema: z.ZodType<Prisma.MessageUpdateWithoutMention_rolesInput> = z
       ])
       .optional()
       .nullable(),
-    message_class: z
+    message_type: z
       .union([
         z.number(),
         z.lazy(() => IntFieldUpdateOperationsInputObjectSchema),

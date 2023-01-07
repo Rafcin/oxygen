@@ -12,7 +12,7 @@ import { ChannelListRelationFilterObjectSchema } from './ChannelListRelationFilt
 import { AccountListRelationFilterObjectSchema } from './AccountListRelationFilter.schema';
 import { SessionListRelationFilterObjectSchema } from './SessionListRelationFilter.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.UserWhereInput> = z
   .object({
@@ -85,7 +85,7 @@ const Schema: z.ZodType<Prisma.UserWhereInput> = z
       .union([z.lazy(() => IntNullableFilterObjectSchema), z.number()])
       .optional()
       .nullable(),
-    premium_class: z
+    premium_type: z
       .union([z.lazy(() => IntNullableFilterObjectSchema), z.number()])
       .optional()
       .nullable(),

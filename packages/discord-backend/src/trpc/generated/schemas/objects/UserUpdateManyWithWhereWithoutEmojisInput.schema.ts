@@ -3,7 +3,7 @@ import { UserScalarWhereInputObjectSchema } from './UserScalarWhereInput.schema'
 import { UserUpdateManyMutationInputObjectSchema } from './UserUpdateManyMutationInput.schema';
 import { UserUncheckedUpdateManyWithoutUsersInputObjectSchema } from './UserUncheckedUpdateManyWithoutUsersInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.UserUpdateManyWithWhereWithoutEmojisInput> = z
   .object({

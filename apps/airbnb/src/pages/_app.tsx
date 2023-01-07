@@ -18,6 +18,8 @@ import 'swiper/css'
 import '../scripts/wdyr.ts'
 import '../styles/styles.css'
 import { footerConfig } from '@/config/footer'
+import { trpclink, trpc } from '@/api'
+
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -33,11 +35,11 @@ export default function NextApp(props: Base) {
     pageProps: { emotionCache = clientSideEmotionCache, ...pageProps },
   } = props as any
   const [queryClient] = React.useState(() => new QueryClient())
+  const [trpcClient] = React.useState(() => trpclink);
   return (
+    <trpc.Provider client={trpcClient} queryClient={queryClient}>
+    <QueryClientProvider client={queryClient}>
     <ThemeProvider emotionCache={emotionCache}>
-      <QueryClientProvider client={queryClient} contextSharing={true}>
-        {/* <Hydrate state={pageProps.dehydratedState}> */}
-
         <Content>
           <Appbar />
           <Shell>
@@ -48,9 +50,8 @@ export default function NextApp(props: Base) {
           <InlineFooter isFooterAllowedOnPage={true} footerConfig={footerConfig} />
           <Footer isFooterAllowedOnPage={true} footerConfig={footerConfig} />
         </Content>
-
-        {/* </Hydrate> */}
-      </QueryClientProvider>
     </ThemeProvider>
+    </QueryClientProvider>
+  </trpc.Provider>
   )
 }

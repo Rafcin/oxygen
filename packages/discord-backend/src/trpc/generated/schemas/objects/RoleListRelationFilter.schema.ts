@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { RoleWhereInputObjectSchema } from './RoleWhereInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.RoleListRelationFilter> = z
   .object({

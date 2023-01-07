@@ -4,13 +4,13 @@ import { GuildOrderByRelationAggregateInputObjectSchema } from './GuildOrderByRe
 import { MessageOrderByRelationAggregateInputObjectSchema } from './MessageOrderByRelationAggregateInput.schema';
 import { UserOrderByRelationAggregateInputObjectSchema } from './UserOrderByRelationAggregateInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.ChannelOrderByWithRelationInput> = z
   .object({
     id: z.lazy(() => SortOrderSchema).optional(),
     name: z.lazy(() => SortOrderSchema).optional(),
-    channel_class: z.lazy(() => SortOrderSchema).optional(),
+    channel_type: z.lazy(() => SortOrderSchema).optional(),
     thread: z.lazy(() => SortOrderSchema).optional(),
     position: z.lazy(() => SortOrderSchema).optional(),
     topic: z.lazy(() => SortOrderSchema).optional(),

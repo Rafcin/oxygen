@@ -3,7 +3,7 @@ import { NestedDateTimeWithAggregatesFilterObjectSchema } from './NestedDateTime
 import { NestedIntFilterObjectSchema } from './NestedIntFilter.schema';
 import { NestedDateTimeFilterObjectSchema } from './NestedDateTimeFilter.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.DateTimeWithAggregatesFilter> = z
   .object({

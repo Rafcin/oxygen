@@ -7,7 +7,7 @@ import { GuildUpdateOneRequiredWithoutRolesNestedInputObjectSchema } from './Gui
 import { EmojiUpdateOneWithoutRolesNestedInputObjectSchema } from './EmojiUpdateOneWithoutRolesNestedInput.schema';
 import { MessageUpdateOneWithoutMention_rolesNestedInputObjectSchema } from './MessageUpdateOneWithoutMention_rolesNestedInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.RoleUpdateInput> = z
   .object({

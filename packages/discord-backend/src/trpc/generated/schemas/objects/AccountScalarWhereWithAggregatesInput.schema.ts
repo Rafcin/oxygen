@@ -3,7 +3,7 @@ import { StringWithAggregatesFilterObjectSchema } from './StringWithAggregatesFi
 import { StringNullableWithAggregatesFilterObjectSchema } from './StringNullableWithAggregatesFilter.schema';
 import { IntNullableWithAggregatesFilterObjectSchema } from './IntNullableWithAggregatesFilter.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.AccountScalarWhereWithAggregatesInput> = z
   .object({
@@ -29,7 +29,7 @@ const Schema: z.ZodType<Prisma.AccountScalarWhereWithAggregatesInput> = z
     userId: z
       .union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()])
       .optional(),
-    account_class: z
+    account_type: z
       .union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()])
       .optional(),
     provider: z
@@ -59,7 +59,7 @@ const Schema: z.ZodType<Prisma.AccountScalarWhereWithAggregatesInput> = z
       ])
       .optional()
       .nullable(),
-    token_class: z
+    token_type: z
       .union([
         z.lazy(() => StringNullableWithAggregatesFilterObjectSchema),
         z.string(),

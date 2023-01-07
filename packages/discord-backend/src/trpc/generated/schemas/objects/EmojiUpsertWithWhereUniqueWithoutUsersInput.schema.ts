@@ -5,7 +5,7 @@ import { EmojiUncheckedUpdateWithoutUsersInputObjectSchema } from './EmojiUnchec
 import { EmojiCreateWithoutUsersInputObjectSchema } from './EmojiCreateWithoutUsersInput.schema';
 import { EmojiUncheckedCreateWithoutUsersInputObjectSchema } from './EmojiUncheckedCreateWithoutUsersInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.EmojiUpsertWithWhereUniqueWithoutUsersInput> = z
   .object({

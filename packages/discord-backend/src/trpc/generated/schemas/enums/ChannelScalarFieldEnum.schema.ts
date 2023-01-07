@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const ChannelScalarFieldEnumSchema = z.enum([
   'id',
   'name',
-  'channel_class',
+  'channel_type',
   'thread',
   'position',
   'topic',

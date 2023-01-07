@@ -13,7 +13,7 @@ export const MessageScalarFieldEnumSchema = z.enum([
   'nonce',
   'pinned',
   'webhook_id',
-  'message_class',
+  'message_type',
   'flags',
   'application_id',
   'position',

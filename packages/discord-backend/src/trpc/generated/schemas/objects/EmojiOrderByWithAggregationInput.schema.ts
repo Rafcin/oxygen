@@ -4,7 +4,7 @@ import { EmojiCountOrderByAggregateInputObjectSchema } from './EmojiCountOrderBy
 import { EmojiMaxOrderByAggregateInputObjectSchema } from './EmojiMaxOrderByAggregateInput.schema';
 import { EmojiMinOrderByAggregateInputObjectSchema } from './EmojiMinOrderByAggregateInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.EmojiOrderByWithAggregationInput> = z
   .object({

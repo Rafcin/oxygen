@@ -3,7 +3,7 @@ import { GuildWhereUniqueInputObjectSchema } from './GuildWhereUniqueInput.schem
 import { GuildCreateWithoutEmojisInputObjectSchema } from './GuildCreateWithoutEmojisInput.schema';
 import { GuildUncheckedCreateWithoutEmojisInputObjectSchema } from './GuildUncheckedCreateWithoutEmojisInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.GuildCreateOrConnectWithoutEmojisInput> = z
   .object({

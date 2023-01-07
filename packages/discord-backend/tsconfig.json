@@ -13,7 +13,6 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "lib": ["dom", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -29,7 +28,8 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "ES2015",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "target": "es2020",
     "importHelpers": true,
     "tsBuildInfoFile": ".tsbuildinfo"
   },

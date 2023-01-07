@@ -10,7 +10,7 @@ import { StringNullableListFilterObjectSchema } from './StringNullableListFilter
 import { MessageListRelationFilterObjectSchema } from './MessageListRelationFilter.schema';
 import { UserListRelationFilterObjectSchema } from './UserListRelationFilter.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.ChannelWhereInput> = z
   .object({
@@ -36,7 +36,7 @@ const Schema: z.ZodType<Prisma.ChannelWhereInput> = z
     name: z
       .union([z.lazy(() => StringFilterObjectSchema), z.string()])
       .optional(),
-    channel_class: z
+    channel_type: z
       .union([z.lazy(() => IntFilterObjectSchema), z.number()])
       .optional(),
     thread: z

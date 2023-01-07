@@ -5,13 +5,13 @@ import { MessageCreateNestedManyWithoutChannelsInputObjectSchema } from './Messa
 import { ChannelCreatemessageIdsInputObjectSchema } from './ChannelCreatemessageIdsInput.schema';
 import { ChannelCreateuserIdsInputObjectSchema } from './ChannelCreateuserIdsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.ChannelCreateWithoutUsersInput> = z
   .object({
     id: z.string(),
     name: z.string(),
-    channel_class: z.number(),
+    channel_type: z.number(),
     thread: z.boolean().optional(),
     position: z.number().optional().nullable(),
     topic: z.string().optional().nullable(),

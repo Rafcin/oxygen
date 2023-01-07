@@ -11,7 +11,7 @@ import { UserListRelationFilterObjectSchema } from './UserListRelationFilter.sch
 import { StringNullableListFilterObjectSchema } from './StringNullableListFilter.schema';
 import { ChannelListRelationFilterObjectSchema } from './ChannelListRelationFilter.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.GuildWhereInput> = z
   .object({

@@ -5,7 +5,7 @@ import { EmojiCreateOrConnectWithoutGuildInputObjectSchema } from './EmojiCreate
 import { EmojiCreateManyGuildInputEnvelopeObjectSchema } from './EmojiCreateManyGuildInputEnvelope.schema';
 import { EmojiWhereUniqueInputObjectSchema } from './EmojiWhereUniqueInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.EmojiUncheckedCreateNestedManyWithoutGuildInput> =
   z

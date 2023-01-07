@@ -7,7 +7,7 @@ import { StringNullableWithAggregatesFilterObjectSchema } from './StringNullable
 import { BoolNullableWithAggregatesFilterObjectSchema } from './BoolNullableWithAggregatesFilter.schema';
 import { StringNullableListFilterObjectSchema } from './StringNullableListFilter.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.ChannelScalarWhereWithAggregatesInput> = z
   .object({
@@ -33,7 +33,7 @@ const Schema: z.ZodType<Prisma.ChannelScalarWhereWithAggregatesInput> = z
     name: z
       .union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()])
       .optional(),
-    channel_class: z
+    channel_type: z
       .union([z.lazy(() => IntWithAggregatesFilterObjectSchema), z.number()])
       .optional(),
     thread: z

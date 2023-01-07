@@ -4,7 +4,7 @@ import { UserCreateemojiIdsInputObjectSchema } from './UserCreateemojiIdsInput.s
 import { UserCreatemessageIdsInputObjectSchema } from './UserCreatemessageIdsInput.schema';
 import { UserCreatechannelIdsInputObjectSchema } from './UserCreatechannelIdsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.UserCreateManyInput> = z
   .object({
@@ -22,7 +22,7 @@ const Schema: z.ZodType<Prisma.UserCreateManyInput> = z
     email: z.string().optional().nullable(),
     emailVerified: z.date().optional().nullable(),
     flags: z.number().optional().nullable(),
-    premium_class: z.number().optional().nullable(),
+    premium_type: z.number().optional().nullable(),
     public_flags: z.number().optional().nullable(),
     guildIds: z
       .union([

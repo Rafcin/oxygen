@@ -3,7 +3,7 @@ import { RoleWhereUniqueInputObjectSchema } from './RoleWhereUniqueInput.schema'
 import { RoleUpdateWithoutEmojiInputObjectSchema } from './RoleUpdateWithoutEmojiInput.schema';
 import { RoleUncheckedUpdateWithoutEmojiInputObjectSchema } from './RoleUncheckedUpdateWithoutEmojiInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.RoleUpdateWithWhereUniqueWithoutEmojiInput> = z
   .object({

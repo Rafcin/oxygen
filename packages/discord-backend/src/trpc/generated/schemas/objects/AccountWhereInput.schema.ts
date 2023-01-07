@@ -5,7 +5,7 @@ import { IntNullableFilterObjectSchema } from './IntNullableFilter.schema';
 import { UserRelationFilterObjectSchema } from './UserRelationFilter.schema';
 import { UserWhereInputObjectSchema } from './UserWhereInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.AccountWhereInput> = z
   .object({
@@ -31,7 +31,7 @@ const Schema: z.ZodType<Prisma.AccountWhereInput> = z
     userId: z
       .union([z.lazy(() => StringFilterObjectSchema), z.string()])
       .optional(),
-    account_class: z
+    account_type: z
       .union([z.lazy(() => StringFilterObjectSchema), z.string()])
       .optional(),
     provider: z
@@ -52,7 +52,7 @@ const Schema: z.ZodType<Prisma.AccountWhereInput> = z
       .union([z.lazy(() => IntNullableFilterObjectSchema), z.number()])
       .optional()
       .nullable(),
-    token_class: z
+    token_type: z
       .union([z.lazy(() => StringNullableFilterObjectSchema), z.string()])
       .optional()
       .nullable(),

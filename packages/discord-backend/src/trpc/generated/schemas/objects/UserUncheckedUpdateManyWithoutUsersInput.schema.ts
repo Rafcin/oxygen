@@ -9,7 +9,7 @@ import { UserUpdateemojiIdsInputObjectSchema } from './UserUpdateemojiIdsInput.s
 import { UserUpdatemessageIdsInputObjectSchema } from './UserUpdatemessageIdsInput.schema';
 import { UserUpdatechannelIdsInputObjectSchema } from './UserUpdatechannelIdsInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.UserUncheckedUpdateManyWithoutUsersInput> = z
   .object({
@@ -102,7 +102,7 @@ const Schema: z.ZodType<Prisma.UserUncheckedUpdateManyWithoutUsersInput> = z
       ])
       .optional()
       .nullable(),
-    premium_class: z
+    premium_type: z
       .union([
         z.number(),
         z.lazy(() => NullableIntFieldUpdateOperationsInputObjectSchema),

@@ -12,7 +12,6 @@
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "lib": ["dom", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -28,7 +27,8 @@
     "strictFunctionTypes": false,
     "strictNullChecks": false,
     "strictPropertyInitialization": false,
-    "target": "ES2015",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "target": "es2020",
     "importHelpers": true,
     "tsBuildInfoFile": ".tsbuildinfo"
   },

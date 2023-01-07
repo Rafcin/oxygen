@@ -4,11 +4,11 @@ import { NullableStringFieldUpdateOperationsInputObjectSchema } from './Nullable
 import { NullableIntFieldUpdateOperationsInputObjectSchema } from './NullableIntFieldUpdateOperationsInput.schema';
 import { UserUpdateOneRequiredWithoutAccountsNestedInputObjectSchema } from './UserUpdateOneRequiredWithoutAccountsNestedInput.schema';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma } from '../../../../../node_modules/.prisma/client';
 
 const Schema: z.ZodType<Prisma.AccountUpdateInput> = z
   .object({
-    account_class: z
+    account_type: z
       .union([
         z.string(),
         z.lazy(() => StringFieldUpdateOperationsInputObjectSchema),
@@ -47,7 +47,7 @@ const Schema: z.ZodType<Prisma.AccountUpdateInput> = z
       ])
       .optional()
       .nullable(),
-    token_class: z
+    token_type: z
       .union([
         z.string(),
         z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema),

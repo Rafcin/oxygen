@@ -6,8 +6,6 @@ const tsupConfig = defineConfig({
   dts: true,
   entryPoints: [
     'src/index.tsx',
-    'src/icons.tsx',
-    'src/internal.tsx',
     'src/styles.ts',
   ],
   // `aws-amplify` is external, but sub-dependencies weren't automatically externalized ("require" statements were included)
