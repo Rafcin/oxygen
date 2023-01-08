@@ -1,11 +1,16 @@
-import { RollupOptions } from "rollup";
-import { buildConfig } from "@oxygen/rollup-swc-config";
+import { RollupOptions } from 'rollup'
+import { rollupBase } from '@oxygen/rollup-swc-config'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
 
-export const input = ["./src/index.ts"];
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+export const input = ['./src/index.ts']
 
 export default function rollup(): RollupOptions[] {
-  return buildConfig({
+  return rollupBase({
     input,
-    packageDir: ".",
-  });
+    packageDir: __dirname,
+  })
 }

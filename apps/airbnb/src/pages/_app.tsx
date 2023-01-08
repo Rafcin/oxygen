@@ -8,7 +8,6 @@ import React from 'react'
 import {
   Body,
   Content,
-  createEmotionCache,
   Shell,
   ThemeProvider,
   InlineFooter,
@@ -19,7 +18,7 @@ import '../scripts/wdyr.ts'
 import '../styles/styles.css'
 import { footerConfig } from '@/config/footer'
 import { trpclink, trpc } from '@/api'
-
+import { createEmotionCache } from '@/styles'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -35,23 +34,23 @@ export default function NextApp(props: Base) {
     pageProps: { emotionCache = clientSideEmotionCache, ...pageProps },
   } = props as any
   const [queryClient] = React.useState(() => new QueryClient())
-  const [trpcClient] = React.useState(() => trpclink);
+  const [trpcClient] = React.useState(() => trpclink)
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
-    <QueryClientProvider client={queryClient}>
-    <ThemeProvider emotionCache={emotionCache}>
-        <Content>
-          <Appbar />
-          <Shell>
-            <Body>
-              <Component {...pageProps} data-application="true" />
-            </Body>
-          </Shell>
-          <InlineFooter isFooterAllowedOnPage={true} footerConfig={footerConfig} />
-          <Footer isFooterAllowedOnPage={true} footerConfig={footerConfig} />
-        </Content>
-    </ThemeProvider>
-    </QueryClientProvider>
-  </trpc.Provider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider emotionCache={emotionCache}>
+          <Content>
+            <Appbar />
+            <Shell>
+              <Body>
+                <Component {...pageProps} data-application="true" />
+              </Body>
+            </Shell>
+            <InlineFooter isFooterAllowedOnPage={true} footerConfig={footerConfig} />
+            <Footer isFooterAllowedOnPage={true} footerConfig={footerConfig} />
+          </Content>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </trpc.Provider>
   )
 }

@@ -82,11 +82,7 @@ function lib({ input, packageDir }: Options): RollupOptions {
         extensions,
       }),
       swc({
-        tsconfig: false,
-        jsc: {
-          target: "es2020",
-          externalHelpers: true,
-        },
+        tsconfig: path.resolve(packageDir, "tsconfig.build.json"),
       }),
       analyze(),
     ],

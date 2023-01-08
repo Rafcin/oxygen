@@ -1,5 +1,4 @@
 import { defineConfig } from "tsup";
-import pkg from "./package.json";
 
 const tsupConfig = defineConfig({
   dts: true,

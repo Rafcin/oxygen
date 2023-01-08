@@ -1,1 +1,2 @@
-export * from "./config/config";
+export * from "./config/base";
+export * from "./config/react";

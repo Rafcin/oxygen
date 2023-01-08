@@ -1,11 +1,16 @@
 import { RollupOptions } from "rollup";
-import { buildConfig } from "@oxygen/rollup-swc-config";
+import { rollupReact } from "@oxygen/rollup-swc-config";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-export const input = ["./src/index.tsx"];
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export const input = ["./src/index.ts", "./src/styles.ts"];
 
 export default function rollup(): RollupOptions[] {
-  return buildConfig({
+  return rollupReact({
     input,
-    packageDir: ".",
+    packageDir: __dirname,
   });
 }

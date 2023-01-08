@@ -16,7 +16,7 @@ type Options = {
   packageDir: string;
 };
 
-export function buildConfig({ input, packageDir }: Options): RollupOptions[] {
+export function rollupBase({ input, packageDir }: Options): RollupOptions[] {
   const resolvedInput = input.map((file) => path.resolve(packageDir, file));
   const options: Options = {
     input: resolvedInput,
@@ -85,11 +85,6 @@ function lib({ input, packageDir }: Options): RollupOptions {
         tsconfig: false,
         jsc: {
           target: "es2020",
-          transform: {
-            react: {
-              useBuiltins: true,
-            },
-          },
           externalHelpers: true,
         },
       }),

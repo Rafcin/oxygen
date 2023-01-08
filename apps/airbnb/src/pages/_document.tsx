@@ -2,7 +2,7 @@ import { getInitColorSchemeScript } from '@mui/material/styles'
 import { Global } from '@oxygen/design-system'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import createEmotionServer from '@emotion/server/create-instance'
-import { createEmotionCache } from '@oxygen/design-system'
+import { createEmotionCache } from '@/styles'
 // import Script from 'next/script'
 
 // import { GA_TRACKING_ID } from '../third-party/gtag'
