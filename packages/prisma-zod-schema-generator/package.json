@@ -2,7 +2,7 @@
   "private": false,
   "license": "Apache-2.0",
   "version": "0.0.0",
-  "name": "@oxygen/prisma-zod-schema-generator",
+  "name": "@oxygen/trpc-prisma-zod-schema-generator",
   "description": "Prisma zod generator forked and modified from omar-dulaimi/prisma-zod-generator",
   "author": {
     "name": "Raf Szuminski",
@@ -24,20 +24,21 @@
     "node": "^14.13.1 || >=16.0.0",
     "pnpm": ">=7"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "typings": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "default": "./dist/index.js"
-    },
-    "./styles.css": "./dist/styles.css",
-    "./primitives.json": "./dist/primitives.json"
+      "module": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
   },
   "files": [
     "dist",
+    "src",
     "README.md"
   ],
   "bin": {
@@ -47,12 +48,10 @@
     "[--- Run ---]": "",
     "prisma-zod-schema-generator": "node ./dist/index",
     "[--- Build ---]": "",
-    "prebuild": "rimraf dist",
-    "build": "pnpm run build:ts",
-    "build:ts": "rollup --config rollup.config.ts --configPlugin rollup-plugin-swc3",
+    "build": "bunchee ./src/index.ts",
     "[--- Dev ---]": "",
-    "dev": "tsup --watch",
-    "dev:build": "tsup",
+    "dev": "pnpm build --watch",
+    "ts-watch": "tsc --project tsconfig.watch.json",
     "[--- Start ---]": "",
     "start": "node ./dist/index.js",
     "[--- Lint ---]": "",
@@ -74,20 +73,19 @@
     "prisma:push": "prisma db push --skip-generate"
   },
   "dependencies": {
-    "@prisma/client": "^4.8.0",
-    "@prisma/generator-helper": "^4.8.0",
-    "@prisma/internals": "^4.8.0",
-    "prettier": "^2.8.1",
+    "@prisma/client": "^4.8.1",
+    "@prisma/generator-helper": "^4.8.1",
+    "@prisma/internals": "^4.8.1",
+    "prettier": "^2.8.2",
     "tslib": "^2.4.1",
     "zod": "^3.20.2"
   },
   "devDependencies": {
-    "@trpc/server": "^10.7.0",
+    "@trpc/server": "^10.8.2",
     "@types/node": "^18.11.18",
     "@types/pluralize": "^0.0.29",
-    "prisma": "^4.8.0",
+    "prisma": "^4.8.1",
     "trpc-shield": "^0.3.0",
-    "zod": "^3.20.2",
-    "@oxygen/rollup-swc-config": "*"
+    "zod": "^3.20.2"
   }
 }

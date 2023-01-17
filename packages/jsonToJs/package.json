@@ -22,47 +22,45 @@
     "node": "^14.13.1 || >=16.0.0",
     "pnpm": ">=7"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "typings": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "default": "./dist/index.js"
-    },
-    "./styles.css": "./dist/styles.css",
-    "./primitives.json": "./dist/primitives.json"
+      "module": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
   },
   "files": [
     "dist",
+    "src",
     "README.md"
   ],
   "scripts": {
     "[--- Run ---]": "",
     "json-to-js": "node ./dist/index",
     "[--- Build ---]": "",
-    "prebuild": "rimraf dist",
-    "build": "pnpm run build:ts",
-    "build:ts": "rollup --config rollup.config.ts --configPlugin rollup-plugin-swc3",
+    "build": "bunchee ./src/index.ts",
     "[--- Dev ---]": "",
-    "dev": "tsup --watch",
-    "dev:build": "tsup",
+    "dev": "pnpm build --watch",
+    "ts-watch": "tsc --project tsconfig.watch.json",
     "[--- Lint ---]": "",
     "lint": "tsc --noEmit --project tsconfig.dev.json && pnpm eslint ./src --ext .js,.ts,.tsx",
     "[--- Clean ---]": "",
     "clean": "rimraf dist node_modules",
     "[--- Utils ---]": "",
     "ts": "node -r esbuild-register",
-    "size": "pnpm run size-limit"
+    "size": "pnpm run size-limit",
+    "[--- Test ---]": "",
+    "test": "pnpm json-to-js -i ./example/input.json -o ./example/output.ts --ts"
   },
   "bin": {
     "json-to-js": "./dist/index.js"
   },
   "dependencies": {
-    "commander": "^9.4.1"
-  },
-  "devDependencies": {
-    "@oxygen/rollup-swc-config": "*"
+    "commander": "^9.5.0"
   }
 }

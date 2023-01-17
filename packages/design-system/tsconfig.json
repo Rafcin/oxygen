@@ -30,8 +30,7 @@
     "strictPropertyInitialization": false,
     "lib": ["esnext", "dom", "dom.iterable"],
     "target": "es2020",
-    "importHelpers": true,
-    "tsBuildInfoFile": ".tsbuildinfo"
+    "importHelpers": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [

@@ -24,20 +24,21 @@
     "node": "^14.13.1 || >=16.0.0",
     "pnpm": ">=7"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "typings": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "default": "./dist/index.js"
-    },
-    "./styles.css": "./dist/styles.css",
-    "./primitives.json": "./dist/primitives.json"
+      "module": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
   },
   "files": [
     "dist",
+    "src",
     "README.md"
   ],
   "bin": {
@@ -45,18 +46,16 @@
   },
   "scripts": {
     "[--- Run ---]": "",
-    "trpc-generator": "/dist/index.js",
+    "trpc-generator": "node ./dist/index.js",
     "[--- Build ---]": "",
-    "prebuild": "rimraf dist",
-    "build": "pnpm run build:ts",
-    "build:ts": "rollup --config rollup.config.ts --configPlugin rollup-plugin-swc3",
+    "build": "bunchee ./src/index.ts",
     "[--- Dev ---]": "",
-    "dev": "tsup --watch",
-    "dev:build": "tsup",
+    "dev": "pnpm build --watch",
+    "ts-watch": "tsc --project tsconfig.watch.json",
     "[--- Start ---]": "",
     "start": "node ./dist/index.js",
     "[--- Lint ---]": "",
-    "lint": "tsc --noEmit --project tsconfig.dev.json && pnpm eslint ./src --ext .js,.ts,.tsx",
+    "lint": "eslint --ext \".js,.ts,.tsx\" --ignore-path ../../.gitignore --report-unused-disable-directives src",
     "[--- Clean ---]": "",
     "clean": "rimraf dist node_modules",
     "[--- Test ---]": "",
@@ -66,31 +65,25 @@
     "test:unit:watch": "jest --watch",
     "[--- Utils ---]": "",
     "ts": "node -r esbuild-register",
-    "size": "pnpm run size-limit",
-    "[--- Prisma ---]": "",
-    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
-    "prisma:migrate": "prisma migrate",
-    "prisma:studio": "prisma studio",
-    "prisma:push": "prisma db push --skip-generate"
+    "size": "pnpm run size-limit"
   },
   "dependencies": {
-    "@prisma/client": "^4.8.0",
-    "@prisma/generator-helper": "^4.8.0",
-    "@prisma/internals": "^4.8.0",
+    "@prisma/client": "^4.8.1",
+    "@prisma/generator-helper": "^4.8.1",
+    "@prisma/internals": "^4.8.1",
     "pluralize": "^8.0.0",
     "prisma-trpc-shield-generator": "0.1.0",
-    "@oxygen/prisma-zod-schema-generator": "^*",
+    "@oxygen/trpc-prisma-zod-schema-generator": "^*",
     "ts-morph": "^17.0.1",
     "tslib": "^2.4.1",
     "zod-prisma": "^0.5.4"
   },
   "devDependencies": {
-    "@trpc/server": "^10.7.0",
+    "@trpc/server": "^10.8.2",
     "@types/node": "^18.11.18",
     "@types/pluralize": "^0.0.29",
-    "prisma": "^4.8.0",
+    "prisma": "^4.8.1",
     "trpc-shield": "^0.3.0",
-    "zod": "^3.20.2",
-    "@oxygen/rollup-swc-config": "*"
+    "zod": "^3.20.2"
   }
 }

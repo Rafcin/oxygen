@@ -23,11 +23,7 @@
       "cache": false
     },
     "@oxygen/trpc-generator#build": {
-      "dependsOn": ["@oxygen/prisma-zod-schema-generator#build"],
-      "inputs": ["src/**", "package.json"]
-    },
-    "@oxygen/discord-backend#build": {
-      "dependsOn": ["@oxygen/trpc-generator#build"],
+      "dependsOn": ["@oxygen/trpc-prisma-zod-schema-generator#build"],
       "inputs": ["src/**", "package.json"]
     }
   }

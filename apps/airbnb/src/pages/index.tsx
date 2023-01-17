@@ -3,7 +3,6 @@
 import { Box, Container } from '@mui/material'
 import { Grid, OxygenTheme } from '@oxygen/design-system'
 //import { default as Grid } from '@mui/material/Unstable_Grid2'
-import { trpc } from '@/api'
 import { HomeCard } from '@/content/ui/cards/home'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -20,22 +19,11 @@ const Home = () => {
     'https://picsum.photos/id/28/4928/3264',
     'https://picsum.photos/id/29/4000/2670',
   ]
-  const createSanity = trpc.sanity.upsertOneSanity.useMutation()
-  const handleCreateSanity = async () => {
-    createSanity.mutate({
-      isSane: true,
-    })
-  }
+
   return (
     <Box sx={{ marginTop: '30px', marginBottom: '80px' }}>
       <Container>
-        <button onClick={handleCreateSanity} disabled={createSanity.isLoading}>
-          Sanity Check
-        </button>
-        {createSanity.error && (
-          <p>Something went wrong! {createSanity.error.message}</p>
-        )}
-        <Box
+        {/* <Box
           component={Grid}
           rowGap="40px"
           columnGap="24px"
@@ -71,7 +59,7 @@ const Home = () => {
               href="/"
             />
           ))}
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   )

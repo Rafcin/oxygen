@@ -1,5 +1,5 @@
 import { componentsOverrides } from '../mui/components'
-import { default as theme } from './theme'
+import { theme } from './theme'
 
 const components = {
   prefix: 'mui',

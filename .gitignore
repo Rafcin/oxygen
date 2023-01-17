@@ -79,3 +79,5 @@ pnpm-lock.yaml
 .rollup.cache
 #TS
 .tsbuildinfo
+#Prisma-Zod
+**/prisma-zod-schema-generator/prisma/generated/**

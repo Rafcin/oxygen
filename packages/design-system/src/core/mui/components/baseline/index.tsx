@@ -1,4 +1,4 @@
-import { default as theme } from '../../../theme/theme'
+import { theme } from '../../../theme/theme'
 
 export default function Baseline() {
   return {

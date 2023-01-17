@@ -47,13 +47,11 @@
   ],
   "scripts": {
     "[--- Build ---]": "",
-    "prebuild": "rimraf dist",
-    "build": "pnpm run build:ts",
-    "theme:build": "pnpm js:theme && pnpm dts:theme && pnpm run build:ts",
-    "build:ts": "rollup --config rollup.config.ts --configPlugin rollup-plugin-swc3",
+    "build": "bunchee ./src/index.ts --sourcemap --dts ",
+    "build:all": "pnpm js:theme && pnpm dts:theme && pnpm build",
     "[--- Dev ---]": "",
-    "dev": "tsup --watch",
-    "dev:build": "tsup",
+    "dev": "pnpm build --watch",
+    "ts-watch": "tsc --project tsconfig.watch.json",
     "[--- Lint ---]": "",
     "lint": "tsc --noEmit --project tsconfig.dev.json && pnpm eslint ./src --ext .js,.ts,.tsx",
     "[--- Clean ---]": "",
@@ -70,7 +68,8 @@
     "[--- Utils ---]": "",
     "ts": "node -r esbuild-register",
     "size": "pnpm run size-limit",
-    "js:theme": "pnpm json-to-js -i ./src/core/theme/theme.json -o ./src/core/theme/theme.ts --ts",
+    "generate:theme": "pnpm js:theme && pnpm dts:theme",
+    "js:theme": "pnpm json-to-js -i ./src/core/theme/theme.json -o ./src/core/theme/theme.ts --ts -n theme",
     "dts:theme": "quicktype --top-level Theme -l typescript ./src/core/theme/theme.json -o ./src/declarations/theme/index.ts && ./scripts/prefix.sh ./src/declarations/theme/index.ts Oxygen"
   },
   "dependencies": {
@@ -81,10 +80,10 @@
     "@emotion/styled": "^11.10.5",
     "@googlemaps/react-wrapper": "^1.1.35",
     "@hookform/resolvers": "^2.9.10",
-    "@mui/material": "^5.11.3",
+    "@mui/material": "^5.11.4",
     "@oxygen/json-to-js": "*",
-    "@tanstack/react-query": "^4.20.9",
-    "@tanstack/react-query-devtools": "^4.20.9",
+    "@tanstack/react-query": "^4.22.0",
+    "@tanstack/react-query-devtools": "^4.22.0",
     "axios": "^1.2.2",
     "clsx": "^1.2.1",
     "date-fns": "2.29.3",
@@ -104,7 +103,7 @@
     "use-places-autocomplete": "^4.0.0",
     "uuid": "^9.0.0",
     "yup": "^0.32.11",
-    "zustand": "^4.2.0"
+    "zustand": "^4.3.1"
   },
   "peerDependenciesMeta": {
     "react": {
@@ -170,7 +169,7 @@
     "@mui/base": "^5.0.0-alpha.108",
     "@mui/icons-material": "^5.10.16",
     "@mui/lab": "^5.0.0-alpha.110",
-    "@mui/material": "^5.11.3",
+    "@mui/material": "^5.11.4",
     "@mui/styled-engine": "^5.10.16",
     "@mui/system": "^5.10.16",
     "@mui/utils": "^5.10.16",
@@ -181,14 +180,13 @@
     "react-dropzone": "^14.2.3",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.7.1",
-    "zustand": "^4.2.0"
+    "zustand": "^4.3.1"
   },
   "devDependencies": {
     "@mui/types": "^7.2.3",
     "@oxygen/json-to-js": "*",
     "@types/google.maps": "^3.51.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@oxygen/rollup-swc-config": "*"
+    "react-dom": "^18.2.0"
   }
 }

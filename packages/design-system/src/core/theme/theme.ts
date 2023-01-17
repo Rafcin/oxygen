@@ -1,4 +1,4 @@
-export default {
+export const theme = {
   "baseline": {
     "#root": {
       "overflow": "auto"
