@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "clean": "rimraf dist node_modules .next",
     "lint": "eslint --max-warnings 0 .",
