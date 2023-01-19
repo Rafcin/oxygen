@@ -16,9 +16,10 @@
     "explorer"
   ],
   "scripts": {
-    "build": "next build",
     "dev": "next dev",
-    "clean": "rimraf dist node_modules",
+    "build": "next build",
+    "start": "next start",
+    "clean": "rimraf dist node_modules .next",
     "lint": "eslint --max-warnings 0 .",
     "lint-fix": "eslint --fix .",
     "tsc": "tsc -p tsconfig.json",

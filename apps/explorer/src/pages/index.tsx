@@ -1,45 +1,39 @@
+import { api } from '@/trpc/api'
+import { Wrapper } from '@googlemaps/react-wrapper'
+import { zodResolver } from '@hookform/resolvers/zod'
 import {
   Box,
   Button,
+  Chip,
   Container,
+  FormHelperText,
   List,
   ListItem,
   ListItemAvatar,
   ListItemText,
-  TextField,
-  SwipeableDrawer,
   Paper,
-  Chip,
-  FormHelperText,
+  SwipeableDrawer,
+  TextField,
 } from '@mui/material'
+import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete'
+import { DataGrid, GridToolbar } from '@mui/x-data-grid'
 import {
+  Error,
   GoogleMapProvider,
   Loading,
-  AddressSchema,
   Map,
-  Error,
   ModalClose,
   OverlayView,
 } from '@oxygen/design-system'
-import { default as Grid } from '@mui/material/Unstable_Grid2'
-import { api } from '@/trpc/api'
-import { Wrapper } from '@googlemaps/react-wrapper'
-import { yupResolver } from '@hookform/resolvers/yup'
+import Link from 'next/link'
+import { useState } from 'react'
 import { Controller, FormProvider, useForm } from 'react-hook-form'
-import * as Yup from 'yup'
-import { GenericCard } from '@/content/ui/cards/generic'
-import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete'
+import { IoSettingsOutline } from 'react-icons/io5'
 import usePlacesAutocomplete, {
   getDetails,
   getGeocode,
 } from 'use-places-autocomplete'
-import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import { useState } from 'react'
-import Link from 'next/link'
-import { useDemoData } from '@mui/x-data-grid-generator'
-import { DataGrid, GridToolbar } from '@mui/x-data-grid'
-import { IoSettingsOutline } from 'react-icons/io5'
 const Home = () => {
   //Form
   const fieldsSchema = z.object({
