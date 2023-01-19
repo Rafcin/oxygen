@@ -18,10 +18,6 @@
     "js",
     "object"
   ],
-  "engines": {
-    "node": "^14.13.1 || >=16.0.0",
-    "pnpm": ">=7"
-  },
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",

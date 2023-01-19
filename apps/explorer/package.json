@@ -13,12 +13,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
-    "airbnb"
+    "explorer"
   ],
-  "engines": {
-    "node": "^14.13.1 || >=16.0.0",
-    "pnpm": ">=7"
-  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
