@@ -568,12 +568,38 @@
     "tooltip": 1500
   },
   "opacity": {
-    "inputPlaceholder": 0.42,
-    "inputTouchBottomLine": 0.42,
-    "switchTrackDisabled": 0.12,
-    "switchTrack": 0.38
+    "inputPlaceholder": 0.5,
+    "inputTouchBottomLine": 0.7,
+    "switchTrackDisabled": 0.2,
+    "switchTrack": 0.3
   },
-  "overlays": [],
+  "overlays": [
+    null,
+    "linear-gradient(rgba(255 255 255 / 0.05), rgba(255 255 255 / 0.05))",
+    "linear-gradient(rgba(255 255 255 / 0.07), rgba(255 255 255 / 0.07))",
+    "linear-gradient(rgba(255 255 255 / 0.08), rgba(255 255 255 / 0.08))",
+    "linear-gradient(rgba(255 255 255 / 0.09), rgba(255 255 255 / 0.09))",
+    "linear-gradient(rgba(255 255 255 / 0.10), rgba(255 255 255 / 0.10))",
+    "linear-gradient(rgba(255 255 255 / 0.11), rgba(255 255 255 / 0.11))",
+    "linear-gradient(rgba(255 255 255 / 0.11), rgba(255 255 255 / 0.11))",
+    "linear-gradient(rgba(255 255 255 / 0.12), rgba(255 255 255 / 0.12))",
+    "linear-gradient(rgba(255 255 255 / 0.12), rgba(255 255 255 / 0.12))",
+    "linear-gradient(rgba(255 255 255 / 0.13), rgba(255 255 255 / 0.13))",
+    "linear-gradient(rgba(255 255 255 / 0.13), rgba(255 255 255 / 0.13))",
+    "linear-gradient(rgba(255 255 255 / 0.14), rgba(255 255 255 / 0.14))",
+    "linear-gradient(rgba(255 255 255 / 0.14), rgba(255 255 255 / 0.14))",
+    "linear-gradient(rgba(255 255 255 / 0.14), rgba(255 255 255 / 0.14))",
+    "linear-gradient(rgba(255 255 255 / 0.14), rgba(255 255 255 / 0.14))",
+    "linear-gradient(rgba(255 255 255 / 0.15), rgba(255 255 255 / 0.15))",
+    "linear-gradient(rgba(255 255 255 / 0.15), rgba(255 255 255 / 0.15))",
+    "linear-gradient(rgba(255 255 255 / 0.15), rgba(255 255 255 / 0.15))",
+    "linear-gradient(rgba(255 255 255 / 0.15), rgba(255 255 255 / 0.15))",
+    "linear-gradient(rgba(255 255 255 / 0.16), rgba(255 255 255 / 0.16))",
+    "linear-gradient(rgba(255 255 255 / 0.16), rgba(255 255 255 / 0.16))",
+    "linear-gradient(rgba(255 255 255 / 0.16), rgba(255 255 255 / 0.16))",
+    "linear-gradient(rgba(255 255 255 / 0.16), rgba(255 255 255 / 0.16))",
+    "linear-gradient(rgba(255 255 255 / 0.16), rgba(255 255 255 / 0.16))"
+  ],
   "palette": {
     "mode": "light",
     "primary": {
@@ -1171,7 +1197,40 @@
         },
         "dividerChannel": "0 0 0",
         "colorScheme": "light"
-      }
+      },
+      "opacity": {
+        "inputPlaceholder": 0.5,
+        "inputTouchBottomLine": 0.7,
+        "switchTrackDisabled": 0.2,
+        "switchTrack": 0.3
+      },
+      "overlays": [
+        null,
+        "linear-gradient(rgba(255 255 255 / 0.05), rgba(255 255 255 / 0.05))",
+        "linear-gradient(rgba(255 255 255 / 0.07), rgba(255 255 255 / 0.07))",
+        "linear-gradient(rgba(255 255 255 / 0.08), rgba(255 255 255 / 0.08))",
+        "linear-gradient(rgba(255 255 255 / 0.09), rgba(255 255 255 / 0.09))",
+        "linear-gradient(rgba(255 255 255 / 0.10), rgba(255 255 255 / 0.10))",
+        "linear-gradient(rgba(255 255 255 / 0.11), rgba(255 255 255 / 0.11))",
+        "linear-gradient(rgba(255 255 255 / 0.11), rgba(255 255 255 / 0.11))",
+        "linear-gradient(rgba(255 255 255 / 0.12), rgba(255 255 255 / 0.12))",
+        "linear-gradient(rgba(255 255 255 / 0.12), rgba(255 255 255 / 0.12))",
+        "linear-gradient(rgba(255 255 255 / 0.13), rgba(255 255 255 / 0.13))",
+        "linear-gradient(rgba(255 255 255 / 0.13), rgba(255 255 255 / 0.13))",
+        "linear-gradient(rgba(255 255 255 / 0.14), rgba(255 255 255 / 0.14))",
+        "linear-gradient(rgba(255 255 255 / 0.14), rgba(255 255 255 / 0.14))",
+        "linear-gradient(rgba(255 255 255 / 0.14), rgba(255 255 255 / 0.14))",
+        "linear-gradient(rgba(255 255 255 / 0.14), rgba(255 255 255 / 0.14))",
+        "linear-gradient(rgba(255 255 255 / 0.15), rgba(255 255 255 / 0.15))",
+        "linear-gradient(rgba(255 255 255 / 0.15), rgba(255 255 255 / 0.15))",
+        "linear-gradient(rgba(255 255 255 / 0.15), rgba(255 255 255 / 0.15))",
+        "linear-gradient(rgba(255 255 255 / 0.15), rgba(255 255 255 / 0.15))",
+        "linear-gradient(rgba(255 255 255 / 0.16), rgba(255 255 255 / 0.16))",
+        "linear-gradient(rgba(255 255 255 / 0.16), rgba(255 255 255 / 0.16))",
+        "linear-gradient(rgba(255 255 255 / 0.16), rgba(255 255 255 / 0.16))",
+        "linear-gradient(rgba(255 255 255 / 0.16), rgba(255 255 255 / 0.16))",
+        "linear-gradient(rgba(255 255 255 / 0.16), rgba(255 255 255 / 0.16))"
+      ]
     },
     "dark": {
       "palette": {

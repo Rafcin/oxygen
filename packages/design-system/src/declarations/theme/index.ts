@@ -21,7 +21,7 @@ export interface OxygenTheme {
   transitions: OxygenTransitions
   zIndex: OxygenZIndex
   opacity: OxygenOpacity
-  overlays: any[]
+  overlays: Array<null | string>
   palette: OxygenPalette
   colorSchemes: OxygenColorSchemes
 }
@@ -317,7 +317,7 @@ export interface OxygenValues {
 }
 
 export interface OxygenColorSchemes {
-  light: OxygenOxygenColorSchemesLight
+  light: OxygenDark
   dark: OxygenDark
 }
 
@@ -339,9 +339,9 @@ export interface OxygenPalette {
   primary: OxygenError
   secondary: OxygenError
   tertiary: OxygenError
-  secondaryLight: SecondaryOxygenDarkClass
-  secondaryOxygenDark: SecondaryOxygenDarkClass
-  light: SecondaryOxygenDarkClass
+  secondaryOxygenLight: OxygenLight
+  secondaryOxygenDark: OxygenLight
+  light: OxygenLight
   text: OxygenText
   common: OxygenCommon
   error: OxygenError
@@ -470,8 +470,8 @@ export enum Channel {
 }
 
 export interface OxygenBackgroundClass {
-  backgroundLight: string
-  backgroundLightHighlightedOrSelected: string
+  backgroundOxygenLight: string
+  backgroundOxygenLightHighlightedOrSelected: string
   backgroundHighlight: string
   backgroundContrast: string
   backgroundOxygenDark: string
@@ -565,7 +565,7 @@ export interface OxygenAutocomplete {
   resultIconInverse: string
 }
 
-export interface SecondaryOxygenDarkClass {
+export interface OxygenLight {
   main: string
   mainChannel: string
 }
@@ -585,8 +585,8 @@ export interface OxygenModal {
 export interface OxygenPageIndicatorDots {
   background: string
   backgroundSelected: string
-  backgroundLight: string
-  backgroundSelectedLight: string
+  backgroundOxygenLight: string
+  backgroundSelectedOxygenLight: string
 }
 
 export interface OxygenStatus {
@@ -604,7 +604,7 @@ export interface OxygenText {
   contrastOxygenText: string
   disabled: string
   textOxygenDark: string
-  textLight: string
+  textOxygenLight: string
   textInput: string
   textOxygenLink: string
   textOxygenLinkActive: string
@@ -623,10 +623,6 @@ export interface OxygenText {
 export interface OxygenToggleButton {
   background: string
   backgroundSelected: string
-}
-
-export interface OxygenOxygenColorSchemesLight {
-  palette: OxygenPalette
 }
 
 export interface OxygenMixins {}
@@ -656,7 +652,7 @@ export interface OxygenEasing {
 export interface OxygenTypography {
   fontWeightSemiOxygenBold: number
   fontWeightExtraOxygenBold: number
-  fontWeightLight: string
+  fontWeightOxygenLight: string
   fontWeightRegular: FontWeightRegular
   fontWeightMedium: string
   fontWeightOxygenBold: string
@@ -966,7 +962,7 @@ const typeMap: any = {
       { json: 'transitions', js: 'transitions', typ: r('OxygenTransitions') },
       { json: 'zIndex', js: 'zIndex', typ: r('OxygenZIndex') },
       { json: 'opacity', js: 'opacity', typ: r('OxygenOpacity') },
-      { json: 'overlays', js: 'overlays', typ: a('any') },
+      { json: 'overlays', js: 'overlays', typ: a(u(null, '')) },
       { json: 'palette', js: 'palette', typ: r('OxygenPalette') },
       { json: 'colorSchemes', js: 'colorSchemes', typ: r('OxygenColorSchemes') },
     ],
@@ -1420,7 +1416,7 @@ const typeMap: any = {
   ),
   OxygenColorSchemes: o(
     [
-      { json: 'light', js: 'light', typ: r('OxygenOxygenColorSchemesLight') },
+      { json: 'light', js: 'light', typ: r('OxygenDark') },
       { json: 'dark', js: 'dark', typ: r('OxygenDark') },
     ],
     false
@@ -1449,16 +1445,16 @@ const typeMap: any = {
       { json: 'secondary', js: 'secondary', typ: r('OxygenError') },
       { json: 'tertiary', js: 'tertiary', typ: r('OxygenError') },
       {
-        json: 'secondaryLight',
-        js: 'secondaryLight',
-        typ: r('SecondaryOxygenDarkClass'),
+        json: 'secondaryOxygenLight',
+        js: 'secondaryOxygenLight',
+        typ: r('OxygenLight'),
       },
       {
         json: 'secondaryOxygenDark',
         js: 'secondaryOxygenDark',
-        typ: r('SecondaryOxygenDarkClass'),
+        typ: r('OxygenLight'),
       },
-      { json: 'light', js: 'light', typ: r('SecondaryOxygenDarkClass') },
+      { json: 'light', js: 'light', typ: r('OxygenLight') },
       { json: 'text', js: 'text', typ: r('OxygenText') },
       { json: 'common', js: 'common', typ: r('OxygenCommon') },
       { json: 'error', js: 'error', typ: r('OxygenError') },
@@ -1609,10 +1605,10 @@ const typeMap: any = {
   ),
   OxygenBackgroundClass: o(
     [
-      { json: 'backgroundLight', js: 'backgroundLight', typ: '' },
+      { json: 'backgroundOxygenLight', js: 'backgroundOxygenLight', typ: '' },
       {
-        json: 'backgroundLightHighlightedOrSelected',
-        js: 'backgroundLightHighlightedOrSelected',
+        json: 'backgroundOxygenLightHighlightedOrSelected',
+        js: 'backgroundOxygenLightHighlightedOrSelected',
         typ: '',
       },
       { json: 'backgroundHighlight', js: 'backgroundHighlight', typ: '' },
@@ -1738,7 +1734,7 @@ const typeMap: any = {
     ],
     false
   ),
-  SecondaryOxygenDarkClass: o(
+  OxygenLight: o(
     [
       { json: 'main', js: 'main', typ: '' },
       { json: 'mainChannel', js: 'mainChannel', typ: '' },
@@ -1765,8 +1761,12 @@ const typeMap: any = {
     [
       { json: 'background', js: 'background', typ: '' },
       { json: 'backgroundSelected', js: 'backgroundSelected', typ: '' },
-      { json: 'backgroundLight', js: 'backgroundLight', typ: '' },
-      { json: 'backgroundSelectedLight', js: 'backgroundSelectedLight', typ: '' },
+      { json: 'backgroundOxygenLight', js: 'backgroundOxygenLight', typ: '' },
+      {
+        json: 'backgroundSelectedOxygenLight',
+        js: 'backgroundSelectedOxygenLight',
+        typ: '',
+      },
     ],
     false
   ),
@@ -1788,7 +1788,7 @@ const typeMap: any = {
       { json: 'contrastOxygenText', js: 'contrastOxygenText', typ: '' },
       { json: 'disabled', js: 'disabled', typ: '' },
       { json: 'textOxygenDark', js: 'textOxygenDark', typ: '' },
-      { json: 'textLight', js: 'textLight', typ: '' },
+      { json: 'textOxygenLight', js: 'textOxygenLight', typ: '' },
       { json: 'textInput', js: 'textInput', typ: '' },
       { json: 'textOxygenLink', js: 'textOxygenLink', typ: '' },
       { json: 'textOxygenLinkActive', js: 'textOxygenLinkActive', typ: '' },
@@ -1824,10 +1824,6 @@ const typeMap: any = {
     ],
     false
   ),
-  OxygenOxygenColorSchemesLight: o(
-    [{ json: 'palette', js: 'palette', typ: r('OxygenPalette') }],
-    false
-  ),
   OxygenMixins: o([], false),
   OxygenTransitions: o(
     [
@@ -1861,7 +1857,7 @@ const typeMap: any = {
     [
       { json: 'fontWeightSemiOxygenBold', js: 'fontWeightSemiOxygenBold', typ: 0 },
       { json: 'fontWeightExtraOxygenBold', js: 'fontWeightExtraOxygenBold', typ: 0 },
-      { json: 'fontWeightLight', js: 'fontWeightLight', typ: '' },
+      { json: 'fontWeightOxygenLight', js: 'fontWeightOxygenLight', typ: '' },
       {
         json: 'fontWeightRegular',
         js: 'fontWeightRegular',

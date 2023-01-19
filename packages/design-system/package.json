@@ -22,17 +22,19 @@
     "node": "^14.13.1 || >=16.0.0",
     "pnpm": ">=7"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "typings": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "dist/esm/index.js",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "default": "./dist/index.js"
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
     },
-    "./styles.css": "./dist/styles.css",
-    "./primitives.json": "./dist/primitives.json"
+    "./internal": {
+      "import": "./dist/esm/internal.js",
+      "require": "./dist/internal.js"
+    },
+    "./styles.css": "./dist/styles.css"
   },
   "browser": {
     "./styles.css": "./dist/styles.css"
@@ -42,16 +44,15 @@
   ],
   "files": [
     "dist",
-    "README.md",
-    "src"
+    "README.md"
   ],
   "scripts": {
     "[--- Build ---]": "",
-    "build": "bunchee ./src/index.ts --sourcemap --dts ",
+    "build": "rollup --config",
     "build:all": "pnpm js:theme && pnpm dts:theme && pnpm build",
     "[--- Dev ---]": "",
-    "dev": "pnpm build --watch",
-    "ts-watch": "tsc --project tsconfig.watch.json",
+    "dev": "tsup --watch",
+    "dev:build": "tsup",
     "[--- Lint ---]": "",
     "lint": "tsc --noEmit --project tsconfig.dev.json && pnpm eslint ./src --ext .js,.ts,.tsx",
     "[--- Clean ---]": "",
@@ -69,7 +70,7 @@
     "ts": "node -r esbuild-register",
     "size": "pnpm run size-limit",
     "generate:theme": "pnpm js:theme && pnpm dts:theme",
-    "js:theme": "pnpm json-to-js -i ./src/core/theme/theme.json -o ./src/core/theme/theme.ts --ts -n theme",
+    "js:theme": "pnpm jtj -i ./src/core/theme/theme.json -o ./src/core/theme/theme.ts --ts -n theme",
     "dts:theme": "quicktype --top-level Theme -l typescript ./src/core/theme/theme.json -o ./src/declarations/theme/index.ts && ./scripts/prefix.sh ./src/declarations/theme/index.ts Oxygen"
   },
   "dependencies": {
@@ -80,11 +81,11 @@
     "@emotion/styled": "^11.10.5",
     "@googlemaps/react-wrapper": "^1.1.35",
     "@hookform/resolvers": "^2.9.10",
-    "@mui/material": "^5.11.4",
+    "@mui/material": "^5.11.5",
     "@oxygen/json-to-js": "*",
     "@tanstack/react-query": "^4.22.0",
     "@tanstack/react-query-devtools": "^4.22.0",
-    "axios": "^1.2.2",
+    "axios": "^1.2.3",
     "clsx": "^1.2.1",
     "date-fns": "2.29.3",
     "fast-equals": "^4.0.3",
@@ -96,14 +97,14 @@
     "react-cool-inview": "^3.0.1",
     "react-cool-onclickoutside": "^1.7.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.41.5",
+    "react-hook-form": "^7.42.1",
     "react-is": "18.2.0",
     "react-use": "^17.4.0",
     "tslib": "2.4.1",
     "use-places-autocomplete": "^4.0.0",
     "uuid": "^9.0.0",
     "yup": "^0.32.11",
-    "zustand": "^4.3.1"
+    "zustand": "^4.3.2"
   },
   "peerDependenciesMeta": {
     "react": {
@@ -169,7 +170,7 @@
     "@mui/base": "^5.0.0-alpha.108",
     "@mui/icons-material": "^5.10.16",
     "@mui/lab": "^5.0.0-alpha.110",
-    "@mui/material": "^5.11.4",
+    "@mui/material": "^5.11.5",
     "@mui/styled-engine": "^5.10.16",
     "@mui/system": "^5.10.16",
     "@mui/utils": "^5.10.16",
@@ -180,7 +181,7 @@
     "react-dropzone": "^14.2.3",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.7.1",
-    "zustand": "^4.3.1"
+    "zustand": "^4.3.2"
   },
   "devDependencies": {
     "@mui/types": "^7.2.3",

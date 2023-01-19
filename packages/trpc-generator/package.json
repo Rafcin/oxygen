@@ -68,9 +68,9 @@
     "size": "pnpm run size-limit"
   },
   "dependencies": {
-    "@prisma/client": "^4.8.1",
-    "@prisma/generator-helper": "^4.8.1",
-    "@prisma/internals": "^4.8.1",
+    "@prisma/client": "^4.9.0",
+    "@prisma/generator-helper": "^4.9.0",
+    "@prisma/internals": "^4.9.0",
     "pluralize": "^8.0.0",
     "prisma-trpc-shield-generator": "0.1.0",
     "@oxygen/trpc-prisma-zod-schema-generator": "^*",
@@ -79,11 +79,11 @@
     "zod-prisma": "^0.5.4"
   },
   "devDependencies": {
-    "@trpc/server": "^10.8.2",
+    "@trpc/server": "^10.9.0",
     "@types/node": "^18.11.18",
     "@types/pluralize": "^0.0.29",
-    "prisma": "^4.8.1",
-    "trpc-shield": "^0.3.0",
+    "prisma": "^4.9.0",
+    "trpc-shield": "^0.4.0",
     "zod": "^3.20.2"
   }
 }

@@ -11,7 +11,9 @@ export const FooterColumns = ({ footerConfig }: { footerConfig: IFooterConfig })
           width: '100%',
           maxWidth: '100%',
         },
-        backgroundColor: theme?.palette?.footer?.background,
+        // backgroundColor: theme?.palette?.footer?.background,
+        // backgroundImage: theme?.overlays[4],
+        background: 'transparent',
         paddingTop: '30px',
         paddingBottom: '20px',
       })}

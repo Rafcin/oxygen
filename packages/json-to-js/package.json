@@ -41,7 +41,7 @@
   ],
   "scripts": {
     "[--- Run ---]": "",
-    "json-to-js": "node ./dist/index",
+    "jtj": "node ./dist/index",
     "[--- Build ---]": "",
     "build": "bunchee ./src/index.ts",
     "[--- Dev ---]": "",
@@ -58,9 +58,9 @@
     "test": "pnpm json-to-js -i ./example/input.json -o ./example/output.ts --ts"
   },
   "bin": {
-    "json-to-js": "./dist/index.js"
+    "jtj": "./dist/index.js"
   },
   "dependencies": {
-    "commander": "^9.5.0"
+    "commander": "^10.0.0"
   }
 }

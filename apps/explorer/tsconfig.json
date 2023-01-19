@@ -1,0 +1,22 @@
+{
+  "extends": "@oxygen/tsconfig/next.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/content/*": ["src/content/*"],
+      "@/config/*": ["src/config/*"],
+      "@/trpc/*": ["src/trpc/*"],
+      "@/utils/*": ["src/api/*"],
+      "@/context/*": ["../../packages/design-system/src/context/*"],
+      "@/src/*": ["src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}

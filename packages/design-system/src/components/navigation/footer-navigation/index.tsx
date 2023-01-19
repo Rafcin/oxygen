@@ -18,9 +18,11 @@ export const FooterNavigation = React.memo(
   ({
     isFloating,
     footerConfig,
+    isInline,
   }: {
     isFloating: boolean
     footerConfig: IFooterConfig
+    isInline?: boolean
   }) => {
     const theme = useTheme<any>()
     const isMobileMediaQuery = useMediaQuery(theme.breakpoints.up('sm'))
@@ -48,6 +50,7 @@ export const FooterNavigation = React.memo(
                 paddingRight: '0px',
                 overflow: 'hidden',
                 backgroundColor: theme?.palette.background?.default,
+                backgroundImage: theme?.overlays[4],
                 color: theme?.palette.text?.primary,
               },
             })}
@@ -55,6 +58,7 @@ export const FooterNavigation = React.memo(
             <ModalClose onClick={() => setOpen(false)} />
             <Container
               sx={(theme: any) => ({
+                background: 'transparent',
                 [theme.breakpoints.down('sm')]: {
                   overflowY: 'scroll',
                   margin: '20px',
@@ -130,10 +134,9 @@ export const FooterNavigation = React.memo(
         )}
         <Container
           sx={(theme: any) => ({
-            backgroundColor: theme?.palette?.footer?.background,
             borderTop: `1px solid ${theme?.palette?.footer?.border}`,
-            paddingTop: '8px',
-            paddingBottom: '8px',
+            paddingTop: isInline ? '0px' : '8px',
+            paddingBottom: isInline ? '0px' : '8px',
           })}
         >
           <Typography

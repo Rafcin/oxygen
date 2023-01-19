@@ -1,4 +1,4 @@
-import { useTheme } from '@mui/material'
+import { Paper, useTheme } from '@mui/material'
 import SwipeableDrawer from '@mui/material/SwipeableDrawer'
 import React from 'react'
 import { useWindowScroll } from 'react-use'
@@ -29,7 +29,8 @@ export const Footer = ({
     <span>
       {isFooterAllowedOnPage && (
         <div>
-          <SwipeableDrawer
+          <Paper
+            component={SwipeableDrawer}
             anchor="bottom"
             open={open}
             onClose={() => setOpen(false)}
@@ -42,21 +43,24 @@ export const Footer = ({
                 paddingLeft: '0px',
                 paddingRight: '0px',
                 overflow: 'hidden',
-                backgroundColor: theme?.palette.background?.default,
+                backgroundColor: theme?.palette.background?.appbar,
                 color: theme?.palette.text?.primary,
+                backgroundImage: theme?.overlays[4],
               },
             })}
           >
             <ModalClose onClick={() => setOpen(false)} />
             <FooterColumns footerConfig={footerConfig} />
-          </SwipeableDrawer>
+          </Paper>
+
           <Drawer
             floating={true}
             visible={isFooterOpen}
             sx={{
               zIndex: 1000,
               boxShadow: 'rgb(0 0 0 / 8%) 0 1px 0',
-              backgroundColor: theme?.palette?.footer?.background,
+              backgroundColor: theme?.palette.background?.appbar,
+              backgroundImage: theme?.overlays[4],
               color: theme?.palette.text?.primary,
               height: '110px',
               borderTop: `1px solid ${theme?.palette?.footer?.border}`,
