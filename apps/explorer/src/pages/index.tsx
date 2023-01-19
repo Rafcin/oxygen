@@ -363,22 +363,14 @@ const Home = () => {
               </Button>
             </Box>
             <Wrapper
-              apiKey={String(
-                process.env.NODE_ENV === 'production'
-                  ? process.env.NEXT_PUBLIC_GMAPS_API
-                  : process.env.NEXT_PUBLIC_GMAPS_DEV_API
-              )}
+              apiKey={process.env.NEXT_PUBLIC_GMAPS_API}
               render={() => {
                 return <Loading />
               }}
             >
               <GoogleMapProvider>
                 <Map
-                  apiKey={
-                    process.env.NODE_ENV === 'production'
-                      ? process.env.NEXT_PUBLIC_GMAPS_API
-                      : process.env.NEXT_PUBLIC_GMAPS_DEV_API
-                  }
+                  apiKey={process.env.NEXT_PUBLIC_GMAPS_API}
                   opts={{
                     center: {
                       lat: watchLocation?.lat ?? 33.4756618,

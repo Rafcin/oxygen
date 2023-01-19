@@ -69,11 +69,7 @@ export default class NextDocument extends Document<any> {
           <script
             async
             defer
-            src={`https://maps.googleapis.com/maps/api/js?language=en&region=US&v=3.48&key=${
-              process.env.NODE_ENV === 'production'
-                ? process.env.NEXT_PUBLIC_GMAPS_API
-                : process.env.NEXT_PUBLIC_GMAPS_DEV_API
-            }&hyperloopconfig=false&libraries=places`}
+            src={`https://maps.googleapis.com/maps/api/js?language=en&region=US&v=3.48&key=${process.env.NEXT_PUBLIC_GMAPS_API}&hyperloopconfig=false&libraries=places`}
           ></script>
 
           {/* Global Site Tag (gtag.js) - Google Analytics */}
