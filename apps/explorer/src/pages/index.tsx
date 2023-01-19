@@ -26,7 +26,7 @@ import {
   OverlayView,
 } from '@oxygen/design-system'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Controller, FormProvider, useForm } from 'react-hook-form'
 import { IoSettingsOutline } from 'react-icons/io5'
 import usePlacesAutocomplete, {
@@ -103,6 +103,10 @@ const Home = () => {
     radius: 100,
     query: watchQuery,
   })
+
+  useEffect(() => {
+    console.log(locationSearchData)
+  }, [locationSearchData])
 
   return (
     <FormProvider {...form}>

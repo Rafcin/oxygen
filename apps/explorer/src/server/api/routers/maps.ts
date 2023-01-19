@@ -1,7 +1,6 @@
 import { z } from 'zod'
-import axios from 'axios'
 
-import { createTRPCRouter, publicProcedure, protectedProcedure } from '../trpc'
+import { createTRPCRouter, publicProcedure } from '../trpc'
 
 export const mapsRouter = createTRPCRouter({
   locations: publicProcedure
