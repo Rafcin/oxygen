@@ -34,7 +34,7 @@ const Auth = () => {
             height: '100vh',
           }}
         >
-          <h1>Sign in</h1>
+          <h1>Sign in 👋</h1>
           <Button
             onClick={handleSignIn}
             variant="outlined"
