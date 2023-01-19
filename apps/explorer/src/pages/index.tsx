@@ -34,6 +34,13 @@ import usePlacesAutocomplete, {
   getGeocode,
 } from 'use-places-autocomplete'
 import * as z from 'zod'
+import TextareaAutosize from '@mui/base/TextareaAutosize'
+import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import DialogContentText from '@mui/material/DialogContentText'
+import DialogTitle from '@mui/material/DialogTitle'
+
 const Home = () => {
   //Form
   const fieldsSchema = z.object({
@@ -78,6 +85,15 @@ const Home = () => {
 
   const filter = createFilterOptions<any>()
   const [open, setOpen] = useState(false)
+  const [dialogOpen, setDialogOpen] = useState(false)
+
+  const removeKey = (obj, keyToRemove) =>
+    Object.keys(obj).reduce((acc, key) => {
+      if (key !== keyToRemove) {
+        acc[key] = obj[key]
+      }
+      return acc
+    }, {})
 
   const maps = api.maps.locations.useQuery({
     location: {
@@ -329,6 +345,47 @@ const Home = () => {
               state or country.
             </FormHelperText>
             <br />
+            <Button variant="outlined" onClick={() => setDialogOpen(true)}>
+              Open Debug
+            </Button>
+            <Dialog
+              open={dialogOpen}
+              onClose={() => setDialogOpen(false)}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+            >
+              <DialogTitle id="alert-dialog-title">{'Debug Panel'}</DialogTitle>
+              <DialogContent>
+                <Box
+                  component={TextareaAutosize}
+                  aria-label="empty textarea"
+                  placeholder="Status codes are logged here for debugging purposes"
+                  value={
+                    maps.data ? JSON.stringify(removeKey(maps.data, 'results')) : ''
+                  }
+                  sx={{
+                    width: '100%',
+                    minHeight: '200px',
+                    overflow: 'hidden',
+                    borderRadius: '12px',
+                    padding: '15px',
+                  }}
+                />
+              </DialogContent>
+              <DialogActions
+                sx={{
+                  padding: '15px',
+                }}
+              >
+                <Button
+                  variant="outlined"
+                  onClick={() => setDialogOpen(false)}
+                  autoFocus
+                >
+                  Close
+                </Button>
+              </DialogActions>
+            </Dialog>
           </Container>
         </Paper>
         <Box>
@@ -349,6 +406,7 @@ const Home = () => {
             >
               <Button
                 endIcon={<IoSettingsOutline />}
+                variant="outlined"
                 sx={(theme: any) => ({
                   backgroundColor: theme?.palette?.background?.default,
                   '&:hover': {
