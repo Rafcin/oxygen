@@ -1,4 +1,4 @@
-import { api } from '@/trpc/api'
+import { trpc } from '@/trpc/api'
 import { Wrapper } from '@googlemaps/react-wrapper'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
@@ -40,6 +40,8 @@ import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
+import { GetServerSideProps, GetServerSidePropsContext } from 'next'
+import { getServerAuthSession } from '@/server/common/get-server-auth-session'
 
 const Home = () => {
   //Form
@@ -95,7 +97,7 @@ const Home = () => {
       return acc
     }, {})
 
-  const maps = api.maps.locations.useQuery({
+  const maps = trpc.maps.textSearch.useQuery({
     location: {
       lat: watchLocation?.lat ?? 33.4756618,
       lng: watchLocation?.lng ?? -117.6786843,
@@ -511,6 +513,25 @@ const Home = () => {
       </form>
     </FormProvider>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (
+  ctx: GetServerSidePropsContext
+) => {
+  const session = await getServerAuthSession(ctx)
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/auth',
+        permanent: false,
+      },
+    }
+  }
+
+  return {
+    props: { session },
+  }
 }
 
 export default Home

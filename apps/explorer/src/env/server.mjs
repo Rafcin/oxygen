@@ -3,25 +3,27 @@
  * This file is included in `/next.config.mjs` which ensures the app isn't built with invalid env vars.
  * It has to be a `.mjs`-file to be imported there.
  */
-import { serverSchema, serverEnv } from "./schema.mjs";
+import { serverSchema } from "./schema.mjs";
 import { env as clientEnv, formatErrors } from "./client.mjs";
 
-const _serverEnv = serverSchema.safeParse(serverEnv);
+const _serverEnv = serverSchema.safeParse(process.env);
 
-if (!_serverEnv.success) {
+if (_serverEnv.success === false) {
   console.error(
-    "❌ Invalid environment variables:\n",
-    //@ts-ignore
+    "[env/server.mjs] ❌ Invalid environment variables:\n",
     ...formatErrors(_serverEnv.error.format()),
   );
-  throw new Error("Invalid environment variables");
+  throw new Error("[env/server.mjs] ❌ Invalid environment variables.");
 }
 
+/**
+ * Validate that server-side environment variables are not exposed to the client.
+ */
 for (let key of Object.keys(_serverEnv.data)) {
   if (key.startsWith("NEXT_PUBLIC_")) {
-    console.warn("❌ You are exposing a server-side env-variable:", key);
+    console.warn("[env/server.mjs] ❌ You are exposing a server-side env-variable:", key);
 
-    throw new Error("You are exposing a server-side env-variable");
+    throw new Error("[env/server.mjs] ❌ You are exposing a server-side env-variable.");
   }
 }
 

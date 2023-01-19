@@ -11,7 +11,7 @@ import '../scripts/wdyr.ts'
 import '../styles/styles.css'
 import { createEmotionCache } from '@/styles'
 import { SessionProvider } from 'next-auth/react'
-import { api } from '@/trpc/api'
+import { trpc } from '@/trpc/api'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -46,4 +46,4 @@ function NextApp(props: Base) {
   )
 }
 
-export default api.withTRPC(NextApp)
+export default trpc.withTRPC(NextApp)
