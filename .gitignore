@@ -81,3 +81,4 @@ pnpm-lock.yaml
 .tsbuildinfo
 #Prisma-Zod
 **/prisma-zod-schema-generator/prisma/generated/**
+apps/explorer/.env
