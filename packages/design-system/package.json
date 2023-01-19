@@ -70,6 +70,7 @@
     "dts:theme": "quicktype --top-level Theme -l typescript ./src/core/theme/theme.json -o ./src/declarations/theme/index.ts && ./scripts/prefix.sh ./src/declarations/theme/index.ts Oxygen"
   },
   "dependencies": {
+    "@date-io/date-fns": "^2.16.0",
     "@dnd-kit/core": "^6.0.7",
     "@dnd-kit/sortable": "^7.0.2",
     "@dnd-kit/utilities": "3.2.1",
@@ -81,6 +82,7 @@
     "@oxygen/json-to-js": "*",
     "@tanstack/react-query": "^4.22.0",
     "@tanstack/react-query-devtools": "^4.22.0",
+    "TimePicker": "link:@mui/x-date-pickers/TimePicker",
     "axios": "^1.2.3",
     "clsx": "^1.2.1",
     "date-fns": "2.29.3",
