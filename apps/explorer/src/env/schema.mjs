@@ -10,6 +10,8 @@ export const serverSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
   GITHUB_ID: z.string(),
   GITHUB_CLIENT_SECRET: z.string(),
+  DISCORD_ID: z.string(),
+  DISCORD_CLEINT_SECRET: z.string(),
   NEXTAUTH_SECRET:
     process.env.NODE_ENV === "production"
       ? z.string().min(1)

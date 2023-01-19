@@ -5,11 +5,12 @@ import { getServerAuthSession } from '@/server/common/get-server-auth-session'
 import toast from 'react-hot-toast'
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { ImGithub } from 'react-icons/im'
-import { Loading } from '@oxygen/design-system'
+import { FaDiscord } from 'react-icons/fa'
+
 const Auth = () => {
   const [loading, setLoading] = useState(false)
 
-  const handleSignIn = async () => {
+  const handleSignInGithub = async () => {
     setLoading(true)
     try {
       await signIn('github', {
@@ -21,6 +22,20 @@ const Auth = () => {
       })
     }
   }
+
+  const handleSignInDiscord = async () => {
+    setLoading(true)
+    try {
+      await signIn('discord', {
+        callbackUrl: '/',
+      })
+    } catch (error) {
+      toast('An error occurred while logging in.', {
+        icon: '🤔',
+      })
+    }
+  }
+
   return (
     <Box>
       <Container>
@@ -36,12 +51,20 @@ const Auth = () => {
         >
           <h1>Sign in 👋</h1>
           <Button
-            onClick={handleSignIn}
+            onClick={handleSignInGithub}
             variant="outlined"
             endIcon={<ImGithub />}
-            sx={{ paddingLeft: '25px', paddingRight: '25px' }}
+            sx={{ paddingLeft: '25px', paddingRight: '25px', marginBottom: '15px' }}
           >
             {loading ? '...' : 'Sign in with GitHub'}
+          </Button>
+          <Button
+            onClick={handleSignInDiscord}
+            variant="outlined"
+            endIcon={<FaDiscord />}
+            sx={{ paddingLeft: '25px', paddingRight: '25px' }}
+          >
+            {loading ? '...' : 'Sign in with Discord'}
           </Button>
         </Box>
       </Container>

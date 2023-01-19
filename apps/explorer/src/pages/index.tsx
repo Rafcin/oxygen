@@ -1,6 +1,10 @@
+import { Mode } from '@/content/controls/mode'
+import { Signout } from '@/content/controls/signout'
+import { getServerAuthSession } from '@/server/common/get-server-auth-session'
 import { trpc } from '@/trpc/api'
 import { Wrapper } from '@googlemaps/react-wrapper'
 import { zodResolver } from '@hookform/resolvers/zod'
+import TextareaAutosize from '@mui/base/TextareaAutosize'
 import {
   Box,
   Button,
@@ -16,6 +20,10 @@ import {
   TextField,
 } from '@mui/material'
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete'
+import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import DialogTitle from '@mui/material/DialogTitle'
 import { DataGrid, GridToolbar } from '@mui/x-data-grid'
 import {
   Error,
@@ -25,8 +33,9 @@ import {
   ModalClose,
   OverlayView,
 } from '@oxygen/design-system'
+import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Controller, FormProvider, useForm } from 'react-hook-form'
 import { IoSettingsOutline } from 'react-icons/io5'
 import usePlacesAutocomplete, {
@@ -34,14 +43,6 @@ import usePlacesAutocomplete, {
   getGeocode,
 } from 'use-places-autocomplete'
 import * as z from 'zod'
-import TextareaAutosize from '@mui/base/TextareaAutosize'
-import Dialog from '@mui/material/Dialog'
-import DialogActions from '@mui/material/DialogActions'
-import DialogContent from '@mui/material/DialogContent'
-import DialogContentText from '@mui/material/DialogContentText'
-import DialogTitle from '@mui/material/DialogTitle'
-import { GetServerSideProps, GetServerSidePropsContext } from 'next'
-import { getServerAuthSession } from '@/server/common/get-server-auth-session'
 
 const Home = () => {
   //Form
@@ -86,7 +87,9 @@ const Home = () => {
   })
 
   const filter = createFilterOptions<any>()
-  const [open, setOpen] = useState(false)
+  const [mapSettingsOpen, setMapSettingsOpen] = useState(false)
+  const [accountSettingsOpen, setAccountSettingsOpen] = useState(false)
+
   const [dialogOpen, setDialogOpen] = useState(false)
 
   const removeKey = (obj, keyToRemove) =>
@@ -106,19 +109,15 @@ const Home = () => {
     query: watchQuery,
   })
 
-  useEffect(() => {
-    console.log(locationSearchData)
-  }, [locationSearchData])
-
   return (
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <Paper
           component={SwipeableDrawer}
           anchor="bottom"
-          open={open}
-          onClose={() => setOpen(false)}
-          onOpen={() => setOpen(true)}
+          open={mapSettingsOpen}
+          onClose={() => setMapSettingsOpen(false)}
+          onOpen={() => setMapSettingsOpen(true)}
           sx={(theme: any) => ({
             '& > .MuiDrawer-paper': {
               borderTopRightRadius: '12px',
@@ -136,7 +135,7 @@ const Home = () => {
             },
           })}
         >
-          <ModalClose onClick={() => setOpen(false)} />
+          <ModalClose onClick={() => setMapSettingsOpen(false)} />
           <Box sx={{ marginBottom: '15px' }} />
           <Container maxWidth="md">
             <Box
@@ -394,6 +393,36 @@ const Home = () => {
             </Dialog>
           </Container>
         </Paper>
+        <Paper
+          component={SwipeableDrawer}
+          anchor="bottom"
+          open={accountSettingsOpen}
+          onClose={() => setAccountSettingsOpen(false)}
+          onOpen={() => setAccountSettingsOpen(true)}
+          sx={(theme: any) => ({
+            '& > .MuiDrawer-paper': {
+              borderTopRightRadius: '12px',
+              borderTopLeftRadius: '12px',
+              padding: '40px',
+              paddingLeft: '0px',
+              paddingRight: '0px',
+              overflow: 'hidden',
+              backgroundColor: theme?.palette.background?.appbar,
+              color: theme?.palette.text?.primary,
+              backgroundImage: theme?.overlays[4],
+            },
+            '&.MuiModal-root': {
+              backgroundColor: 'rgba(0, 0, 0, 0.2)',
+            },
+          })}
+        >
+          <ModalClose onClick={() => setAccountSettingsOpen(false)} />
+          <Box sx={{ marginBottom: '15px' }} />
+          <Container maxWidth="md">
+            <Signout />
+            <Mode />
+          </Container>
+        </Paper>
         <Box>
           <Box>
             <Box
@@ -412,7 +441,6 @@ const Home = () => {
             >
               <Button
                 endIcon={<IoSettingsOutline />}
-                variant="outlined"
                 sx={(theme: any) => ({
                   backgroundColor: theme?.palette?.background?.default,
                   '&:hover': {
@@ -421,9 +449,24 @@ const Home = () => {
                   paddingLeft: '15px',
                   paddingRight: '15px',
                 })}
-                onClick={() => setOpen(true)}
+                onClick={() => setMapSettingsOpen(true)}
               >
-                Map Settings
+                Map
+              </Button>
+              <Button
+                endIcon={<IoSettingsOutline />}
+                sx={(theme: any) => ({
+                  backgroundColor: theme?.palette?.background?.default,
+                  '&:hover': {
+                    backgroundColor: theme?.palette?.background?.default,
+                  },
+                  paddingLeft: '15px',
+                  paddingRight: '15px',
+                  marginLeft: '15px',
+                })}
+                onClick={() => setAccountSettingsOpen(true)}
+              >
+                Account
               </Button>
             </Box>
             <Wrapper

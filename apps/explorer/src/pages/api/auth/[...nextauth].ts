@@ -1,5 +1,6 @@
 import NextAuth, { type NextAuthOptions } from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
+import DiscordProvider from 'next-auth/providers/discord'
 
 // Prisma adapter for NextAuth =>
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
@@ -11,6 +12,19 @@ export const authOptions: NextAuthOptions = {
     GithubProvider({
       clientId: env.GITHUB_ID || '',
       clientSecret: env.GITHUB_CLIENT_SECRET || '',
+      profile(profile) {
+        return {
+          id: profile.id.toString(),
+          name: profile.username,
+          username: profile.username,
+          email: profile.email,
+          image: profile.avatar,
+        }
+      },
+    }),
+    DiscordProvider({
+      clientId: env.DISCORD_ID || '',
+      clientSecret: env.DISCORD_CLEINT_SECRET || '',
       profile(profile) {
         return {
           id: profile.id.toString(),
