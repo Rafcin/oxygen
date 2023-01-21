@@ -64,10 +64,6 @@ const Home = () => {
   const watchLocation = watch('location')
   const watchQuery = watch('query')
 
-  const onSubmit = async () => {
-    console.log('On Submit')
-  }
-
   const {
     value: locationSearchValue,
     suggestions: { data: locationSearchData, status: locationSearchStatus },
@@ -85,25 +81,30 @@ const Home = () => {
   const [mapSettingsOpen, setMapSettingsOpen] = useState(false)
   const [accountSettingsOpen, setAccountSettingsOpen] = useState(false)
   const [datavisualizationOpen, setDatavisualizationOpen] = useState(false)
-  const { selectedItems, handleSelect } = useMultiSelect({ checkId: true })
-
-  const maps = trpc.maps.textSearch.useQuery({
-    location: {
-      lat: watchLocation?.lat ?? 33.4756618,
-      lng: watchLocation?.lng ?? -117.6786843,
-    },
-    radius: 100,
-    query: watchQuery,
+  const { selectedItems, handleSelect, reset } = useMultiSelect({
+    checkId: true,
+    idName: 'place_id',
   })
 
-  //`https://www.google.com/maps/place/?q=place_id:${result?.place_id}`
-  useEffect(() => {
-    console.log('Selected Places: ', selectedItems)
-  }, [selectedItems])
+  const maps = trpc.maps.textSearch.useQuery(
+    {
+      location: {
+        lat: watchLocation?.lat ?? 33.4756618,
+        lng: watchLocation?.lng ?? -117.6786843,
+      },
+      radius: 100,
+      query: watchQuery,
+    },
+    {
+      refetchOnWindowFocus: false,
+    }
+  )
+
+  const details = trpc.maps.detailSearch.useMutation()
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form>
         <Paper
           component={SwipeableDrawer}
           anchor="bottom"
@@ -221,6 +222,7 @@ const Home = () => {
                             },
                             { shouldValidate: true }
                           )
+                          reset()
                         })
                     }
                   }}
@@ -317,14 +319,26 @@ const Home = () => {
               sx={(theme: any) => ({
                 paddingLeft: '25px',
                 paddingRight: '25px',
+                marginBottom: '10px',
               })}
+              disabled={selectedItems && selectedItems.length <= 0}
               onClick={() => {
-                setMapSettingsOpen(false)
-                setDatavisualizationOpen(true)
+                if (selectedItems && selectedItems.length > 0) {
+                  details.mutateAsync({
+                    place_ids: selectedItems.map((i) => i.place_id),
+                  })
+                  setMapSettingsOpen(false)
+                  setDatavisualizationOpen(true)
+                }
               }}
             >
               Data Visualization & Exports
             </Button>
+            <FormHelperText>
+              Using the map markers, select the locations you want to add to your
+              dataset. Once you have selected the locations you want to add to your
+              dataset, click the button below to continue.
+            </FormHelperText>
           </Container>
         </Paper>
         <Paper
@@ -375,9 +389,25 @@ const Home = () => {
                     headerName: 'Address',
                     width: 300,
                   },
+                  {
+                    field: 'formatted_phone_number',
+                    headerName: 'Phone Number',
+                    width: 150,
+                  },
+                  {
+                    field: 'website',
+                    headerName: 'Website',
+                    width: 150,
+                  },
                 ]}
-                rows={maps.data?.results ?? []}
-                loading={Boolean(maps.data?.results.length <= 0)}
+                rows={
+                  (details.data &&
+                    details.data.reduce((accumulator, currentValue: any) => {
+                      return accumulator.concat(currentValue?.value?.result)
+                    }, [])) ??
+                  []
+                }
+                loading={details.isLoading}
                 getRowId={(row) => row?.place_id}
                 components={{ Toolbar: GridToolbar }}
               />
@@ -503,20 +533,22 @@ const Home = () => {
                       <Chip
                         label={`${result?.name} ${result?.rating}★`}
                         onClick={() => {
-                          handleSelect({ id: result?.place_id, ...result })
+                          handleSelect(result)
                         }}
                         sx={{
                           height: '30px',
                           width: 'auto',
                           padding: '0px 8px',
                           backgroundColor: selectedItems.find(
-                            (i) => i.id === result?.place_id
+                            (i) => i.place_id === result?.place_id
                           )
                             ? '#222222'
                             : '#fff',
                           border: 'none',
                           borderRadius: '28px',
-                          color: selectedItems.find((i) => i.id === result?.place_id)
+                          color: selectedItems.find(
+                            (i) => i.place_id === result?.place_id
+                          )
                             ? '#fff'
                             : '#222222',
                           fontWeight: '700',
@@ -525,12 +557,12 @@ const Home = () => {
                           '&:hover': {
                             border: 'none',
                             backgroundColor: selectedItems.find(
-                              (i) => i.id === result?.place_id
+                              (i) => i.place_id === result?.place_id
                             )
                               ? '#444444'
                               : '#f1f0f0',
                             color: selectedItems.find(
-                              (i) => i.id === result?.place_id
+                              (i) => i.place_id === result?.place_id
                             )
                               ? '#fff'
                               : '#222',

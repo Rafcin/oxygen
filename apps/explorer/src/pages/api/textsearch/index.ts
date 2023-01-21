@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 }
 
-// Create new link:
+// Text search:
 async function textSearch(req: NextApiRequest, res: NextApiResponse) {
   const session = await getServerAuthSession({ req, res })
   const body = req.body
@@ -23,7 +23,7 @@ async function textSearch(req: NextApiRequest, res: NextApiResponse) {
       return res.status(200).json(data)
     } catch (error) {
       console.error('[X] Request error:', error)
-      res.status(500).json({ error: '[X] Error creating question:', success: false })
+      res.status(500).json({ error: '[X] Error text search:', success: false })
     }
   } else {
     return res

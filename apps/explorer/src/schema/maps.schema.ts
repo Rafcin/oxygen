@@ -8,3 +8,7 @@ export const MapsTextsearchSchema = z.object({
   radius: z.number(),
   query: z.string(),
 })
+
+export const MapsDetailSearchSchema = z.object({
+  place_ids: z.array(z.string()),
+})
