@@ -2,7 +2,7 @@ import { getInitColorSchemeScript } from '@mui/material/styles'
 import { Global } from '@oxygen/design-system'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import createEmotionServer from '@emotion/server/create-instance'
-import { createEmotionCache } from '@/styles'
+import { createEmotionCache } from '@/styles/index'
 // import Script from 'next/script'
 
 // import { GA_TRACKING_ID } from '../third-party/gtag'
@@ -22,13 +22,16 @@ export default class NextDocument extends Document<any> {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
 
-          <meta name="application-name" content="TacoTuesday.com" />
+          <meta name="application-name" content="explorer.rafszuminski.com" />
           <meta
             name="description"
-            content="What tacos are local restaurants serving, find them here. The taco search engine, find Taco Tuesday menus by you. Sign Up Online. Explore Resources."
+            content="Explorer is a search engine for establishments."
           />
 
-          <meta name="apple-mobile-web-app-title" content="TacoTuesday.com" />
+          <meta
+            name="apple-mobile-web-app-title"
+            content="explorer.rafszuminski.com"
+          />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
           <link rel="manifest" href="/manifest.json" />

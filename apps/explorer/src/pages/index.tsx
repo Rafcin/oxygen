@@ -2,9 +2,9 @@ import { Mode } from '@/content/controls/mode'
 import { Signout } from '@/content/controls/signout'
 import { getServerAuthSession } from '@/server/common/get-server-auth-session'
 import { trpc } from '@/trpc/api'
+import useMultiSelect from '@/utils/multi-select'
 import { Wrapper } from '@googlemaps/react-wrapper'
 import { zodResolver } from '@hookform/resolvers/zod'
-import TextareaAutosize from '@mui/base/TextareaAutosize'
 import {
   Box,
   Button,
@@ -20,10 +20,6 @@ import {
   TextField,
 } from '@mui/material'
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete'
-import Dialog from '@mui/material/Dialog'
-import DialogActions from '@mui/material/DialogActions'
-import DialogContent from '@mui/material/DialogContent'
-import DialogTitle from '@mui/material/DialogTitle'
 import { DataGrid, GridToolbar } from '@mui/x-data-grid'
 import {
   Error,
@@ -34,10 +30,9 @@ import {
   OverlayView,
 } from '@oxygen/design-system'
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
-import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Controller, FormProvider, useForm } from 'react-hook-form'
-import { IoSettingsOutline } from 'react-icons/io5'
+import { FaFileCsv, FaMapMarkedAlt, FaUser } from 'react-icons/fa'
 import usePlacesAutocomplete, {
   getDetails,
   getGeocode,
@@ -65,7 +60,7 @@ const Home = () => {
     resolver: zodResolver(fieldsSchema),
   })
 
-  const { control, setValue, handleSubmit, reset, watch, formState } = form
+  const { control, setValue, watch, formState } = form
   const watchLocation = watch('location')
   const watchQuery = watch('query')
 
@@ -89,16 +84,8 @@ const Home = () => {
   const filter = createFilterOptions<any>()
   const [mapSettingsOpen, setMapSettingsOpen] = useState(false)
   const [accountSettingsOpen, setAccountSettingsOpen] = useState(false)
-
-  const [dialogOpen, setDialogOpen] = useState(false)
-
-  const removeKey = (obj, keyToRemove) =>
-    Object.keys(obj).reduce((acc, key) => {
-      if (key !== keyToRemove) {
-        acc[key] = obj[key]
-      }
-      return acc
-    }, {})
+  const [datavisualizationOpen, setDatavisualizationOpen] = useState(false)
+  const { selectedItems, handleSelect } = useMultiSelect({ checkId: true })
 
   const maps = trpc.maps.textSearch.useQuery({
     location: {
@@ -108,6 +95,11 @@ const Home = () => {
     radius: 100,
     query: watchQuery,
   })
+
+  //`https://www.google.com/maps/place/?q=place_id:${result?.place_id}`
+  useEffect(() => {
+    console.log('Selected Places: ', selectedItems)
+  }, [selectedItems])
 
   return (
     <FormProvider {...form}>
@@ -125,7 +117,6 @@ const Home = () => {
               padding: '40px',
               paddingLeft: '0px',
               paddingRight: '0px',
-              overflow: 'hidden',
               backgroundColor: theme?.palette.background?.appbar,
               color: theme?.palette.text?.primary,
               backgroundImage: theme?.overlays[4],
@@ -138,36 +129,6 @@ const Home = () => {
           <ModalClose onClick={() => setMapSettingsOpen(false)} />
           <Box sx={{ marginBottom: '15px' }} />
           <Container maxWidth="md">
-            <Box
-              sx={{
-                width: '100%',
-                height: '400px',
-              }}
-            >
-              <DataGrid
-                columns={[
-                  { field: 'place_id', headerName: 'ID', width: 150 },
-                  { field: 'name', headerName: 'Name', width: 230 },
-                  { field: 'rating', headerName: 'Rating', width: 100 },
-                  { field: 'business_status', headerName: 'Status', width: 150 },
-                  {
-                    field: 'user_ratings_total',
-                    headerName: 'User Ratings',
-                    width: 100,
-                  },
-                  {
-                    field: 'formatted_address',
-                    headerName: 'Address',
-                    width: 300,
-                  },
-                ]}
-                rows={maps.data?.results ?? []}
-                loading={Boolean(maps.data?.results.length <= 0)}
-                getRowId={(row) => row?.place_id}
-                components={{ Toolbar: GridToolbar }}
-              />
-            </Box>
-            <br />
             <Controller
               control={control}
               name="query"
@@ -350,47 +311,77 @@ const Home = () => {
               state or country.
             </FormHelperText>
             <br />
-            <Button variant="outlined" onClick={() => setDialogOpen(true)}>
-              Open Debug
-            </Button>
-            <Dialog
-              open={dialogOpen}
-              onClose={() => setDialogOpen(false)}
-              aria-labelledby="alert-dialog-title"
-              aria-describedby="alert-dialog-description"
+            <Button
+              endIcon={<FaFileCsv />}
+              variant="outlined"
+              sx={(theme: any) => ({
+                paddingLeft: '25px',
+                paddingRight: '25px',
+              })}
+              onClick={() => {
+                setMapSettingsOpen(false)
+                setDatavisualizationOpen(true)
+              }}
             >
-              <DialogTitle id="alert-dialog-title">{'Debug Panel'}</DialogTitle>
-              <DialogContent>
-                <Box
-                  component={TextareaAutosize}
-                  aria-label="empty textarea"
-                  placeholder="Status codes are logged here for debugging purposes"
-                  value={
-                    maps.data ? JSON.stringify(removeKey(maps.data, 'results')) : ''
-                  }
-                  sx={{
-                    width: '100%',
-                    minHeight: '200px',
-                    overflow: 'hidden',
-                    borderRadius: '12px',
-                    padding: '15px',
-                  }}
-                />
-              </DialogContent>
-              <DialogActions
-                sx={{
-                  padding: '15px',
-                }}
-              >
-                <Button
-                  variant="outlined"
-                  onClick={() => setDialogOpen(false)}
-                  autoFocus
-                >
-                  Close
-                </Button>
-              </DialogActions>
-            </Dialog>
+              Data Visualization & Exports
+            </Button>
+          </Container>
+        </Paper>
+        <Paper
+          component={SwipeableDrawer}
+          anchor="bottom"
+          open={datavisualizationOpen}
+          onClose={() => setDatavisualizationOpen(false)}
+          onOpen={() => setDatavisualizationOpen(true)}
+          sx={(theme: any) => ({
+            '& > .MuiDrawer-paper': {
+              borderTopRightRadius: '12px',
+              borderTopLeftRadius: '12px',
+              padding: '40px',
+              paddingLeft: '0px',
+              paddingRight: '0px',
+              overflow: 'hidden',
+              backgroundColor: theme?.palette.background?.appbar,
+              color: theme?.palette.text?.primary,
+              backgroundImage: theme?.overlays[4],
+            },
+            '&.MuiModal-root': {
+              backgroundColor: 'rgba(0, 0, 0, 0.2)',
+            },
+          })}
+        >
+          <ModalClose onClick={() => setDatavisualizationOpen(false)} />
+          <Box sx={{ marginBottom: '15px' }} />
+          <Container maxWidth="md">
+            <Box
+              sx={{
+                width: '100%',
+                height: '400px',
+              }}
+            >
+              <DataGrid
+                columns={[
+                  { field: 'place_id', headerName: 'ID', width: 150 },
+                  { field: 'name', headerName: 'Name', width: 230 },
+                  { field: 'rating', headerName: 'Rating', width: 100 },
+                  { field: 'business_status', headerName: 'Status', width: 150 },
+                  {
+                    field: 'user_ratings_total',
+                    headerName: 'User Ratings',
+                    width: 100,
+                  },
+                  {
+                    field: 'formatted_address',
+                    headerName: 'Address',
+                    width: 300,
+                  },
+                ]}
+                rows={maps.data?.results ?? []}
+                loading={Boolean(maps.data?.results.length <= 0)}
+                getRowId={(row) => row?.place_id}
+                components={{ Toolbar: GridToolbar }}
+              />
+            </Box>
           </Container>
         </Paper>
         <Paper
@@ -440,21 +431,21 @@ const Home = () => {
               }}
             >
               <Button
-                endIcon={<IoSettingsOutline />}
+                endIcon={<FaMapMarkedAlt />}
                 sx={(theme: any) => ({
                   backgroundColor: theme?.palette?.background?.default,
                   '&:hover': {
                     backgroundColor: theme?.palette?.background?.default,
                   },
-                  paddingLeft: '15px',
-                  paddingRight: '15px',
+                  paddingLeft: '25px',
+                  paddingRight: '25px',
                 })}
                 onClick={() => setMapSettingsOpen(true)}
               >
                 Map
               </Button>
               <Button
-                endIcon={<IoSettingsOutline />}
+                endIcon={<FaUser />}
                 sx={(theme: any) => ({
                   backgroundColor: theme?.palette?.background?.default,
                   '&:hover': {
@@ -499,53 +490,56 @@ const Home = () => {
                   useGeometry
                   usePlaces
                   useVisualization
-                  onDragEnd={(event) => {
-                    setValue(
-                      'location',
-                      {
-                        lat: event.center.lat,
-
-                        lng: event.center.lng,
-                      },
-                      { shouldValidate: true }
-                    )
-                  }}
                 ></Map>
                 {maps.data?.results.map((result) => {
                   return (
                     <OverlayView
+                      key={result?.place_id}
                       position={{
                         lat: result.geometry.location.lat,
                         lng: result.geometry.location.lng,
                       }}
                     >
-                      <Link
-                        href={`https://www.google.com/maps/place/?q=place_id:${result?.place_id}`}
-                      >
-                        <Chip
-                          label={result.rating}
-                          sx={{
-                            height: '30px',
-                            width: 'auto',
-                            padding: '0px 8px',
-                            backgroundColor: '#fff',
+                      <Chip
+                        label={`${result?.name} ${result?.rating}★`}
+                        onClick={() => {
+                          handleSelect({ id: result?.place_id, ...result })
+                        }}
+                        sx={{
+                          height: '30px',
+                          width: 'auto',
+                          padding: '0px 8px',
+                          backgroundColor: selectedItems.find(
+                            (i) => i.id === result?.place_id
+                          )
+                            ? '#222222'
+                            : '#fff',
+                          border: 'none',
+                          borderRadius: '28px',
+                          color: selectedItems.find((i) => i.id === result?.place_id)
+                            ? '#fff'
+                            : '#222222',
+                          fontWeight: '700',
+                          boxShadow:
+                            'rgb(0 0 0 / 4%) 0px 0px 0px 1px, rgb(0 0 0 / 18%) 0px 2px 4px;',
+                          '&:hover': {
                             border: 'none',
-                            borderRadius: '28px',
-                            color: '#343434',
-                            fontWeight: '700',
-                            boxShadow:
-                              'rgb(0 0 0 / 4%) 0px 0px 0px 1px, rgb(0 0 0 / 18%) 0px 2px 4px;',
-                            '&:hover': {
-                              border: 'none',
-                              backgroundColor: '#222222',
-                              color: '#fff',
-                            },
-                            '& > span': {
-                              padding: 0,
-                            },
-                          }}
-                        />
-                      </Link>
+                            backgroundColor: selectedItems.find(
+                              (i) => i.id === result?.place_id
+                            )
+                              ? '#444444'
+                              : '#f1f0f0',
+                            color: selectedItems.find(
+                              (i) => i.id === result?.place_id
+                            )
+                              ? '#fff'
+                              : '#222',
+                          },
+                          '& > span': {
+                            padding: 0,
+                          },
+                        }}
+                      />
                     </OverlayView>
                   )
                 })}

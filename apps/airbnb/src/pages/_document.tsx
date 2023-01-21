@@ -22,13 +22,13 @@ export default class NextDocument extends Document<any> {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
 
-          <meta name="application-name" content="TacoTuesday.com" />
-          <meta
-            name="description"
-            content="What tacos are local restaurants serving, find them here. The taco search engine, find Taco Tuesday menus by you. Sign Up Online. Explore Resources."
-          />
+          <meta name="application-name" content="airbnb.rafszuminski.com" />
+          <meta name="description" content="Airbnb clone by Raf" />
 
-          <meta name="apple-mobile-web-app-title" content="TacoTuesday.com" />
+          <meta
+            name="apple-mobile-web-app-title"
+            content="airbnb.rafszuminski.com"
+          />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
           <link rel="manifest" href="/manifest.json" />

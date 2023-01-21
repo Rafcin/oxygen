@@ -2,14 +2,20 @@
   "extends": "@oxygen/tsconfig/next.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "preserveSymlinks": true,
     "paths": {
       "@/*": ["src/*"],
-      "@/content/*": ["src/content/*"],
-      "@/config/*": ["src/config/*"],
-      "@/trpc/*": ["src/trpc/*"],
-      "@/utils/*": ["src/api/*"],
-      "@/context/*": ["../../packages/design-system/src/context/*"],
-      "@/src/*": ["src/*"]
+      "@/content": ["src/content/*"],
+      "@/env": ["src/env/*"],
+      "@/pages": ["src/pages/*"],
+      "@/schema": ["src/schema/*"],
+      "@/scripts": ["src/scripts/*"],
+      "@/server": ["src/server/*"],
+      "@/styles": ["src/styles/*"],
+      "@/third-party": ["src/third-party/*"],
+      "@/trpc": ["src/trpc/*"],
+      "@/types": ["src/types/*"],
+      "@/utils": ["src/utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

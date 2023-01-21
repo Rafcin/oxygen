@@ -6,35 +6,18 @@ import toast from 'react-hot-toast'
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { ImGithub } from 'react-icons/im'
 import { FaDiscord } from 'react-icons/fa'
+import { useMutation } from '@tanstack/react-query'
 
 const Auth = () => {
   const [loading, setLoading] = useState(false)
 
-  const handleSignInGithub = async () => {
-    setLoading(true)
-    try {
-      await signIn('github', {
+  const handleSignIn = useMutation({
+    mutationFn: (provider: string) => {
+      return signIn('github', {
         callbackUrl: '/',
       })
-    } catch (error) {
-      toast('An error occurred while logging in.', {
-        icon: '🤔',
-      })
-    }
-  }
-
-  const handleSignInDiscord = async () => {
-    setLoading(true)
-    try {
-      await signIn('discord', {
-        callbackUrl: '/',
-      })
-    } catch (error) {
-      toast('An error occurred while logging in.', {
-        icon: '🤔',
-      })
-    }
-  }
+    },
+  })
 
   return (
     <Box>
@@ -51,20 +34,20 @@ const Auth = () => {
         >
           <h1>Sign in 👋</h1>
           <Button
-            onClick={handleSignInGithub}
+            onClick={() => handleSignIn.mutate('github')}
             variant="outlined"
             endIcon={<ImGithub />}
             sx={{ paddingLeft: '25px', paddingRight: '25px', marginBottom: '15px' }}
           >
-            {loading ? '...' : 'Sign in with GitHub'}
+            {handleSignIn.isLoading ? '...' : 'Sign in with GitHub'}
           </Button>
           <Button
-            onClick={handleSignInDiscord}
+            onClick={() => handleSignIn.mutate('discord')}
             variant="outlined"
             endIcon={<FaDiscord />}
             sx={{ paddingLeft: '25px', paddingRight: '25px' }}
           >
-            {loading ? '...' : 'Sign in with Discord'}
+            {handleSignIn.isLoading ? '...' : 'Sign in with Discord'}
           </Button>
         </Box>
       </Container>
