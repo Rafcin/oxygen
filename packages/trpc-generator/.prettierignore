@@ -1,6 +1,0 @@
-.next
-.husky
-.changeset
-dist
-*.mdx
-*.d.ts

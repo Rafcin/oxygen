@@ -1,9 +1,10 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/display-name */
-import { Box, Container } from '@mui/material'
-import { Grid, OxygenTheme } from '@oxygen/design-system'
+import { Box } from '@mui/material'
+import { Container, Grid } from '@oxygen/design-system'
 //import { default as Grid } from '@mui/material/Unstable_Grid2'
 import { HomeCard } from '@/content/ui/cards/home'
+import { Theme } from '@mui/material/styles'
 import { v4 as uuidv4 } from 'uuid'
 
 const Home = () => {
@@ -23,11 +24,11 @@ const Home = () => {
   return (
     <Box sx={{ marginTop: '30px', marginBottom: '80px' }}>
       <Container>
-        {/* <Box
+        <Box
           component={Grid}
           rowGap="40px"
           columnGap="24px"
-          sx={(theme: OxygenTheme) => ({
+          sx={(theme: Theme) => ({
             [theme.breakpoints.up('xs')]: {
               '--breakpoint-grid_columns': 1,
             },
@@ -38,7 +39,7 @@ const Home = () => {
               '--breakpoint-grid_columns': 4,
             },
             [theme.breakpoints.up('lg')]: {
-              '--breakpoint-grid_columns': 5,
+              '--breakpoint-grid_columns': 6,
             },
           })}
         >
@@ -59,7 +60,7 @@ const Home = () => {
               href="/"
             />
           ))}
-        </Box> */}
+        </Box>
       </Container>
     </Box>
   )

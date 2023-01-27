@@ -29,7 +29,8 @@
     "strictPropertyInitialization": false,
     "lib": ["esnext", "dom", "dom.iterable"],
     "target": "es2020",
-    "importHelpers": true
+    "importHelpers": true,
+    "preserveSymlinks": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [

@@ -1,18 +1,16 @@
-import { Appbar } from '@/content/controls/navigation/appbar'
-
+import { createEmotionCache } from '@/styles/index'
+import { trpc } from '@/trpc/api'
 import { EmotionCache } from '@emotion/react'
+import { Body, Content, Shell, ThemeProvider } from '@oxygen/design-system'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import 'intersection-observer'
+import { SessionProvider } from 'next-auth/react'
 import { AppProps } from 'next/app'
 import React from 'react'
-import { Body, Content, Shell, ThemeProvider } from '@oxygen/design-system'
 import 'swiper/css'
 import '../scripts/wdyr.ts'
 import '../styles/styles.css'
-import { createEmotionCache } from '@/styles/index'
-import { SessionProvider } from 'next-auth/react'
-import { trpc } from '@/trpc/api'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { unstable_composeClasses as composeClasses } from "@mui/base"
-import { Box, useThemeProps } from "@mui/material"
-import { OverridableComponent } from "@mui/types"
-import clsx from "clsx"
-import * as React from "react"
+import { unstable_composeClasses as composeClasses } from '@mui/material'
+import { Box, useThemeProps } from '@mui/material'
+import { OverridableComponent } from '@mui/types'
+import clsx from 'clsx'
+import * as React from 'react'
 
 import {
   WarningDescription,
@@ -11,12 +11,12 @@ import {
   WarningRoot,
   WarningSection,
   WarningTitle,
-} from "./styles"
-import { WarningTypeMap, getWarningUtilityClass } from "./types"
+} from './styles'
+import { WarningTypeMap, getWarningUtilityClass } from './types'
 
 const useUtilityClasses = () => {
   const slots = {
-    root: ["root"],
+    root: ['root'],
   }
 
   return composeClasses(slots, getWarningUtilityClass, {})
@@ -25,13 +25,13 @@ const useUtilityClasses = () => {
 const Warning = React.forwardRef(function Warning(inProps, ref) {
   const props = useThemeProps({
     props: inProps,
-    name: "MuiWarning",
+    name: 'MuiWarning',
   })
 
   const {
     className,
     //@ts-ignore
-    component = "div",
+    component = 'div',
     title,
     description,
     ...other
@@ -55,11 +55,11 @@ const Warning = React.forwardRef(function Warning(inProps, ref) {
       <WarningSection ownerState={ownerState} {...other}>
         <Box
           sx={{
-            marginRight: "12px",
+            marginRight: '12px',
           }}
         >
           <WarningIcon ownerState={ownerState} {...other}>
-            {ownerState.variant === "error" && (
+            {ownerState.variant === 'error' && (
               <Box
                 component="svg"
                 stroke="currentColor"
@@ -76,7 +76,7 @@ const Warning = React.forwardRef(function Warning(inProps, ref) {
                 />
               </Box>
             )}
-            {ownerState.variant === "success" && (
+            {ownerState.variant === 'success' && (
               <Box
                 component="svg"
                 stroke="currentColor"
@@ -93,7 +93,7 @@ const Warning = React.forwardRef(function Warning(inProps, ref) {
                 />
               </Box>
             )}
-            {ownerState.variant === "warning" && (
+            {ownerState.variant === 'warning' && (
               <Box
                 component="svg"
                 stroke="currentColor"

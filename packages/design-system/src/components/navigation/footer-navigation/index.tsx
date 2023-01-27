@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Container,
   Stack,
   Typography,
   useMediaQuery,
@@ -13,6 +12,7 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer'
 import { ModalClose } from '../../modal/close'
 import React, { useState } from 'react'
 import { default as Grid } from '@mui/material/Unstable_Grid2'
+import { Container } from 'src/components/layout/container'
 
 export const FooterNavigation = React.memo(
   ({
@@ -66,7 +66,6 @@ export const FooterNavigation = React.memo(
                   maxWidth: '100%',
                 },
               })}
-              maxWidth="md"
             >
               <Box
                 sx={{

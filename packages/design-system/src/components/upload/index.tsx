@@ -1,17 +1,17 @@
-import { unstable_composeClasses as composeClasses } from "@mui/base"
-import { Box, useThemeProps } from "@mui/material"
-import { OverridableComponent } from "@mui/types"
-import clsx from "clsx"
-import * as React from "react"
+import { unstable_composeClasses as composeClasses } from '@mui/material'
+import { Box, useThemeProps } from '@mui/material'
+import { OverridableComponent } from '@mui/types'
+import clsx from 'clsx'
+import * as React from 'react'
 
-import Dropzone from "react-dropzone"
-import { Loading } from "../loading"
-import { UploadCenter, UploadContent, UploadRoot, UploadStyle } from "./styles"
-import { getUploadUtilityClass, UploadTypeMap } from "./types"
+import Dropzone from 'react-dropzone'
+import { Loading } from '../loading'
+import { UploadCenter, UploadContent, UploadRoot, UploadStyle } from './styles'
+import { getUploadUtilityClass, UploadTypeMap } from './types'
 
 const useUtilityClasses = () => {
   const slots = {
-    root: ["root"],
+    root: ['root'],
   }
 
   return composeClasses(slots, getUploadUtilityClass, {})
@@ -21,14 +21,14 @@ const UploadInput = React.memo(
   React.forwardRef(function Upload(inProps, ref) {
     const props = useThemeProps({
       props: inProps,
-      name: "MuiUpload",
+      name: 'MuiUpload',
     })
 
     const {
       className,
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
-      component = "div",
+      component = 'div',
       tag,
       options,
       loading,
@@ -83,10 +83,10 @@ const UploadInput = React.memo(
                     role="presentation"
                     focusable="false"
                     sx={{
-                      display: "block",
+                      display: 'block',
                       height: 64,
                       width: 64,
-                      fill: "currentcolor",
+                      fill: 'currentcolor',
                     }}
                   >
                     <path
@@ -96,19 +96,19 @@ const UploadInput = React.memo(
                   </Box>
                   <Box
                     sx={(theme: any) => ({
-                      [theme.breakpoints.up("sm")]: {
-                        paddingBottom: "8px",
-                        fontSize: "22px",
-                        lineHeight: "26px",
+                      [theme.breakpoints.up('sm')]: {
+                        paddingBottom: '8px',
+                        fontSize: '22px',
+                        lineHeight: '26px',
                       },
-                      WebkitBoxAlign: "center",
-                      display: "flex",
-                      alignItems: "center",
-                      paddingTop: "16px",
-                      paddingBottom: "24px",
-                      fontWeight: "600",
-                      fontSize: "18px",
-                      lineHeight: "22px",
+                      WebkitBoxAlign: 'center',
+                      display: 'flex',
+                      alignItems: 'center',
+                      paddingTop: '16px',
+                      paddingBottom: '24px',
+                      fontWeight: '600',
+                      fontSize: '18px',
+                      lineHeight: '22px',
                     })}
                   >
                     {loading ? (
@@ -127,63 +127,59 @@ const UploadInput = React.memo(
                   </Box>
                   <Box
                     sx={(theme: any) => ({
-                      [theme.breakpoints.up("sm")]: {
-                        paddingBottom: "0px",
-                        paddingLeft: "64px",
-                        paddingRight: "64px",
+                      [theme.breakpoints.up('sm')]: {
+                        paddingBottom: '0px',
+                        paddingLeft: '64px',
+                        paddingRight: '64px',
                       },
-                      fontSize: "16px",
-                      lineHeight: "20px",
-                      paddingBottom: "24px",
-                      paddingLeft: "24px",
-                      paddingRight: "24px",
+                      fontSize: '16px',
+                      lineHeight: '20px',
+                      paddingBottom: '24px',
+                      paddingLeft: '24px',
+                      paddingRight: '24px',
                     })}
                   >
                     {loading ? (
                       <div></div>
                     ) : (
-                      <span>
-                        {isDragAccept ? <div></div> : <div>{tag}</div>}
-                      </span>
+                      <span>{isDragAccept ? <div></div> : <div>{tag}</div>}</span>
                     )}
                   </Box>
                   <Box
                     sx={(theme: any) => ({
-                      [theme.breakpoints.up("sm")]: {
-                        position: "absolute",
-                        bottom: "80px",
+                      [theme.breakpoints.up('sm')]: {
+                        position: 'absolute',
+                        bottom: '80px',
                       },
                     })}
                   >
                     <Box
                       component="div"
                       sx={{
-                        fontSize: "inherit",
-                        fontFamily: "inherit",
-                        fontStyle: "inherit",
-                        fontVariant: "inherit",
-                        lineHeight: "inherit",
-                        appearance: "none",
-                        background: "transparent",
+                        fontSize: 'inherit',
+                        fontFamily: 'inherit',
+                        fontStyle: 'inherit',
+                        fontVariant: 'inherit',
+                        lineHeight: 'inherit',
+                        appearance: 'none',
+                        background: 'transparent',
                         border: 0,
-                        cursor: "pointer",
+                        cursor: 'pointer',
                         margin: 0,
                         padding: 0,
-                        userSelect: "auto",
-                        color: "inherit",
-                        textDecoration: "underline",
+                        userSelect: 'auto',
+                        color: 'inherit',
+                        textDecoration: 'underline',
                         borderRadius: 4,
                         fontWeight: 600,
-                        textAlign: "inherit",
-                        outline: "none",
+                        textAlign: 'inherit',
+                        outline: 'none',
                       }}
                     >
                       {loading ? (
                         <div></div>
                       ) : (
-                        <span>
-                          {isDragAccept ? "" : "Upload from your device"}
-                        </span>
+                        <span>{isDragAccept ? '' : 'Upload from your device'}</span>
                       )}
                     </Box>
                   </Box>
@@ -194,7 +190,7 @@ const UploadInput = React.memo(
         )}
       </Dropzone>
     )
-  }),
+  })
 ) as OverridableComponent<UploadTypeMap>
 
 export { UploadInput }

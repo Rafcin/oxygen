@@ -1,4 +1,4 @@
-import { unstable_composeClasses as composeClasses } from '@mui/base'
+import { unstable_composeClasses as composeClasses } from '@mui/material'
 import { useSlotProps } from '@mui/base/utils'
 import { useThemeProps } from '@mui/material'
 import { OverridableComponent } from '@mui/types'

@@ -1,24 +1,20 @@
-import { unstable_composeClasses as composeClasses } from "@mui/base"
-import { Box, Chip, Tooltip, useThemeProps } from "@mui/material"
-import { OverridableComponent } from "@mui/types"
-import clsx from "clsx"
-import * as React from "react"
-import { useGeolocated } from "../../hooks/geolocation"
-import { AspectRatio } from "../aspect-ratio"
-import { CardContainer } from "../card/card"
-import { CardContent } from "../card/content"
-import { CardCover } from "../card/cover"
-import { Map } from "../map"
-import { PinPointRoot } from "./styles"
-import {
-  getPinPointUtilityClass,
-  PinPointLocation,
-  PinPointTypeMap,
-} from "./types"
+import { unstable_composeClasses as composeClasses } from '@mui/material'
+import { Box, Chip, Tooltip, useThemeProps } from '@mui/material'
+import { OverridableComponent } from '@mui/types'
+import clsx from 'clsx'
+import * as React from 'react'
+import { useGeolocated } from '../../hooks/geolocation'
+import { AspectRatio } from '../aspect-ratio'
+import { CardContainer } from '../card/card'
+import { CardContent } from '../card/content'
+import { CardCover } from '../card/cover'
+import { Map } from '../map'
+import { PinPointRoot } from './styles'
+import { getPinPointUtilityClass, PinPointLocation, PinPointTypeMap } from './types'
 
 const useUtilityClasses = () => {
   const slots = {
-    root: ["root"],
+    root: ['root'],
   }
 
   return composeClasses(slots, getPinPointUtilityClass, {})
@@ -27,7 +23,7 @@ const useUtilityClasses = () => {
 const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
   const props = useThemeProps({
     props: inProps,
-    name: "MuiPinPoint",
+    name: 'MuiPinPoint',
   })
 
   //Default Map Location
@@ -40,7 +36,7 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
     className,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
-    component = "div",
+    component = 'div',
     value,
     onChange,
     defaultValue,
@@ -79,23 +75,23 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
               opts={{
                 center: value ?? dfl,
                 zoom: 11,
-                gestureHandling: "greedy",
+                gestureHandling: 'greedy',
                 zoomControl: false,
-                mapId: "aeba400134fbaf90",
+                mapId: 'aeba400134fbaf90',
                 streetViewControl: false,
                 fullscreenControl: false,
                 mapTypeControl: false,
               }}
               style={{
-                height: "100%",
-                width: "100%",
+                height: '100%',
+                width: '100%',
               }}
               useDrawing
               useGeometry
               usePlaces
               useVisualization
               onChange={(event) => {
-                console.log("Map", event)
+                console.log('Map', event)
                 setMapLocation({
                   lat: Number(event.center.lat),
                   lng: Number(event.center.lng),
@@ -108,7 +104,7 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
                     },
                     {
                       ...event.bounds,
-                    },
+                    }
                   )
               }}
             />
@@ -116,14 +112,14 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
           <CardContent>
             <Box
               sx={{
-                position: "absolute",
+                position: 'absolute',
                 top: 0,
                 left: 0,
-                margin: "10px",
+                margin: '10px',
               }}
             >
               {isGeolocationAvailable && coords && (
-                <Box sx={{ pointerEvents: "auto" }}>
+                <Box sx={{ pointerEvents: 'auto' }}>
                   <Tooltip title="Automatically adjust the pin to your current location.">
                     <Chip
                       onClick={() => {
@@ -143,11 +139,11 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
                           fill="currentColor"
                           xmlns="http://www.w3.org/2000/svg"
                           sx={{
-                            display: "inline-block",
-                            verticalAlign: "middle",
-                            overflow: "hidden",
-                            width: "18px",
-                            height: "20px",
+                            display: 'inline-block',
+                            verticalAlign: 'middle',
+                            overflow: 'hidden',
+                            width: '18px',
+                            height: '20px',
                           }}
                         >
                           <title>MyLocation icon</title>
@@ -156,22 +152,22 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
                         </Box>
                       }
                       sx={{
-                        height: "34px",
-                        width: "auto",
-                        padding: "8px 8px",
-                        backgroundColor: "#fff",
-                        border: "none",
-                        borderRadius: "28px",
-                        color: "#343434",
-                        fontWeight: "700",
+                        height: '34px',
+                        width: 'auto',
+                        padding: '8px 8px',
+                        backgroundColor: '#fff',
+                        border: 'none',
+                        borderRadius: '28px',
+                        color: '#343434',
+                        fontWeight: '700',
                         boxShadow:
-                          "rgb(0 0 0 / 4%) 0px 0px 0px 1px, rgb(0 0 0 / 18%) 0px 2px 4px;",
-                        "&:hover": {
-                          border: "none",
-                          backgroundColor: "#222222",
-                          color: "#fff",
+                          'rgb(0 0 0 / 4%) 0px 0px 0px 1px, rgb(0 0 0 / 18%) 0px 2px 4px;',
+                        '&:hover': {
+                          border: 'none',
+                          backgroundColor: '#222222',
+                          color: '#fff',
                         },
-                        "& > span": {
+                        '& > span': {
                           padding: 0,
                         },
                       }}
@@ -182,13 +178,13 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
             </Box>
             <Box
               sx={{
-                position: "absolute",
+                position: 'absolute',
                 bottom: 0,
                 right: 0,
-                margin: "10px",
+                margin: '10px',
               }}
             >
-              <Box sx={{ pointerEvents: "auto" }}>
+              <Box sx={{ pointerEvents: 'auto' }}>
                 <Tooltip
                   title={
                     <div>
@@ -214,11 +210,11 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
                         fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg"
                         sx={{
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          overflow: "hidden",
-                          width: "18px",
-                          height: "24px",
+                          display: 'inline-block',
+                          verticalAlign: 'middle',
+                          overflow: 'hidden',
+                          width: '18px',
+                          height: '24px',
                         }}
                       >
                         <title>QuestionCircleFill icon</title>
@@ -226,22 +222,22 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
                       </Box>
                     }
                     sx={{
-                      height: "34px",
-                      width: "auto",
-                      padding: "8px 8px",
-                      backgroundColor: "#fff",
-                      border: "none",
-                      borderRadius: "28px",
-                      color: "#343434",
-                      fontWeight: "700",
+                      height: '34px',
+                      width: 'auto',
+                      padding: '8px 8px',
+                      backgroundColor: '#fff',
+                      border: 'none',
+                      borderRadius: '28px',
+                      color: '#343434',
+                      fontWeight: '700',
                       boxShadow:
-                        "rgb(0 0 0 / 4%) 0px 0px 0px 1px, rgb(0 0 0 / 18%) 0px 2px 4px;",
-                      "&:hover": {
-                        border: "none",
-                        backgroundColor: "#222222",
-                        color: "#fff",
+                        'rgb(0 0 0 / 4%) 0px 0px 0px 1px, rgb(0 0 0 / 18%) 0px 2px 4px;',
+                      '&:hover': {
+                        border: 'none',
+                        backgroundColor: '#222222',
+                        color: '#fff',
                       },
-                      "& > span": {
+                      '& > span': {
                         padding: 0,
                       },
                     }}
@@ -251,13 +247,13 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
             </Box>
             <Box
               sx={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
               }}
             >
-              <Box sx={{ pointerEvents: "auto" }}>
+              <Box sx={{ pointerEvents: 'auto' }}>
                 <Chip
                   label={
                     <Box
@@ -270,11 +266,11 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
                       fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg"
                       sx={{
-                        display: "inline-block",
-                        verticalAlign: "middle",
-                        overflow: "hidden",
-                        width: "40px",
-                        height: "40px",
+                        display: 'inline-block',
+                        verticalAlign: 'middle',
+                        overflow: 'hidden',
+                        width: '40px',
+                        height: '40px',
                       }}
                     >
                       <title>Map Marker Icon</title>
@@ -285,19 +281,19 @@ const PinPointInput = React.forwardRef(function PinPoint(inProps, ref) {
                     </Box>
                   }
                   sx={{
-                    height: "80px",
-                    width: "80px",
-                    padding: "0px",
-                    backgroundColor: "transparent",
-                    border: "none",
-                    borderRadius: "28px",
-                    color: "#343434",
-                    fontWeight: "700",
-                    "&:hover": {
-                      border: "none",
-                      backgroundColor: "transparent",
+                    height: '80px',
+                    width: '80px',
+                    padding: '0px',
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    borderRadius: '28px',
+                    color: '#343434',
+                    fontWeight: '700',
+                    '&:hover': {
+                      border: 'none',
+                      backgroundColor: 'transparent',
                     },
-                    "& > span": {
+                    '& > span': {
                       padding: 0,
                     },
                   }}

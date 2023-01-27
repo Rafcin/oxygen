@@ -21,10 +21,6 @@
     },
     "dev": {
       "cache": false
-    },
-    "@oxygen/trpc-generator#build": {
-      "dependsOn": ["@oxygen/trpc-prisma-zod-schema-generator#build"],
-      "inputs": ["src/**", "package.json"]
     }
   }
 }

@@ -9,17 +9,10 @@ export const ContainerRoot = styled('div', {
   overridesResolver: (props, styles) => styles.root,
 })<{ theme?: any; ownerState?: ContainerProps }>(({ theme, ownerState }) => {
   return {
-    '--container-padding-inline': ownerState.inlinePadding,
-    '--container-margin-block-start': ownerState.marginBlockStart,
-    '--container-margin-block-end': ownerState.marginBlockEnd,
     marginInline: 'auto',
-    paddingInlineStart: 'var(--container-padding-inline)',
-    paddingInlineEnd: 'var(--container-padding-inline)',
-    [theme.breakpoints.up('sm')]: {
-      marginBlockStart: 'var(--container-margin-block-start)',
-      marginBlockEnd: 'var(--container-margin-block-end)',
-    },
-    maxWidth: 'var(--page-shell-max-width, "1760px")',
+    paddingInlineStart: 'var(--mui-page-container-padding-inline)',
+    paddingInlineEnd: 'var(--mui-page-container-padding-inline)',
+    maxWidth: 'var(--mui-page-shell-max-content-width,1760px)',
     contain: 'paint layout',
     width: '100%',
   }

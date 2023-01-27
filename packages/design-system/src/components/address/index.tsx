@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
-import { unstable_composeClasses as composeClasses } from '@mui/base'
+import { unstable_composeClasses as composeClasses } from '@mui/material'
 import { Box, TextField, useThemeProps } from '@mui/material'
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete'
 import List from '@mui/material/List'

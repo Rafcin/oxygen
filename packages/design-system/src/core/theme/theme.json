@@ -185,15 +185,28 @@
   "breakpoints": {
     "keys": ["xs", "sm", "md", "lg", "xl"],
     "values": {
-      "xs": 742,
-      "sm": 920,
-      "md": 1440,
-      "lg": 1880,
-      "xl": 2342
+      "xs": 0,
+      "sm": 744,
+      "md": 950,
+      "lg": 1128,
+      "xl": 1440
     }
   },
   "spacing": 8,
-  "pageShellMaxContentWidth": "1760px",
+  "page": {
+    "shell": {
+      "max": {
+        "content": {
+          "width": "2520px"
+        }
+      }
+    },
+    "container": {
+      "padding": {
+        "inline": "80px"
+      }
+    }
+  },
   "border": {
     "default": 12,
     "button": {

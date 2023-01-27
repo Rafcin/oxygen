@@ -30,7 +30,7 @@ import {
   OverlayView,
 } from '@oxygen/design-system'
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Controller, FormProvider, useForm } from 'react-hook-form'
 import { FaFileCsv, FaMapMarkedAlt, FaUser } from 'react-icons/fa'
 import usePlacesAutocomplete, {

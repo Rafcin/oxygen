@@ -1,5 +1,6 @@
-import { Box, Container, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import { default as Grid } from '@mui/material/Unstable_Grid2'
+import { Container } from 'src/components/layout/container'
 import { IColumnConfig, IFooterConfig, ILinkConfig } from '../../../config/footer'
 
 export const FooterColumns = ({ footerConfig }: { footerConfig: IFooterConfig }) => {

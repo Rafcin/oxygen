@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { yupResolver } from '@hookform/resolvers/yup'
-import { unstable_composeClasses as composeClasses } from '@mui/base'
+import { unstable_composeClasses as composeClasses } from '@mui/material'
 import {
   Box,
   Button,

@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { unstable_composeClasses as composeClasses } from "@mui/base"
-import { useThemeProps } from "@mui/material"
-import { OverridableComponent } from "@mui/types"
-import clsx from "clsx"
-import * as React from "react"
+import { unstable_composeClasses as composeClasses } from '@mui/material'
+import { useThemeProps } from '@mui/material'
+import { OverridableComponent } from '@mui/types'
+import clsx from 'clsx'
+import * as React from 'react'
 
-import { CardCoverRoot } from "./styles"
-import { CardCoverTypeMap, getCardCoverUtilityClass } from "./types"
+import { CardCoverRoot } from './styles'
+import { CardCoverTypeMap, getCardCoverUtilityClass } from './types'
 
 const useUtilityClasses = () => {
   const slots = {
-    root: ["root"],
+    root: ['root'],
   }
 
   return composeClasses(slots, getCardCoverUtilityClass, {})
@@ -19,14 +19,14 @@ const useUtilityClasses = () => {
 const CardCover = React.forwardRef(function CardCover(inProps, ref) {
   const props = useThemeProps({
     props: inProps,
-    name: "MuiCardCover",
+    name: 'MuiCardCover',
   })
 
   const {
     className,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
-    component = "div",
+    component = 'div',
     children,
     ...other
   } = props
@@ -48,11 +48,11 @@ const CardCover = React.forwardRef(function CardCover(inProps, ref) {
     >
       {React.Children.map(children, (child, index) =>
         index === 0 && React.isValidElement(child)
-          ? React.cloneElement(child, { "data-first-child": "" } as Record<
+          ? React.cloneElement(child, { 'data-first-child': '' } as Record<
               string,
               string
             >)
-          : child,
+          : child
       )}
     </CardCoverRoot>
   )

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { unstable_composeClasses as composeClasses } from '@mui/base'
+import { unstable_composeClasses as composeClasses } from '@mui/material'
 import { useThemeProps } from '@mui/material'
 import { OverridableComponent } from '@mui/types'
 import clsx from 'clsx'

@@ -11,7 +11,7 @@ import {
   SortableContext,
   sortableKeyboardCoordinates,
 } from '@dnd-kit/sortable'
-import { unstable_composeClasses as composeClasses } from '@mui/base'
+import { unstable_composeClasses as composeClasses } from '@mui/material'
 import { Box, useThemeProps } from '@mui/material'
 import { default as Grid } from '@mui/material/Unstable_Grid2'
 import { OverridableComponent } from '@mui/types'

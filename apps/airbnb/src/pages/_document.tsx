@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { getInitColorSchemeScript } from '@mui/material/styles'
 import { Global } from '@oxygen/design-system'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
@@ -174,6 +175,6 @@ NextDocument.getInitialProps = async (ctx) => {
 
   return {
     ...initialProps,
-    emotionStyleTags,
+    styles: [...React.Children.toArray(initialProps.styles), ...emotionStyleTags],
   }
 }
