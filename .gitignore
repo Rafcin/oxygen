@@ -82,3 +82,5 @@ pnpm-lock.yaml
 #Prisma-Zod
 **/prisma-zod-schema-generator/prisma/generated/**
 apps/explorer/.env
+
+packages/amplify-helper-backend/.env
