@@ -33,6 +33,7 @@ function NextApp(props: Base) {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider emotionCache={emotionCache}>
           <Content>
+            <Appbar />
             <Shell>
               <Body>
                 <Component {...pageProps} data-application="true" />

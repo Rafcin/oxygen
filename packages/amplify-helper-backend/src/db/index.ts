@@ -13,6 +13,8 @@ export const prisma =
       server_env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
   })
 
+export type { PrismaClient } from '@prisma/client'
+
 if (server_env.NODE_ENV !== 'production') {
   global.prisma = prisma
 }
