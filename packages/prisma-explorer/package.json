@@ -1,0 +1,49 @@
+{
+  "private": false,
+  "license": "Apache-2.0",
+  "version": "0.0.0",
+  "name": "@oxygen/prisma-explorer",
+  "description": "Prisma package",
+  "author": {
+    "name": "Raf Szuminski",
+    "email": "rafcin.s@gmail.com",
+    "url": "https://rafszuminski.com"
+  },
+  "repository": "rafcin/oxygen.git",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "prisma"
+  ],
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "files": [
+    "dist",
+    "src",
+    "schema.prisma",
+    "README.md"
+  ],
+  "scripts": {
+    "[--- Build ---]": "",
+    "build": "prisma generate",
+    "[--- Dev ---]": "",
+    "dev": "pnpm build --watch",
+    "ts-watch": "tsc --project tsconfig.watch.json",
+    "[--- Lint ---]": "",
+    "lint": "tsc --noEmit --project tsconfig.dev.json && pnpm eslint ./src --ext .js,.ts,.tsx",
+    "[--- Clean ---]": "",
+    "clean": "rimraf dist node_modules",
+    "[--- Utils ---]": "",
+    "ts": "node -r esbuild-register",
+    "size": "pnpm run size-limit",
+    "[--- Prisma ---]": "",
+    "push": "prisma db push"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.10.1"
+  },
+  "devDependencies": {
+    "prisma": "^4.10.1"
+  }
+}

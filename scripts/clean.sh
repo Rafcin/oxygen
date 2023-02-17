@@ -9,6 +9,12 @@ if [[ -d ./apps/explorer/dist ]]; then rm -rf ./apps/explorer/dist; fi
 if [[ -d ./packages/explorer/.next ]]; then rm -rf ./packages/explorer/.next; fi
 if [[ -d ./packages/explorer/.turbo ]]; then rm -rf ./packages/explorer/.turbo; fi
 
+#robin
+if [[ -d ./apps/robin/node_modules ]]; then rm -rf ./apps/robin/node_modules; fi
+if [[ -d ./apps/robin/dist ]]; then rm -rf ./apps/robin/dist; fi
+if [[ -d ./packages/robin/.next ]]; then rm -rf ./packages/robin/.next; fi
+if [[ -d ./packages/robin/.turbo ]]; then rm -rf ./packages/robin/.turbo; fi
+
 #airbnb
 if [[ -d ./apps/airbnb/node_modules ]]; then rm -rf ./apps/airbnb/node_modules; fi
 if [[ -d ./apps/airbnb/dist ]]; then rm -rf ./apps/airbnb/dist; fi
@@ -33,11 +39,17 @@ if [[ -d ./packages/json-to-js/dist ]]; then rm -rf ./packages/json-to-js/dist; 
 if [[ -d ./packages/json-to-js/.rollup.cache ]]; then rm -rf ./packages/json-to-js/.rollup.cache; fi
 if [[ -d ./packages/json-to-js/.turbo ]]; then rm -rf ./packages/json-to-js/.turbo; fi
 
-#amplify-helper-backend
-if [[ -d ./packages/amplify-helper-backend/node_modules ]]; then rm -rf ./packages/amplify-helper-backend/node_modules; fi
-if [[ -d ./packages/amplify-helper-backend/dist ]]; then rm -rf ./packages/amplify-helper-backend/dist; fi
-if [[ -d ./packages/amplify-helper-backend/.rollup.cache ]]; then rm -rf ./packages/amplify-helper-backend/.rollup.cache; fi
-if [[ -d ./packages/amplify-helper-backend/.turbo ]]; then rm -rf ./packages/amplify-helper-backend/.turbo; fi
+#prisma-explorer
+if [[ -d ./packages/prisma-explorer/node_modules ]]; then rm -rf ./packages/prisma-explorer/node_modules; fi
+if [[ -d ./packages/prisma-explorer/dist ]]; then rm -rf ./packages/prisma-explorer/dist; fi
+if [[ -d ./packages/prisma-explorer/.rollup.cache ]]; then rm -rf ./packages/prisma-explorer/.rollup.cache; fi
+if [[ -d ./packages/prisma-explorer/.turbo ]]; then rm -rf ./packages/prisma-explorer/.turbo; fi
+
+#prisma-robin
+if [[ -d ./packages/prisma-robin/node_modules ]]; then rm -rf ./packages/prisma-robin/node_modules; fi
+if [[ -d ./packages/prisma-robin/dist ]]; then rm -rf ./packages/prisma-robin/dist; fi
+if [[ -d ./packages/prisma-robin/.rollup.cache ]]; then rm -rf ./packages/prisma-robin/.rollup.cache; fi
+if [[ -d ./packages/prisma-robin/.turbo ]]; then rm -rf ./packages/prisma-robin/.turbo; fi
 
 #eslint-config-custom-oxygen
 if [[ -d ./config/eslint-config-custom-oxygen/node_modules ]]; then rm -rf ./config/eslint-config-custom-oxygen/node_modules; fi

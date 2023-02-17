@@ -1,22 +1,12 @@
 {
   "pipeline": {
     "build": {
-      "outputs": ["dist/**", ".next/**"],
       "dependsOn": ["^build"]
     },
     "clean": {
       "cache": false
     },
     "lint": {
-      "dependsOn": ["build"]
-    },
-    "tsc": {
-      "dependsOn": ["build"]
-    },
-    "test": {
-      "dependsOn": ["build"]
-    },
-    "storybook": {
       "dependsOn": ["build"]
     },
     "dev": {
