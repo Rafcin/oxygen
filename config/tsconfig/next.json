@@ -3,11 +3,12 @@
   "display": "@oxygen/tsconfig-next",
   "extends": "./base.json",
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "checkJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -15,15 +16,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "downlevelIteration": true,
     "jsx": "preserve",
-    "incremental": true
-  },
-  "include": [
-    "src",
-    "next-env.d.ts",
-    "../types/next-auth.d.ts",
-    "../types/*.d.ts"
-  ],
-  "exclude": ["node_modules"]
+    "incremental": true,
+    "noUncheckedIndexedAccess": true
+  }
 }
