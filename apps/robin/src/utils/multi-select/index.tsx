@@ -6,12 +6,14 @@ const useMultiSelect = ({ checkId = false, idName = 'id' }) => {
   const handleSelect = (item) => {
     if (checkId) {
       if (!selectedItems.find((i) => i[idName] === item[idName])) {
+        //@ts-ignore
         setSelectedItems([...selectedItems, item])
       } else {
         setSelectedItems(selectedItems.filter((i) => i[idName] !== item[idName]))
       }
     } else {
       if (!selectedItems.find((i) => i === item)) {
+        //@ts-ignore
         setSelectedItems([...selectedItems, item])
       } else {
         setSelectedItems(selectedItems.filter((i) => i !== item))

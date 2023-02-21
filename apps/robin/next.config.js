@@ -1,7 +1,4 @@
 // @ts-check
-/* eslint-disable turbo/no-undeclared-env-vars */
-/* eslint-disable import/order */
-const path = require('path')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -28,26 +25,6 @@ const withMDX = require('@next/mdx')({
 
 
 const protocol = "https"
-/**
- * @note(pnpm) until we move "websites" into "packages"...
- *
- * When developing locally:
- * - pnpm dev:ds
- * - OR update .env => pnpm dev
- *
- * This maps all the externals required for proper localized
- *  files system path mapping.
- */
-const isLocal = process.env.DESIGN_SYSTEM__LINK === 'true' ? true : false
-const externals = [
-  '@types/react',
-  'react',
-  'react-dom',
-]
-const isLocalDebugMessages = [
-  `warn  - [ 📝 ]  pnpm link...`,
-  `warn  - [ 🔗 ]  @oxygen/design-system`,
-]
 
 /**
  * @type {import('next').NextConfig}
@@ -140,28 +117,28 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   // @ts-ignore
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // @note(pnpm)  path mapping if working locally
-    if (isLocal) {
-      isLocalDebugMessages.map((msg) =>
-        console.debug('\x1b[33m%s\x1b[0m', 'warn', ' - ', msg)
-      )
-      externals.map((ext) => {
-        console.debug('\x1b[33m%s\x1b[0m', 'warn', ' - [ 📦 ] ›  ', ext)
-        // @note(npmrc) shamefully-hoist === node_modules at root
-        // @todo(npmrc) would be nice to not shamefully-hoist
-        config.resolve.alias[ext] = path.resolve(
-          __dirname,
-          '..',
-          '..',
-          'node_modules',
-          ext
-        )
-      })
-    }
+  // webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+  //   // @note(pnpm)  path mapping if working locally
+  //   if (isLocal) {
+  //     isLocalDebugMessages.map((msg) =>
+  //       console.debug('\x1b[33m%s\x1b[0m', 'warn', ' - ', msg)
+  //     )
+  //     externals.map((ext) => {
+  //       console.debug('\x1b[33m%s\x1b[0m', 'warn', ' - [ 📦 ] ›  ', ext)
+  //       // @note(npmrc) shamefully-hoist === node_modules at root
+  //       // @todo(npmrc) would be nice to not shamefully-hoist
+  //       config.resolve.alias[ext] = path.resolve(
+  //         __dirname,
+  //         '..',
+  //         '..',
+  //         'node_modules',
+  //         ext
+  //       )
+  //     })
+  //   }
 
-    return config
-  },
+  //   return config
+  // },
 }
 
 /**
