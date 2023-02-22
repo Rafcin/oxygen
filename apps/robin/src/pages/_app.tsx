@@ -9,9 +9,6 @@ import { SessionProvider } from 'next-auth/react'
 import { type AppType } from 'next/app'
 import { type Session } from 'next-auth'
 import React from 'react'
-import 'swiper/css'
-import '../scripts/wdyr.ts'
-import '../styles/styles.css'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()

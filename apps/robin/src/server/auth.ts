@@ -7,7 +7,7 @@ import {
 import DiscordProvider from 'next-auth/providers/discord'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { env } from '@/env/env.mjs'
-import { prisma } from '@oxygen/prisma-robin'
+import { prisma } from 'nico'
 
 /**
  * Module augmentation for `next-auth` types.

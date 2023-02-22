@@ -1,4 +1,3 @@
-export * from './banner'
 export * from './drawer'
 export { Error } from './error'
 export * from './legend'

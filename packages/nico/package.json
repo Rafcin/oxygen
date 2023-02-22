@@ -1,0 +1,47 @@
+{
+  "private": false,
+  "license": "Apache-2.0",
+  "version": "0.0.0",
+  "homepage": "https://www.rafszuminski.com",
+  "name": "nico",
+  "description": "Prisma database for Robin",
+  "author": {
+    "name": "Raf Szuminski",
+    "email": "rafcin.s@gmail.com",
+    "url": "https://rafszuminski.com"
+  },
+  "repository": "rafcin/oxygen.git",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "database",
+    "db",
+    "prisma",
+    "robin"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "[--- Build ---]": "",
+    "build": "prisma db push && tsc",
+    "[--- Clean ---]": "",
+    "clean": "pnpm rimraf dist/ node_modules/ .turbo/",
+    "[--- Prisma ---]": "",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "format": "prisma format",
+    "postinstall": "prisma generate",
+    "studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.10.1"
+  },
+  "devDependencies": {
+    "prisma": "^4.10.1"
+  }
+}

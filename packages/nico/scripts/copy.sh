@@ -6,7 +6,6 @@
 
 cp package.json ./dist/
 cp README.md ./dist/
-cp schema.prisma ./dist/
 cp ../../LICENSE ./dist/
 
 ###

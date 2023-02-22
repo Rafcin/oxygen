@@ -46,7 +46,7 @@
     "[--- Lint ---]": "",
     "lint": "tsc --noEmit --project tsconfig.dev.json && pnpm eslint ./src --ext .js,.ts,.tsx",
     "[--- Clean ---]": "",
-    "clean": "rimraf dist node_modules",
+    "clean": "pnpm rimraf dist/ node_modules/ .turbo/",
     "[--- Utils ---]": "",
     "ts": "node -r esbuild-register",
     "size": "pnpm run size-limit",

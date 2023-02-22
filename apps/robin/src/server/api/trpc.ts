@@ -19,7 +19,7 @@ import { type CreateNextContextOptions } from '@trpc/server/adapters/next'
 import { type Session } from 'next-auth'
 
 import { getServerAuthSession } from '../auth'
-import { prisma } from '@oxygen/prisma-robin'
+import { prisma } from 'nico'
 
 type CreateContextOptions = {
   session: Session | null

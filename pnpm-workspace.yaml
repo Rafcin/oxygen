@@ -2,5 +2,4 @@ packages:
   - "config/*"
   - "apps/*"
   - "packages/*"
-  - "prisma/*"
 enable-pre-post-scripts: true

@@ -9,6 +9,6 @@ export const ShellRoot = styled('div', {
   overridesResolver: (props, styles) => styles.root,
 })<{ theme?: any; ownerState?: ShellProps }>(({ ownerState }) => {
   return {
-    '--page-shell-max-content-width': ownerState.pageSize,
+    '--page-shell-max-content-width': ownerState?.pageSize,
   }
 })

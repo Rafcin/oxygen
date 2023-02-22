@@ -2,6 +2,7 @@
   "extends": "@oxygen/tsconfig/next.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
       "@/content": ["src/content/*"],

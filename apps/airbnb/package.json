@@ -21,7 +21,7 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "[-- Clean --]": "",
-    "clean": "rimraf dist node_modules .next",
+    "clean": "pnpm rimraf .next/ node_modules/ .turbo/",
     "lint": "eslint --max-warnings 0 .",
     "lint-fix": "eslint --fix .",
     "[-- Test --]": "",

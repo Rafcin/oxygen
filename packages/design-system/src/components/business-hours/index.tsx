@@ -89,6 +89,7 @@ const BusinessHoursInput = React.forwardRef(function BusinessHours(inProps, ref)
     day: Yup.string().required('Required'),
     status: Yup.string().required('Required'),
     open: Yup.object().when('status', {
+      //@ts-ignore
       is: 'Open',
       then: Yup.object().shape({
         iso: Yup.string(),
@@ -102,6 +103,7 @@ const BusinessHoursInput = React.forwardRef(function BusinessHours(inProps, ref)
       otherwise: Yup.object().nullable().notRequired(),
     }),
     close: Yup.object().when('status', {
+      //@ts-ignore
       is: 'Open',
       then: Yup.object().shape({
         iso: Yup.string(),
