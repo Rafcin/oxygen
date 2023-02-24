@@ -1,0 +1,62 @@
+{
+  "private": false,
+  "license": "Apache-2.0",
+  "version": "0.0.0",
+  "name": "@oxygen/json-to-js",
+  "description": "Convert JSON to a JS object",
+  "author": {
+    "name": "Raf Szuminski",
+    "email": "rafcin.s@gmail.com",
+    "url": "https://rafszuminski.com"
+  },
+  "repository": "rafcin/oxygen.git",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "json",
+    "js",
+    "object"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "module": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "[--- Run ---]": "",
+    "jtj": "node ./dist/index",
+    "[--- Build ---]": "",
+    "build": "tsup",
+    "[--- Dev ---]": "",
+    "dev": "pnpm build --watch",
+    "ts-watch": "tsc --project tsconfig.watch.json",
+    "[--- Lint ---]": "",
+    "lint": "tsc --noEmit --project tsconfig.dev.json && pnpm eslint ./src --ext .js,.ts,.tsx",
+    "[--- Clean ---]": "",
+    "clean": "pnpm rimraf dist/ node_modules/ .turbo/",
+    "[--- Utils ---]": "",
+    "ts": "node -r esbuild-register",
+    "size": "pnpm run size-limit",
+    "[--- Test ---]": "",
+    "test": "pnpm json-to-js -i ./example/input.json -o ./example/output.ts --ts"
+  },
+  "bin": {
+    "jtj": "./dist/index.js"
+  },
+  "dependencies": {
+    "commander": "^10.0.0"
+  }
+}

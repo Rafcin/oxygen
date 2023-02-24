@@ -1,0 +1,32 @@
+{
+  "theme_color": "#222222",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Airbnb.com",
+  "short_name": "Airbnb.com",
+  "description": "Book Top Rated Rentals for Your Next Trip - Houses, Cabins, Condos, Unique Stays & More. AirCover - The Most Comprehensive Free Protection in Travel. Best Prices. 100,000 Cities.",
+  "icons": [
+    {
+      "src": "/lalilulelo/favicon/192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/lalilulelo/favicon/256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/lalilulelo/favicon/384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/lalilulelo/favicon/512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "private": false,
+  "license": "Apache-2.0",
+  "version": "0.0.0",
+  "homepage": "https://www.rafszuminski.com",
+  "name": "@oxygen/design-system",
+  "description": "Design System by Rafcin",
+  "author": {
+    "name": "Raf Szuminski",
+    "email": "rafcin.s@gmail.com",
+    "url": "https://rafszuminski.com"
+  },
+  "repository": "rafcin/oxygen.git",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "design system",
+    "mui"
+  ],
+  "main": "./dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    },
+    "./internal": {
+      "import": "./dist/esm/internal.js",
+      "require": "./dist/internal.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "browser": {
+    "./styles.css": "./dist/styles.css"
+  },
+  "sideEffects": [
+    "dist/**/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "[--- Build ---]": "",
+    "build": "tsup",
+    "build:all": "pnpm js:theme && pnpm dts:theme && pnpm build",
+    "[--- Dev ---]": "",
+    "dev": "tsup --watch",
+    "dev:build": "tsup",
+    "[----[Lint]----]": "",
+    "lint": "next lint",
+    "[--- Clean ---]": "",
+    "clean": "pnpm rimraf dist/ node_modules/ .turbo/",
+    "[--- Utils ---]": "",
+    "generate:theme": "pnpm js:theme && pnpm dts:theme",
+    "js:theme": "pnpm jtj -i ./src/core/theme/theme.json -o ./src/core/theme/theme.ts --ts -n theme",
+    "dts:theme": "quicktype --top-level Theme -l typescript ./src/core/theme/theme.json -o ./src/declarations/theme/index.ts && ./scripts/prefix.sh ./src/declarations/theme/index.ts Oxygen"
+  },
+  "dependencies": {
+    "@date-io/date-fns": "^2.16.0",
+    "@dnd-kit/core": "^6.0.8",
+    "@dnd-kit/sortable": "^7.0.2",
+    "@dnd-kit/utilities": "3.2.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@googlemaps/react-wrapper": "^1.1.35",
+    "@hookform/resolvers": "^2.9.11",
+    "@mui/material": "^5.11.10",
+    "@mui/x-date-pickers": "^5.0.19",
+    "@oxygen/json-to-js": "*",
+    "@tanstack/react-query": "^4.24.10",
+    "@tanstack/react-query-devtools": "^4.24.10",
+    "axios": "^1.3.4",
+    "clsx": "^1.2.1",
+    "date-fns": "2.29.3",
+    "fast-equals": "^4.0.3",
+    "loadjs": "^4.2.0",
+    "lodash": "4.17.21",
+    "object-hash": "^3.0.0",
+    "react": "^18.2.0",
+    "react-cool-inview": "^3.0.1",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-hook-form": "^7.43.2",
+    "react-is": "18.2.0",
+    "react-use": "^17.4.0",
+    "use-places-autocomplete": "^4.0.0",
+    "uuid": "^9.0.0",
+    "yup": "^1.0.0",
+    "zustand": "^4.3.3"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": false
+    },
+    "react-dom": {
+      "optional": false
+    },
+    "next": {
+      "optional": false
+    },
+    "@mui/material": {
+      "optional": false
+    },
+    "@mui/base": {
+      "optional": false
+    },
+    "@mui/lab": {
+      "optional": false
+    },
+    "@mui/styled-engine": {
+      "optional": false
+    },
+    "@mui/x-date-pickers": {
+      "optional": false
+    },
+    "@mui/utils": {
+      "optional": false
+    },
+    "@mui/icons-material": {
+      "optional": false
+    },
+    "@emotion/cache": {
+      "optional": false
+    },
+    "@emotion/react": {
+      "optional": false
+    },
+    "@emotion/server": {
+      "optional": false
+    },
+    "@emotion/styled": {
+      "optional": false
+    },
+    "react-dropzone": {
+      "optional": false
+    },
+    "react-icons": {
+      "optional": false
+    },
+    "zustand": {
+      "optional": false
+    }
+  },
+  "peerDependencies": {
+    "@emotion/cache": "^11.10.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.6",
+    "@mui/base": "^5.0.0-alpha.108",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/lab": "^5.0.0-alpha.110",
+    "@mui/material": "^5.11.10",
+    "@mui/styled-engine": "^5.10.16",
+    "@mui/system": "^5.10.16",
+    "@mui/utils": "^5.10.16",
+    "@mui/x-date-pickers": "^5.0.9",
+    "next": "^13.0.5",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-icons": "^4.7.1",
+    "zustand": "^4.3.3"
+  },
+  "devDependencies": {
+    "@mui/types": "^7.2.3",
+    "@oxygen/json-to-js": "workspace:*",
+    "@types/google.maps": "^3.52.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "quicktype": "23.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

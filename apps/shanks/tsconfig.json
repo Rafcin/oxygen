@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "checkJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "noUncheckedIndexedAccess": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/content": ["src/content/*"],
+      "@/env": ["src/env/*"],
+      "@/pages": ["src/pages/*"],
+      "@/schema": ["src/schema/*"],
+      "@/scripts": ["src/scripts/*"],
+      "@/server": ["src/server/*"],
+      "@/styles": ["src/styles/*"],
+      "@/third-party": ["src/third-party/*"],
+      "@/trpc": ["src/trpc/*"],
+      "@/types": ["src/types/*"],
+      "@/utils": ["src/utils/*"]
+    }
+  },
+  "include": [
+    ".eslintrc.cjs",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs"
+  ],
+  "exclude": ["node_modules"]
+}

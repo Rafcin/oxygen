@@ -1,0 +1,65 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+.env
+**/.env
+.env.*
+**/.env.*
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# Turbo
+.turbo
+
+# dependencies
+/node_modules
+
+**/deploy/**
+.next
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+yarn.lock
+testem.log
+/typings
+
+
+#yarn settings
+/.yarn/*
+!/.yarn/plugins
+!/.yarn/releases
+
+# System Files
+.DS_Store
+Thumbs.db
+
+#pnpm
+pnpm-lock.yaml
+
+#Rollup
+.rollup.cache
+
+#TS
+.tsbuildinfo
