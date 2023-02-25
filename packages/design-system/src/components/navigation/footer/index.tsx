@@ -1,29 +1,28 @@
-import { Paper, useTheme } from '@mui/material'
-import SwipeableDrawer from '@mui/material/SwipeableDrawer'
-import React from 'react'
-import { useWindowScroll } from 'react-use'
-import { IFooterConfig } from 'src/config/footer'
+import { Paper } from "@mui/material";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import React from "react";
+import { useWindowScroll } from "react-use";
+import { IFooterConfig } from "../../../config";
 
-import { useNavigationStore } from '../../../context/navigation'
-import { Drawer } from '../../drawer'
-import { ModalClose } from '../../modal/close'
-import { FooterColumns } from '../footer-columns'
-import { FooterNavigation } from '../footer-navigation'
+import { useNavigationStore } from "../../../context/navigation";
+import { Drawer } from "../../drawer";
+import { ModalClose } from "../../modal/close";
+import { FooterColumns } from "../footer-columns";
+import { FooterNavigation } from "../footer-navigation";
 
 export const Footer = ({
   isFooterAllowedOnPage,
   footerConfig,
 }: {
-  isFooterAllowedOnPage: Boolean
-  footerConfig: IFooterConfig
+  isFooterAllowedOnPage: Boolean;
+  footerConfig: IFooterConfig;
 }) => {
-  const [open, setOpen] = React.useState(false)
-  const theme = useTheme<any>()
-  const { isFooterOpen, changeFooterOpen } = useNavigationStore()
-  const { x, y } = useWindowScroll()
+  const [open, setOpen] = React.useState(false);
+  const { isFooterOpen, changeFooterOpen } = useNavigationStore();
+  const { x, y } = useWindowScroll();
   React.useEffect(() => {
-    changeFooterOpen(y <= 20)
-  }, [changeFooterOpen, x, y])
+    changeFooterOpen(y <= 20);
+  }, [changeFooterOpen, x, y]);
 
   return (
     <span>
@@ -36,16 +35,16 @@ export const Footer = ({
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
             sx={(theme: any) => ({
-              '& > .MuiDrawer-paper': {
-                borderTopRightRadius: '12px',
-                borderTopLeftRadius: '12px',
-                padding: '40px',
-                paddingLeft: '0px',
-                paddingRight: '0px',
-                overflow: 'hidden',
-                backgroundColor: theme?.palette.background?.appbar,
-                color: theme?.palette.text?.primary,
-                backgroundImage: theme?.overlays[4],
+              "& > .MuiDrawer-paper": {
+                borderTopRightRadius: "12px",
+                borderTopLeftRadius: "12px",
+                padding: "40px",
+                paddingLeft: "0px",
+                paddingRight: "0px",
+                overflow: "hidden",
+                backgroundColor: theme?.vars.palette.background?.appbar,
+                color: theme?.vars.palette.text?.primary,
+                backgroundImage: theme?.vars.overlays[4],
               },
             })}
           >
@@ -56,20 +55,20 @@ export const Footer = ({
           <Drawer
             floating={true}
             visible={isFooterOpen}
-            sx={{
+            sx={(theme: any) => ({
               zIndex: 1000,
-              boxShadow: 'rgb(0 0 0 / 8%) 0 1px 0',
-              backgroundColor: theme?.palette.background?.appbar,
-              backgroundImage: theme?.overlays[4],
-              color: theme?.palette.text?.primary,
-              height: '110px',
-              borderTop: `1px solid ${theme?.palette?.footer?.border}`,
-            }}
+              boxShadow: "rgb(0 0 0 / 8%) 0 1px 0",
+              backgroundColor: theme?.vars.palette.background?.appbar,
+              backgroundImage: theme?.vars.overlays[4],
+              color: theme?.vars.palette.text?.primary,
+              height: "110px",
+              borderTop: `1px solid ${theme?.vars.palette?.footer?.border}`,
+            })}
           >
             <FooterNavigation isFloating={true} footerConfig={footerConfig} />
           </Drawer>
         </div>
       )}
     </span>
-  )
-}
+  );
+};

@@ -1,40 +1,43 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Button, unstable_composeClasses as composeClasses } from '@mui/material'
-import { Box, useThemeProps } from '@mui/material'
-import { OverridableComponent } from '@mui/types'
-import clsx from 'clsx'
-import * as React from 'react'
+import {
+  Button,
+  unstable_composeClasses as composeClasses,
+} from "@mui/material";
+import { Box, useThemeProps } from "@mui/material";
+import { OverridableComponent } from "@mui/types";
+import clsx from "clsx";
+import * as React from "react";
 
-import { ModalCloseRoot } from './styles'
-import { ModalCloseTypeMap, getModalCloseUtilityClass } from './types'
+import { ModalCloseRoot } from "./styles";
+import { ModalCloseTypeMap, getModalCloseUtilityClass } from "./types";
 
 const useUtilityClasses = () => {
   const slots = {
-    root: ['root'],
-  }
+    root: ["root"],
+  };
 
-  return composeClasses(slots, getModalCloseUtilityClass, {})
-}
+  return composeClasses(slots, getModalCloseUtilityClass, {});
+};
 
 const ModalClose = React.forwardRef(function ModalClose(inProps, ref) {
   const props = useThemeProps({
     props: inProps,
-    name: 'MuiModalClose',
-  })
+    name: "MuiModalClose",
+  });
 
   const {
     className,
     //@ts-ignore
-    component = 'div',
+    component = "div",
     ...other
-  } = props
+  } = props;
 
   const ownerState = {
     ...props,
     component,
-  }
+  };
 
-  const classes = useUtilityClasses()
+  const classes = useUtilityClasses();
 
   return (
     <ModalCloseRoot
@@ -46,11 +49,11 @@ const ModalClose = React.forwardRef(function ModalClose(inProps, ref) {
     >
       <Box
         sx={{
-          position: 'absolute',
-          top: '12px',
-          left: '12px',
+          position: "absolute",
+          top: "12px",
+          left: "12px",
           zIndex: 1,
-          display: 'flex',
+          display: "flex",
         }}
       >
         {
@@ -58,17 +61,17 @@ const ModalClose = React.forwardRef(function ModalClose(inProps, ref) {
           <Button
             {...other}
             sx={(theme: any) => ({
-              borderRadius: '50%',
-              color: theme?.palette.text?.primary,
-              width: '32px',
-              height: '32px',
-              maxWidth: '32px',
-              maxHeight: '32px',
-              minWidth: '32px',
-              minHeight: '32px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              borderRadius: "50%",
+              color: theme?.vars.palette.text?.primary,
+              width: "32px",
+              height: "32px",
+              maxWidth: "32px",
+              maxHeight: "32px",
+              minWidth: "32px",
+              minHeight: "32px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             })}
           >
             <Box
@@ -79,13 +82,13 @@ const ModalClose = React.forwardRef(function ModalClose(inProps, ref) {
               role="presentation"
               focusable="false"
               sx={{
-                display: 'block',
-                fill: 'none',
-                height: '16px',
-                width: '16px',
-                stroke: 'currentcolor',
+                display: "block",
+                fill: "none",
+                height: "16px",
+                width: "16px",
+                stroke: "currentcolor",
                 strokeWidth: 3,
-                overflow: 'visible',
+                overflow: "visible",
               }}
             >
               <path d="m6 6 20 20" />
@@ -95,7 +98,7 @@ const ModalClose = React.forwardRef(function ModalClose(inProps, ref) {
         }
       </Box>
     </ModalCloseRoot>
-  )
-}) as OverridableComponent<ModalCloseTypeMap>
+  );
+}) as OverridableComponent<ModalCloseTypeMap>;
 
-export { ModalClose }
+export { ModalClose };

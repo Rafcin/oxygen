@@ -1,33 +1,33 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
-import { unstable_composeClasses as composeClasses } from '@mui/material'
-import { Box, TextField, useThemeProps } from '@mui/material'
-import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemAvatar from '@mui/material/ListItemAvatar'
-import ListItemText from '@mui/material/ListItemText'
-import { default as Grid } from '@mui/material/Unstable_Grid2' // Grid version 2
-import { OverridableComponent } from '@mui/types'
-import clsx from 'clsx'
-import * as React from 'react'
-import { Controller, useFormContext } from 'react-hook-form'
+import { unstable_composeClasses as composeClasses } from "@mui/material";
+import { Box, TextField, useThemeProps } from "@mui/material";
+import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import ListItemText from "@mui/material/ListItemText";
+import { default as Grid } from "@mui/material/Unstable_Grid2"; // Grid version 2
+import { OverridableComponent } from "@mui/types";
+import clsx from "clsx";
+import * as React from "react";
+import { Controller, useFormContext } from "react-hook-form";
 import usePlacesAutocomplete, {
   getDetails,
   getGeocode,
-} from 'use-places-autocomplete'
-import { Error } from '../error'
-import { PinPointInput } from '../pinpoint'
-import { countries, CountryType } from './constants'
-import { AddressRoot } from './styles'
-import { AddressTypeMap, getAddressUtilityClass } from './types'
+} from "use-places-autocomplete";
+import { Error } from "../error";
+import { PinPointInput } from "../pinpoint";
+import { countries, CountryType } from "./constants";
+import { AddressRoot } from "./styles";
+import { AddressTypeMap, getAddressUtilityClass } from "./types";
 
 const useUtilityClasses = () => {
   const slots = {
-    root: ['root'],
-  }
+    root: ["root"],
+  };
 
-  return composeClasses(slots, getAddressUtilityClass, {})
-}
+  return composeClasses(slots, getAddressUtilityClass, {});
+};
 
 function extractValue(components: Array<any>, type: any) {
   return (
@@ -35,37 +35,37 @@ function extractValue(components: Array<any>, type: any) {
       .filter((component) => component.types.indexOf(type) === 0)
       .map((item) => item.long_name)
       .pop() || null
-  )
+  );
 }
 
 const AddressInput = React.memo(
   React.forwardRef(function Address(inProps, ref) {
     const props = useThemeProps({
       props: inProps,
-      name: 'MuiAddress',
-    })
+      name: "MuiAddress",
+    });
 
     const {
       className,
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
-      component = 'div',
+      component = "div",
       name,
       ...other
-    } = props
+    } = props;
 
     const ownerState = {
       ...props,
       component,
-    }
+    };
 
-    const classes = useUtilityClasses()
+    const classes = useUtilityClasses();
 
     const {
       control,
       setValue,
       formState: { errors },
-    } = useFormContext()
+    } = useFormContext();
 
     const {
       value: locationSearchValue,
@@ -78,9 +78,9 @@ const AddressInput = React.memo(
         /* Define search scope here */
       },
       debounce: 300,
-    })
+    });
 
-    const filter = createFilterOptions<any>()
+    const filter = createFilterOptions<any>();
 
     return (
       <AddressRoot
@@ -99,7 +99,7 @@ const AddressInput = React.memo(
                 render={({ field: { onChange, value } }) => (
                   <Autocomplete
                     sx={{
-                      width: '100%',
+                      width: "100%",
                     }}
                     id="street-input"
                     isOptionEqualToValue={(option, value) =>
@@ -114,12 +114,12 @@ const AddressInput = React.memo(
                       meta: result.structured_formatting.secondary_text,
                     }))}
                     onInputChange={(event, newInputValue) => {
-                      setLocationSearchValue(newInputValue)
-                      onChange(newInputValue)
+                      setLocationSearchValue(newInputValue);
+                      onChange(newInputValue);
                     }}
                     filterOptions={(options, params) => {
-                      const filtered = filter(options, params)
-                      return filtered
+                      const filtered = filter(options, params);
+                      return filtered;
                     }}
                     onChange={(
                       event: any,
@@ -127,13 +127,13 @@ const AddressInput = React.memo(
                       reason: any,
                       details: any
                     ) => {
-                      if (reason === 'clear') {
-                        setValue(`${name}.street`, '')
+                      if (reason === "clear") {
+                        setValue(`${name}.street`, "");
                       }
-                      if (reason === 'createOption') {
-                        setValue(`${name}.street`, newValue.value)
+                      if (reason === "createOption") {
+                        setValue(`${name}.street`, newValue.value);
                       }
-                      if (reason === 'selectOption') {
+                      if (reason === "selectOption") {
                         getGeocode({
                           address: newValue.value,
                         })
@@ -145,87 +145,108 @@ const AddressInput = React.memo(
                           .then((details: any) => {
                             setValue(`${name}.placeid`, details.place_id, {
                               shouldValidate: true,
-                            })
+                            });
                             setValue(`${name}.label`, newValue.label, {
                               shouldValidate: true,
-                            })
+                            });
                             setValue(
                               `${name}.street`,
                               extractValue(
                                 details.address_components,
-                                'street_number'
-                              ) && extractValue(details.address_components, 'route')
+                                "street_number"
+                              ) &&
+                                extractValue(
+                                  details.address_components,
+                                  "route"
+                                )
                                 ? `${extractValue(
                                     details.address_components,
-                                    'street_number'
+                                    "street_number"
                                   )} ${extractValue(
                                     details.address_components,
-                                    'route'
+                                    "route"
                                   )}`
                                 : newValue.label,
                               { shouldValidate: true }
-                            )
+                            );
                             setValue(
                               `${name}.city`,
-                              extractValue(details.address_components, 'locality'),
+                              extractValue(
+                                details.address_components,
+                                "locality"
+                              ),
                               { shouldValidate: true }
-                            )
+                            );
                             setValue(
                               `${name}.state`,
                               extractValue(
                                 details.address_components,
-                                'administrative_area_level_1'
+                                "administrative_area_level_1"
                               ) ??
                                 extractValue(
                                   details.address_components,
-                                  'administrative_area_level_2'
+                                  "administrative_area_level_2"
                                 ),
                               { shouldValidate: true }
-                            )
+                            );
                             onChange(
                               extractValue(
                                 details.address_components,
-                                'street_number'
-                              ) && extractValue(details.address_components, 'route')
+                                "street_number"
+                              ) &&
+                                extractValue(
+                                  details.address_components,
+                                  "route"
+                                )
                                 ? `${extractValue(
                                     details.address_components,
-                                    'street_number'
+                                    "street_number"
                                   )} ${extractValue(
                                     details.address_components,
-                                    'route'
+                                    "route"
                                   )}`
                                 : newValue.label
-                            )
+                            );
                             if (
-                              extractValue(details.address_components, 'postal_code')
+                              extractValue(
+                                details.address_components,
+                                "postal_code"
+                              )
                             ) {
                               setValue(
                                 `${name}.zip`,
                                 extractValue(
                                   details.address_components,
-                                  'postal_code'
+                                  "postal_code"
                                 ),
                                 { shouldValidate: true }
-                              )
+                              );
                             }
-                            setValue(`${name}.address`, details.formatted_address, {
-                              shouldValidate: true,
-                            })
-                            const country: CountryType | undefined = countries.find(
-                              (country) =>
+                            setValue(
+                              `${name}.address`,
+                              details.formatted_address,
+                              {
+                                shouldValidate: true,
+                              }
+                            );
+                            const country: CountryType | undefined =
+                              countries.find((country) =>
                                 country.label.includes(
-                                  extractValue(details.address_components, 'country')
+                                  extractValue(
+                                    details.address_components,
+                                    "country"
+                                  )
                                 )
-                            )
+                              );
                             country &&
                               setValue(`${name}.country`, country, {
                                 shouldValidate: true,
-                              })
+                              });
                             setValue(
                               `${name}.route`,
-                              extractValue(details.address_components, 'route'),
+                              extractValue(details.address_components, "route"),
                               { shouldValidate: true }
-                            )
+                            );
                             setValue(
                               `${name}.location`,
                               {
@@ -234,7 +255,7 @@ const AddressInput = React.memo(
                                 lng: details.geometry.location.lng(),
                               },
                               { shouldValidate: true }
-                            )
+                            );
                             setValue(
                               `${name}.viewport`,
                               {
@@ -259,15 +280,19 @@ const AddressInput = React.memo(
                                   ?.toJSON(),
                               },
                               { shouldValidate: true }
-                            )
-                          })
+                            );
+                          });
                       }
                     }}
                     loading={Boolean(
-                      locationSearchValue && locationSearchStatus !== 'OK'
+                      locationSearchValue && locationSearchStatus !== "OK"
                     )}
                     renderInput={(params) => (
-                      <TextField autoComplete="off" label="Street" {...params} />
+                      <TextField
+                        autoComplete="off"
+                        label="Street"
+                        {...params}
+                      />
                     )}
                     renderOption={(props, option) => (
                       <Box
@@ -275,7 +300,7 @@ const AddressInput = React.memo(
                         component="li"
                         sx={(theme: any) => ({
                           borderRadius: `${theme?.border?.default}px`,
-                          margin: '10px',
+                          margin: "10px",
                         })}
                         {...props}
                       >
@@ -289,15 +314,15 @@ const AddressInput = React.memo(
                               <Box
                                 sx={(theme: any) => ({
                                   backgroundColor:
-                                    theme?.palette?.background?.default,
-                                  border: `1px solid ${theme?.palette?.background?.border}`,
+                                    theme?.vars.palette?.background?.default,
+                                  border: `1px solid ${theme?.vars.palette?.background?.border}`,
                                   borderRadius: `${theme?.border?.default}px`,
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  maxWidth: '48px',
-                                  height: '48px',
-                                  fontSize: '17px',
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  maxWidth: "48px",
+                                  height: "48px",
+                                  fontSize: "17px",
                                 })}
                               >
                                 <Box
@@ -310,11 +335,11 @@ const AddressInput = React.memo(
                                   fill="currentColor"
                                   xmlns="http://www.w3.org/2000/svg"
                                   sx={{
-                                    display: 'inline-block',
-                                    verticalAlign: 'middle',
-                                    overflow: 'hidden',
-                                    width: '22px',
-                                    height: '22px',
+                                    display: "inline-block",
+                                    verticalAlign: "middle",
+                                    overflow: "hidden",
+                                    width: "22px",
+                                    height: "22px",
                                   }}
                                 >
                                   <title>Buildings icon</title>
@@ -443,12 +468,12 @@ const AddressInput = React.memo(
                       reason: any,
                       details: any
                     ) => {
-                      if (reason === 'clear') {
-                        setValue('country', null)
+                      if (reason === "clear") {
+                        setValue("country", null);
                       }
-                      if (reason === 'selectOption') {
-                        console.log('Selected Option', newValue)
-                        newValue && onChange(newValue)
+                      if (reason === "selectOption") {
+                        console.log("Selected Option", newValue);
+                        newValue && onChange(newValue);
                       }
                     }}
                     renderInput={(params) => (
@@ -468,9 +493,9 @@ const AddressInput = React.memo(
             <Grid xs={12}>
               <Box
                 sx={{
-                  overflow: 'hidden',
-                  height: '100%',
-                  borderRadius: '24px',
+                  overflow: "hidden",
+                  height: "100%",
+                  borderRadius: "24px",
                 }}
               >
                 <Controller
@@ -485,8 +510,8 @@ const AddressInput = React.memo(
                         onChange({
                           lat: latLng.lat,
                           lng: latLng.lng,
-                        })
-                        setValue(`${name}.viewport`, bounds)
+                        });
+                        setValue(`${name}.viewport`, bounds);
                       }}
                     />
                   )}
@@ -496,8 +521,8 @@ const AddressInput = React.memo(
           </Grid>
         </span>
       </AddressRoot>
-    )
+    );
   })
-) as OverridableComponent<AddressTypeMap>
+) as OverridableComponent<AddressTypeMap>;
 
-export { AddressInput }
+export { AddressInput };

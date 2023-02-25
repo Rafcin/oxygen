@@ -23,21 +23,21 @@ export default function Card() {
                 borderRadius: `${ownerState.radius}`,
               }
             : {
-                borderRadius: `${theme.shape.borderRadius}`,
+                borderRadius: `${theme?.vars.shape.borderRadius}`,
               }),
 
-          display: 'flex',
-          overflow: 'hidden',
-          position: 'relative',
+          display: "flex",
+          overflow: "hidden",
+          position: "relative",
 
-          webkitBoxDirection: 'normal',
+          webkitBoxDirection: "normal",
 
           ...(ownerState.vertical === true && {
-            webkitBoxOrient: 'vertical',
-            flexDirection: 'column',
+            webkitBoxOrient: "vertical",
+            flexDirection: "column",
           }),
         }),
       },
     },
-  }
+  };
 }

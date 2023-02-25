@@ -5,10 +5,10 @@ export default function Tabs() {
       styleOverrides: {
         root: ({ theme }) => ({
           "& > .MuiTabs-scroller > .MuiTabs-indicator": {
-            backgroundColor: theme?.palette.text?.primary,
+            backgroundColor: theme?.vars.palette.text?.primary,
           },
         }),
       },
     },
-  }
+  };
 }

@@ -1,10 +1,10 @@
-import { Box } from "@mui/material"
-import { useTheme } from "@mui/material/styles"
+import { Box } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
-import { Pulse } from "../pulse"
+import { Pulse } from "../pulse";
 
 const Loading = () => {
-  const theme = useTheme<any>()
+  const theme = useTheme<any>();
 
   return (
     <Box
@@ -16,9 +16,9 @@ const Loading = () => {
         display: "flex",
       }}
     >
-      <Pulse size={3} color={theme?.palette?.loaderDots?.default} />
+      <Pulse size={3} color={theme?.vars.palette?.loaderDots?.default} />
     </Box>
-  )
-}
+  );
+};
 
-export { Loading }
+export { Loading };

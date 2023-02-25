@@ -1,23 +1,23 @@
-import { Box } from '@mui/material'
-import { IFooterConfig } from 'src/config/footer'
-import { FooterColumns } from '../footer-columns'
-import { FooterNavigation } from '../footer-navigation'
+import { Box } from "@mui/material";
+import { IFooterConfig } from "../../../config";
+import { FooterColumns } from "../footer-columns";
+import { FooterNavigation } from "../footer-navigation";
 
 export const InlineFooter = ({
   isFooterAllowedOnPage,
   footerConfig,
 }: {
-  isFooterAllowedOnPage: Boolean
-  footerConfig: IFooterConfig
+  isFooterAllowedOnPage: Boolean;
+  footerConfig: IFooterConfig;
 }) => {
   return (
     <span>
       {isFooterAllowedOnPage && (
         <Box
           sx={(theme: any) => ({
-            backgroundColor: theme?.palette?.footer?.background,
-            backgroundImage: theme?.overlays[4],
-            borderTop: `1px solid ${theme?.palette?.footer?.border}`,
+            backgroundColor: theme?.vars.palette?.footer?.background,
+            backgroundImage: theme?.vars.overlays[4],
+            borderTop: `1px solid ${theme?.vars.palette?.footer?.border}`,
           })}
         >
           <FooterColumns footerConfig={footerConfig} />
@@ -29,5 +29,5 @@ export const InlineFooter = ({
         </Box>
       )}
     </span>
-  )
-}
+  );
+};

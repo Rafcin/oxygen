@@ -5,11 +5,11 @@ export default function Drawer() {
       styleOverrides: {
         root: ({ theme }) => ({
           "&.MuiDrawer-paper": {
-            color: theme?.palette.text?.primary,
-            background: theme?.palette.background?.default,
+            color: theme?.vars.palette.text?.primary,
+            background: theme?.vars.palette.background?.default,
           },
         }),
       },
     },
-  }
+  };
 }

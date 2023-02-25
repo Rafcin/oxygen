@@ -1,6 +1,6 @@
-import { styled } from "@mui/system"
+import { styled } from "@mui/system";
 
-import { ModalFooterProps } from "../types"
+import { ModalFooterProps } from "../types";
 
 export const ModalFooterRoot = styled("div", {
   name: "ModalFooterRoot",
@@ -12,11 +12,11 @@ export const ModalFooterRoot = styled("div", {
     WebkitBoxAlign: "center",
     display: "flex",
     flex: "0 0 auto",
-    borderTop: `1px solid ${theme?.palette.navigation.border}`,
+    borderTop: `1px solid ${theme?.vars.palette.navigation.border}`,
     padding: "16px 24px",
     alignItems: "center",
     justifyContent: "space-between",
     fontSize: 16,
     lineHeight: 20,
   },
-])
+]);

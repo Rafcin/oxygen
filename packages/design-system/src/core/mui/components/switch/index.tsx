@@ -15,7 +15,7 @@ export default function Switch() {
               transform: "translateX(16px)",
               color: "#fff",
               "& + .MuiSwitch-track": {
-                backgroundColor: theme?.palette.background.inverse,
+                backgroundColor: theme?.vars.palette.background.inverse,
                 opacity: 1,
                 border: 0,
               },
@@ -24,14 +24,14 @@ export default function Switch() {
               },
             },
             "&.Mui-focusVisible .MuiSwitch-thumb": {
-              color: theme?.palette.background.inverse,
+              color: theme?.vars.palette.background.inverse,
               border: "6px solid #fff",
             },
             "&.Mui-disabled .MuiSwitch-thumb": {
-              color: theme?.palette.text.inverse,
+              color: theme?.vars.palette.text.inverse,
             },
             "&.Mui-disabled + .MuiSwitch-track": {
-              opacity: theme.mode === "light" ? 0.7 : 0.3,
+              opacity: theme?.vars.mode === "light" ? 0.7 : 0.3,
             },
           },
           "& .MuiSwitch-thumb": {
@@ -41,14 +41,14 @@ export default function Switch() {
           },
           "& .MuiSwitch-track": {
             borderRadius: 26 / 2,
-            backgroundColor: theme?.palette.background.border,
+            backgroundColor: theme?.vars.palette.background.border,
             opacity: 1,
-            transition: theme.transitions.create(["background-color"], {
+            transition: theme?.vars.transitions.create(["background-color"], {
               duration: 500,
             }),
           },
         }),
       },
     },
-  }
+  };
 }

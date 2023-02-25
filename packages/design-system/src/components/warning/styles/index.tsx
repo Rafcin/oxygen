@@ -1,6 +1,6 @@
-import { styled } from "@mui/system"
+import { styled } from "@mui/system";
 
-import { WarningProps } from "../types"
+import { WarningProps } from "../types";
 
 export const WarningRoot = styled("div", {
   name: "MuiWarning",
@@ -29,7 +29,7 @@ export const WarningRoot = styled("div", {
       display: "block",
     }),
   },
-])
+]);
 
 export const WarningSection = styled("div", {
   name: "MuiWarningSection",
@@ -41,16 +41,16 @@ export const WarningSection = styled("div", {
     width: "100%",
     display: "inline-flex",
     contain: "layout",
-    color: theme?.palette.text?.primary,
-    background: theme?.palette.background?.default,
-    border: `1px solid ${theme?.palette.background?.border}`,
+    color: theme?.vars.palette.text?.primary,
+    background: theme?.vars.palette.background?.default,
+    border: `1px solid ${theme?.vars.palette.background?.border}`,
     ...(ownerState.borderless && {
       border: "1px solid transparent",
       borderRadius: 8,
-      boxShadow: `${theme?.palette.background?.border} 0px 0px 0px 1px inset`,
+      boxShadow: `${theme?.vars.palette.background?.border} 0px 0px 0px 1px inset`,
     }),
   },
-])
+]);
 
 export const WarningIcon = styled("div", {
   name: "MuiWarningIcon",
@@ -65,34 +65,34 @@ export const WarningIcon = styled("div", {
     alignItems: "center",
     justifyContent: "center",
     borderRadius: "50%",
-    color: theme?.palette.error.contrastText,
-    background: theme?.palette.background?.default,
+    color: theme?.vars.palette.error.contrastText,
+    background: theme?.vars.palette.background?.default,
     ...(ownerState.variant === "error" && {
       background: `linear-gradient(
         to right,
-        ${theme?.palette.error.main} 0%,
-        ${theme?.palette.error.main} 50%,
-        ${theme?.palette.error.light} 100%
+        ${theme?.vars.palette.error.main} 0%,
+        ${theme?.vars.palette.error.main} 50%,
+        ${theme?.vars.palette.error.light} 100%
       )`,
     }),
     ...(ownerState.variant === "success" && {
       background: `linear-gradient(
         to right,
-        ${theme?.palette.success.main} 0%,
-        ${theme?.palette.success.main} 50%,
-        ${theme?.palette.success.light} 100%
+        ${theme?.vars.palette.success.main} 0%,
+        ${theme?.vars.palette.success.main} 50%,
+        ${theme?.vars.palette.success.light} 100%
       )`,
     }),
     ...(ownerState.variant === "warning" && {
       background: `linear-gradient(
         to right,
-        ${theme?.palette.warning.main} 0%,
-        ${theme?.palette.warning.main} 50%,
-        ${theme?.palette.warning.light} 100%
+        ${theme?.vars.palette.warning.main} 0%,
+        ${theme?.vars.palette.warning.main} 50%,
+        ${theme?.vars.palette.warning.light} 100%
       )`,
     }),
   },
-])
+]);
 
 export const WarningTitle = styled("div", {
   name: "MuiWarningTitle",
@@ -103,9 +103,9 @@ export const WarningTitle = styled("div", {
     margin: 0,
     padding: 0,
     fontWeight: "600",
-    color: theme?.palette.text?.primary,
+    color: theme?.vars.palette.text?.primary,
   },
-])
+]);
 
 export const WarningDescription = styled("div", {
   name: "MuiWarningDescription",
@@ -116,6 +116,6 @@ export const WarningDescription = styled("div", {
     margin: 0,
     padding: 0,
     fontWeight: "500",
-    color: theme?.palette.text?.primary,
+    color: theme?.vars.palette.text?.primary,
   },
-])
+]);

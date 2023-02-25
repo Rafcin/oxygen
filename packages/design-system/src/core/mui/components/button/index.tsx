@@ -17,7 +17,7 @@ export default function Button() {
       },
       styleOverrides: {
         root: ({ theme }) => ({
-          ...theme.typography.button,
+          ...theme?.typography.button,
           textTransform: "none",
           cursor: "pointer",
           userSelect: "auto",
@@ -35,5 +35,5 @@ export default function Button() {
         }),
       },
     },
-  }
+  };
 }

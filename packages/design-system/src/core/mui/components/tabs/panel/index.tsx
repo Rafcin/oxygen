@@ -4,9 +4,9 @@ export default function TabsPanel() {
       defaultProps: {},
       styleOverrides: {
         root: ({ theme }) => ({
-          color: theme?.palette.text?.primary,
+          color: theme?.vars.palette.text?.primary,
         }),
       },
     },
-  }
+  };
 }

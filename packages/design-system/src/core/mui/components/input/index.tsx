@@ -7,11 +7,11 @@ export default function InputLabel() {
           //background: 'transparent',
           borderRadius: "12px",
           "&.Mui-error": {
-            color: theme?.palette.inputs.inputInvalidBorder,
-            borderColor: theme?.palette.inputs.inputInvalidBorder,
+            color: theme?.vars.palette.inputs.inputInvalidBorder,
+            borderColor: theme?.vars.palette.inputs.inputInvalidBorder,
           },
         }),
       },
     },
-  }
+  };
 }

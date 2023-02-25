@@ -67,6 +67,8 @@ const nextConfig = {
       "**.example.com",
       "**.googleapis.com",
       "**.zorores.com",
+      "**.cloudfront.net",
+      "**.thetvdb.com",
     ],
     remotePatterns: [
       {
@@ -107,6 +109,16 @@ const nextConfig = {
       {
         protocol,
         hostname: `picsum.photos`,
+      },
+      // @note(remotePattern) Cloudfront
+      {
+        protocol,
+        hostname: `**.cloudfront.net`,
+      },
+      // @note(remotePattern) TheTVDB
+      {
+        protocol,
+        hostname: `**.thetvdb.com`,
       },
     ],
     formats: ["image/avif", "image/webp"],

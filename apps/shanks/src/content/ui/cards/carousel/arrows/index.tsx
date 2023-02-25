@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
-import { Box } from '@mui/system'
-import React from 'react'
-import { ArrowButton } from './styles'
+import { Box } from "@mui/system";
+import React from "react";
+import { ArrowButton } from "./styles";
 
 export const Previous: React.FC<any> = React.memo(({ ...props }) => {
   return (
@@ -14,14 +14,14 @@ export const Previous: React.FC<any> = React.memo(({ ...props }) => {
         role="presentation"
         focusable="false"
         sx={(theme: any) => ({
-          display: 'block',
-          fill: 'none',
-          height: '12px',
-          width: '12px',
-          stroke: 'currentcolor',
+          display: "block",
+          fill: "none",
+          height: "12px",
+          width: "12px",
+          stroke: "currentcolor",
           strokeWidth: 4,
-          overflow: 'visible',
-          color: theme?.palette.text?.primary,
+          overflow: "visible",
+          color: theme?.vars.palette.text?.primary,
         })}
       >
         <g fill="none">
@@ -29,8 +29,8 @@ export const Previous: React.FC<any> = React.memo(({ ...props }) => {
         </g>
       </Box>
     </ArrowButton>
-  )
-})
+  );
+});
 
 export const Next: React.FC<any> = React.memo(({ ...props }) => {
   return (
@@ -43,14 +43,14 @@ export const Next: React.FC<any> = React.memo(({ ...props }) => {
         role="presentation"
         focusable="false"
         sx={(theme: any) => ({
-          display: 'block',
-          fill: 'none',
-          height: '12px',
-          width: '12px',
-          stroke: 'currentcolor',
+          display: "block",
+          fill: "none",
+          height: "12px",
+          width: "12px",
+          stroke: "currentcolor",
           strokeWidth: 4,
-          overflow: 'visible',
-          color: theme?.palette.text?.primary,
+          overflow: "visible",
+          color: theme?.vars.palette.text?.primary,
         })}
       >
         <g fill="none">
@@ -58,5 +58,5 @@ export const Next: React.FC<any> = React.memo(({ ...props }) => {
         </g>
       </Box>
     </ArrowButton>
-  )
-})
+  );
+});

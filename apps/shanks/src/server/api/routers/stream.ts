@@ -10,4 +10,18 @@ export const streamRouter = createTRPCRouter({
         .get(`https://api.consumet.org/anime/zoro/${input.query}`)
         .then((res) => res.data);
     }),
+  details: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ input }) => {
+      return await axios
+        .get(`https://api.consumet.org/anime/zoro/info?id=${input.id}`)
+        .then((res) => res.data);
+    }),
+  meta: protectedProcedure
+    .input(z.object({ id: z.number() }))
+    .query(async ({ input }) => {
+      return await axios
+        .get(`https://api.consumet.org/meta/anilist/info/${String(input.id)}`)
+        .then((res) => res.data);
+    }),
 });

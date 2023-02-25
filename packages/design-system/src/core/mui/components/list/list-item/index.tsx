@@ -37,12 +37,12 @@ export default function ListItemButton() {
               "& .MuiTypography-root": {
                 fontWeight: "800",
               },
-              borderLeft: `4px solid ${theme?.palette.text?.primary}`,
+              borderLeft: `4px solid ${theme?.vars.palette.text?.primary}`,
               paddingLeft: "8px",
             },
           }),
         }),
       },
     },
-  }
+  };
 }

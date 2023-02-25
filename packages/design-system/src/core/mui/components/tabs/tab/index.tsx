@@ -10,10 +10,12 @@ export default function Tab() {
             transform: "scale(.96)",
           },
           "&:hover": {
-            background: theme?.palette.text?.secondary,
+            //background: theme?.vars.palette.text?.secondary,
+            opacity: 0.7,
+            background: theme?.vars.palette.background.primary,
           },
           "&.Mui-selected": {
-            color: theme?.palette.text?.primary,
+            color: theme?.vars.palette.text?.primary,
           },
           width: "auto",
           maxWidth: "auto",
@@ -33,10 +35,10 @@ export default function Tab() {
             "box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s",
           position: "relative",
           outline: "none",
-          color: theme?.palette.text?.primary,
+          color: theme?.vars.palette.text?.primary,
           cursor: "default",
         }),
       },
     },
-  }
+  };
 }

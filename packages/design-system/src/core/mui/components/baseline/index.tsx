@@ -1,4 +1,4 @@
-import { theme } from '../../../theme/theme'
+import { theme } from "../../../theme/theme";
 
 export default function Baseline() {
   return {
@@ -7,8 +7,8 @@ export default function Baseline() {
         enableColorScheme: true,
       },
       styleOverrides: () => ({
-        ...theme.baseline,
+        ...theme?.baseline,
       }),
     },
-  }
+  };
 }

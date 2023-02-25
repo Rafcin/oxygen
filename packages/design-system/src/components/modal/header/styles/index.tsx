@@ -1,6 +1,6 @@
-import { styled } from "@mui/system"
+import { styled } from "@mui/system";
 
-import { ModalHeaderProps } from "../types"
+import { ModalHeaderProps } from "../types";
 
 export const ModalHeaderRoot = styled("div", {
   name: "ModalHeaderRoot",
@@ -8,7 +8,7 @@ export const ModalHeaderRoot = styled("div", {
   overridesResolver: (props, styles) => styles.root,
 })<{ theme?: any; ownerState: ModalHeaderProps }>(({ theme, ownerState }) => [
   {
-    [theme.breakpoints.down("sm")]: {
+    [theme?.breakpoints.down("sm")]: {
       ...(ownerState.mhs
         ? {
             minHeight: `${ownerState.mhs}px`,
@@ -27,8 +27,8 @@ export const ModalHeaderRoot = styled("div", {
     fontSize: "16px",
     lineHeight: "20px",
     fontWeight: 800,
-    borderBottom: `1px solid ${theme?.palette.navigation.border}`,
-    color: theme?.palette.text?.primary,
+    borderBottom: `1px solid ${theme?.vars.palette.navigation.border}`,
+    color: theme?.vars.palette.text?.primary,
     ...(ownerState.mhn
       ? {
           minHeight: `${ownerState.mhn}px`,
@@ -40,4 +40,4 @@ export const ModalHeaderRoot = styled("div", {
       borderBottom: "none",
     }),
   },
-])
+]);

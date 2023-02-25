@@ -6,9 +6,9 @@ export default function Chip() {
         root: ({ ownerState, theme }) => ({
           cursor: "pointer",
           textAlign: "center",
-          backgroundColor: `${theme?.palette.background?.default} `,
-          border: `1px solid ${theme?.palette.inputs?.inputBorder} `,
-          color: `${theme?.palette.text?.primary} `,
+          backgroundColor: `${theme?.vars.palette.background?.default} `,
+          border: `1px solid ${theme?.vars.palette.inputs?.inputBorder} `,
+          color: `${theme?.vars.palette.text?.primary} `,
           outline: "none",
           margin: "0px",
           position: "relative",
@@ -24,14 +24,14 @@ export default function Chip() {
           width: "auto",
           height: "auto",
           "&:hover": {
-            border: `1px solid ${theme?.palette.inputs?.inputFocusedBorder}`,
+            border: `1px solid ${theme?.vars.palette.inputs?.inputFocusedBorder}`,
           },
           ...(ownerState.variant === "simple" && {
-            backgroundColor: `${theme?.palette.background?.default} `,
-            color: `${theme?.palette.text?.primary} `,
+            backgroundColor: `${theme?.vars.palette.background?.default} `,
+            color: `${theme?.vars.palette.text?.primary} `,
           }),
         }),
       },
     },
-  }
+  };
 }

@@ -7,11 +7,11 @@ export default function Snackbar() {
           "& > .MuiSnackbarContent-root": {
             borderRadius: "12px",
             padding: "12px",
-            color: theme?.palette.text?.primary,
-            backgroundColor: theme?.palette.text?.secondary,
+            color: theme?.vars.palette.text?.primary,
+            backgroundColor: theme?.vars.palette.text?.secondary,
           },
         }),
       },
     },
-  }
+  };
 }

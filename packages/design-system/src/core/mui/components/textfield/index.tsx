@@ -6,24 +6,24 @@ export default function TextField() {
       },
       styleOverrides: {
         root: ({ theme }) => ({
-          color: theme?.palette.text?.primary,
+          color: theme?.vars.palette.text?.primary,
           "& label.Mui-focused": {
-            color: theme?.palette.inputs?.inputFocusedBorder,
+            color: theme?.vars.palette.inputs?.inputFocusedBorder,
           },
           "& .MuiInput-underline:after": {
-            borderBottomColor: theme?.palette.inputs?.inputFocusedBorder,
+            borderBottomColor: theme?.vars.palette.inputs?.inputFocusedBorder,
           },
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: theme?.palette.inputs?.inputBorder,
+              borderColor: theme?.vars.palette.inputs?.inputBorder,
             },
             "&.Mui-focused fieldset": {
-              borderColor: theme?.palette.inputs?.inputFocusedBorder,
-              color: theme?.palette.text?.primary,
+              borderColor: theme?.vars.palette.inputs?.inputFocusedBorder,
+              color: theme?.vars.palette.text?.primary,
             },
           },
         }),
       },
     },
-  }
+  };
 }

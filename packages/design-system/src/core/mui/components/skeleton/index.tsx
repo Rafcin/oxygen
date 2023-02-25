@@ -4,9 +4,9 @@ export default function Skeleton() {
       defaultProps: {},
       styleOverrides: {
         root: ({ theme }) => ({
-          backgroundColor: theme?.palette?.background?.skeleton,
+          backgroundColor: theme?.vars.palette?.background?.skeleton,
         }),
       },
     },
-  }
+  };
 }

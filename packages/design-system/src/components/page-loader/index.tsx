@@ -1,10 +1,10 @@
-import Box from "@mui/material/Box"
-import { useTheme } from "@mui/material/styles"
+import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
 
-import { Pulse } from "../pulse"
+import { Pulse } from "../pulse";
 
 const PageLoader: React.FC<any> = ({ pageLoading }) => {
-  const theme = useTheme<any>()
+  const theme = useTheme<any>();
   return (
     <Box
       component="div"
@@ -18,7 +18,7 @@ const PageLoader: React.FC<any> = ({ pageLoading }) => {
         transition: "opacity 0.24s ease 0s",
         width: "100%",
         zIndex: 2001,
-        backgroundColor: theme?.palette.background?.default,
+        backgroundColor: theme?.vars.palette.background?.default,
       }}
     >
       <Box
@@ -36,10 +36,10 @@ const PageLoader: React.FC<any> = ({ pageLoading }) => {
           transform: "translateX(-50%) translateY(-50%)",
         }}
       >
-        <Pulse size={8} color={theme?.palette.text?.primary} />
+        <Pulse size={8} color={theme?.vars.palette.text?.primary} />
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export { PageLoader }
+export { PageLoader };

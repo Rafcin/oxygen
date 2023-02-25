@@ -8,16 +8,18 @@ import {
 } from "@oxygen/design-system";
 import React from "react";
 
-export const GenericCard: React.FC<any> = React.memo(
+export const StreamCard: React.FC<any> = React.memo(
   ({
     cover,
     ar,
     direction,
     children,
+    details,
     ...props
   }: {
     children?: React.ReactNode;
     cover?: React.ReactNode;
+    details?: React.ReactNode;
     ar: string;
     direction: "vertical" | "horizontal";
   }) => {
@@ -28,7 +30,9 @@ export const GenericCard: React.FC<any> = React.memo(
         <ListItemButton
           {...props}
           disableRipple={true}
-          sx={{ display: "block" }}
+          sx={{
+            display: "block",
+          }}
         >
           <span>
             {/** Content */}
@@ -41,7 +45,7 @@ export const GenericCard: React.FC<any> = React.memo(
               >
                 <Box
                   component="div"
-                  sx={{
+                  sx={(theme: any) => ({
                     borderRadius: "12px",
                     position: "relative",
                     contain: "none",
@@ -55,7 +59,13 @@ export const GenericCard: React.FC<any> = React.memo(
                       borderRadius: "inherit",
                       pointerEvents: "none",
                     },
-                  }}
+                    transition: "transform 300ms ease-out 0s",
+                    transform: "scale(0.97)",
+                    "&:hover": {
+                      transform: "scale(1)",
+                      border: `5px solid ${theme?.vars.palette?.background?.inverse}`,
+                    },
+                  })}
                 >
                   <AspectRatio ratio={ar}>
                     <CardContainer
@@ -82,7 +92,9 @@ export const GenericCard: React.FC<any> = React.memo(
                 md={bodyOrientation}
                 lg={bodyOrientation}
                 sx={{ cursor: "pointer" }}
-              ></Grid>
+              >
+                {details}
+              </Grid>
             </Grid>
           </span>
         </ListItemButton>

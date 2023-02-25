@@ -56,8 +56,8 @@
     "clean": "pnpm rimraf dist/ node_modules/ .turbo/",
     "[--- Utils ---]": "",
     "generate:theme": "pnpm js:theme && pnpm dts:theme",
-    "js:theme": "pnpm jtj -i ./src/core/theme/theme.json -o ./src/core/theme/theme.ts --ts -n theme",
-    "dts:theme": "quicktype --top-level Theme -l typescript ./src/core/theme/theme.json -o ./src/declarations/theme/index.ts && ./scripts/prefix.sh ./src/declarations/theme/index.ts Oxygen"
+    "js:theme": "pnpm jtj -i ./src/core/theme/theme?.vars.json -o ./src/core/theme/theme?.vars.ts --ts -n theme",
+    "dts:theme": "quicktype --top-level Theme -l typescript ./src/core/theme/theme?.vars.json -o ./src/declarations/theme/index.ts && ./scripts/prefix.sh ./src/declarations/theme/index.ts Oxygen"
   },
   "dependencies": {
     "@date-io/date-fns": "^2.16.0",

@@ -1,6 +1,6 @@
-import { styled } from "@mui/system"
+import { styled } from "@mui/system";
 
-import { CardProps } from "../types"
+import { CardProps } from "../types";
 export const CardRoot = styled("div", {
   name: "MuiCard",
   slot: "Root",
@@ -28,21 +28,21 @@ export const CardRoot = styled("div", {
     "--CardOverflow-radius":
       "calc(var(--Card-radius) - var(--variant-borderWidth))",
     ...(ownerState.size === "sm" && {
-      "--Card-radius": theme?.shape?.borderRadius,
+      "--Card-radius": theme?.vars.shape?.borderRadius,
       "--Card-padding": "0.5rem",
     }),
     ...(ownerState.size === "md" && {
-      "--Card-radius": theme?.shape?.borderRadius,
+      "--Card-radius": theme?.vars.shape?.borderRadius,
       "--Card-padding": "1rem",
     }),
     ...(ownerState.size === "lg" && {
-      "--Card-radius": theme?.shape?.borderRadius,
+      "--Card-radius": theme?.vars.shape?.borderRadius,
       "--Card-padding": "1.5rem",
     }),
     padding: "var(--Card-padding)",
     borderRadius: "var(--Card-radius)",
-    //boxShadow: theme?.shadows[0],
-    backgroundColor: theme?.palette?.background?.default,
+    //boxShadow: theme?.vars.shadows[0],
+    backgroundColor: theme?.vars.palette?.background?.default,
     fontFamily: "inherit",
     // TODO: discuss the theme transition.
     // This value is copied from mui-material Sheet.
@@ -51,5 +51,5 @@ export const CardRoot = styled("div", {
     display: "flex",
     flexDirection: ownerState.row ? "row" : "column",
   },
-  //theme.variants[ownerState.variant!]?.[ownerState.color!]
-])
+  //theme?.vars.variants[ownerState.variant!]?.[ownerState.color!]
+]);
