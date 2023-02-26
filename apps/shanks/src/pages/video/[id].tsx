@@ -1,18 +1,10 @@
-import { GenericCard } from "@/content/ui/cards/stream";
 import { api } from "@/trpc/api";
+import { Subtitle } from "@/types/stream";
+import { searchSources } from "@/utils/streams";
 import { Box } from "@mui/material";
-import {
-  Grid,
-  OxygenTheme,
-  Container,
-  AspectRatio,
-  CardContainer,
-  CardCover,
-  CardContent,
-} from "@oxygen/design-system";
+import { AspectRatio, Loading } from "@oxygen/design-system";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
@@ -33,7 +25,13 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 const Video: React.FC<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ id }) => {
-  const details = api.stream.details.useQuery({ id: id });
+  const video = api.stream.video.useQuery(
+    { id: id },
+    {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+    }
+  );
   return (
     <Box
       sx={{
@@ -60,13 +58,31 @@ const Video: React.FC<
           width: "100%",
         }}
       >
-        <AspectRatio ratio="16 / 9">
-          <ReactPlayer
-            url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-            width="100%"
-            height="100%"
-          />
-        </AspectRatio>
+        {video.isLoading && !video.isError && <Loading />}
+        {video.isSuccess &&
+          video.data &&
+          searchSources(video.data?.sources).url !== "" && (
+            <AspectRatio ratio="16 / 9">
+              <ReactPlayer
+                controls={true}
+                url={searchSources(video.data?.sources).url}
+                width="100%"
+                height="100%"
+                config={{
+                  file: {
+                    attributes: {
+                      crossOrigin: "true",
+                    },
+                    tracks: video.data?.subtitles.map((track: Subtitle) => ({
+                      kind: "subtitles",
+                      src: track.url,
+                      srcLang: track.lang,
+                    })),
+                  },
+                }}
+              />
+            </AspectRatio>
+          )}
       </Box>
     </Box>
   );

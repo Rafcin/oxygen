@@ -6,3 +6,12 @@ export interface Stream {
   image: string;
   url: string;
 }
+export interface Source {
+  url: string;
+  isM3u8: boolean;
+  quality: string;
+}
+export interface Subtitle {
+  url: string;
+  lang: string;
+}

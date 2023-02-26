@@ -69,6 +69,7 @@ const Series: React.FC<
   const [selected, setSelected] = useState(0);
   const [episodes, setEpisodes] = useState<Array<Array<any>> | Array<any>>([]);
   const [season, setSeason] = useState<number>(0);
+  const SEASON_SIZE = 30;
   useEffect(() => {
     const maxOpacity = 0.85;
     const minOpacity = 0.5;
@@ -82,7 +83,7 @@ const Series: React.FC<
     sop(newOpacity < minOpacity ? minOpacity : newOpacity);
   }, [y]);
   useEffect(() => {
-    setEpisodes(chunkEpisodes(meta.data?.episodes, 30));
+    setEpisodes(chunkEpisodes(meta.data?.episodes, SEASON_SIZE));
   }, [meta.isSuccess && meta.data?.episodes]);
   return (
     <Box>
@@ -387,103 +388,182 @@ const Series: React.FC<
               <Tab label="Details" />
             </Tabs>
             {selected === 0 && (
-              <Box sx={{ marginTop: "35px" }}>
-                <Swiper
-                  spaceBetween={10}
-                  breakpoints={{
-                    [theme.breakpoints.values.xs]: {
-                      slidesPerView: 1,
-                    },
-                    [theme.breakpoints.values.sm]: {
-                      slidesPerView: 2,
-                    },
-                    [theme.breakpoints.values.md]: {
-                      slidesPerView: 3,
-                    },
-                    [theme.breakpoints.values.lg]: {
-                      slidesPerView: 4,
-                    },
-                  }}
-                  onSlideChange={() => console.log("slide change")}
-                  onSwiper={(swiper) => console.log(swiper)}
-                >
-                  {meta.isLoading && !(meta.isError || meta.isSuccess) && (
-                    <Loading />
-                  )}
-                  {meta.isSuccess && episodes.length <= 0 && (
-                    <Box>No Streams Found</Box>
-                  )}
-                  {meta.isSuccess &&
-                  episodes.length > 0 &&
-                  Array.isArray(episodes[0])
-                    ? episodes[season].map((episode: any, index: number) => (
-                        <SwiperSlide key={episode.title}>
-                          <Link href={`/video/${episode.id}`}>
-                            <StreamCard
-                              direction="vertical"
-                              waitBeforeShow={1500 + index * 150}
-                              ar="20 / 12"
-                              cover={
-                                <Box
-                                  component="img"
-                                  sx={{
-                                    filter: "brightness(0.94)",
-                                  }}
-                                  src={episode.image}
-                                  alt={`${episode.title}-image`}
-                                />
-                              }
-                              isMetadataEnabled={true}
-                              id={episode.id}
-                              details={
-                                <Box
-                                  sx={{
-                                    marginLeft: "10px",
-                                  }}
-                                >
-                                  <Box
-                                    sx={{
-                                      fontSize: "15px",
-                                      lineHeight: "1.6",
-                                      letterSpacing: "-.1px",
-                                      fontWeight: 700,
-                                    }}
-                                  >
-                                    {episode.number}. {episode.title}
-                                  </Box>
-                                  <Box
-                                    sx={{
-                                      fontSize: "12px",
-                                      lineHeight: "1.6",
-                                      letterSpacing: "-.1px",
-                                      fontWeight: 500,
-                                    }}
-                                  >
-                                    {episode.description}
-                                  </Box>
-                                </Box>
-                              }
-                            >
-                              <Box
-                                sx={(theme: any) => ({
-                                  margin: "0px 15px 15px",
-                                  fontSize: "3rem",
-                                  fontWeight: 700,
-                                  color:
-                                    theme?.vars.palette?.text?.contrastText,
-                                })}
-                              >
-                                {episode.number}
-                              </Box>
-                            </StreamCard>
-                          </Link>
-                        </SwiperSlide>
-                      ))
-                    : episodes.map((episode: any, index: number) => (
-                        <SwiperSlide key={episode.id}>{index}</SwiperSlide>
+              <>
+                {meta.isSuccess &&
+                episodes.length > 0 &&
+                Array.isArray(episodes[0]) ? (
+                  <Box>
+                    <Tabs
+                      value={season}
+                      aria-label="stream-seasons-tab"
+                      onChange={(_, index) => setSeason(index)}
+                    >
+                      {episodes.map((_, index) => (
+                        <Tab label={`Season ${index + 1}`} />
                       ))}
-                </Swiper>
-              </Box>
+                    </Tabs>
+                  </Box>
+                ) : (
+                  <Box></Box>
+                )}
+                <Box sx={{ marginTop: "35px" }}>
+                  <Swiper
+                    spaceBetween={10}
+                    breakpoints={{
+                      [theme.breakpoints.values.xs]: {
+                        slidesPerView: 1,
+                      },
+                      [theme.breakpoints.values.sm]: {
+                        slidesPerView: 2,
+                      },
+                      [theme.breakpoints.values.md]: {
+                        slidesPerView: 3,
+                      },
+                      [theme.breakpoints.values.lg]: {
+                        slidesPerView: 4,
+                      },
+                    }}
+                    onSlideChange={() => console.log("slide change")}
+                    onSwiper={(swiper) => console.log(swiper)}
+                  >
+                    {meta.isLoading && !(meta.isError || meta.isSuccess) && (
+                      <Loading />
+                    )}
+                    {meta.isSuccess && episodes.length <= 0 && (
+                      <Box>No Streams Found</Box>
+                    )}
+                    {meta.isSuccess &&
+                    episodes.length > 0 &&
+                    Array.isArray(episodes[0])
+                      ? episodes[season].map((episode: any, index: number) => (
+                          <SwiperSlide key={episode.title}>
+                            <Link href={`/video/${episode.id}`}>
+                              <StreamCard
+                                direction="vertical"
+                                waitBeforeShow={1500 + index * 150}
+                                ar="20 / 12"
+                                cover={
+                                  <Box
+                                    component="img"
+                                    sx={{
+                                      filter: "brightness(0.94)",
+                                    }}
+                                    src={episode.image}
+                                    alt={`${episode.title}-image`}
+                                  />
+                                }
+                                isMetadataEnabled={true}
+                                id={episode.id}
+                                details={
+                                  <Box
+                                    sx={{
+                                      marginLeft: "10px",
+                                    }}
+                                  >
+                                    <Box
+                                      sx={{
+                                        fontSize: "15px",
+                                        lineHeight: "1.6",
+                                        letterSpacing: "-.1px",
+                                        fontWeight: 700,
+                                      }}
+                                    >
+                                      {episode.number}. {episode.title}
+                                    </Box>
+                                    <Box
+                                      sx={{
+                                        fontSize: "12px",
+                                        lineHeight: "1.6",
+                                        letterSpacing: "-.1px",
+                                        fontWeight: 500,
+                                      }}
+                                    >
+                                      {episode.description}
+                                    </Box>
+                                  </Box>
+                                }
+                              >
+                                <Box
+                                  sx={(theme: any) => ({
+                                    margin: "0px 15px 15px",
+                                    fontSize: "3rem",
+                                    fontWeight: 700,
+                                    color:
+                                      theme?.vars.palette?.text?.contrastText,
+                                  })}
+                                >
+                                  {episode.number}
+                                </Box>
+                              </StreamCard>
+                            </Link>
+                          </SwiperSlide>
+                        ))
+                      : episodes.map((episode: any, index: number) => (
+                          <SwiperSlide key={episode.id}>
+                            <Link href={`/video/${episode.id}`}>
+                              <StreamCard
+                                direction="vertical"
+                                waitBeforeShow={1500 + index * 150}
+                                ar="20 / 12"
+                                cover={
+                                  <Box
+                                    component="img"
+                                    sx={{
+                                      filter: "brightness(0.94)",
+                                    }}
+                                    src={episode.image}
+                                    alt={`${episode.title}-image`}
+                                  />
+                                }
+                                isMetadataEnabled={true}
+                                id={episode.id}
+                                details={
+                                  <Box
+                                    sx={{
+                                      marginLeft: "10px",
+                                    }}
+                                  >
+                                    <Box
+                                      sx={{
+                                        fontSize: "15px",
+                                        lineHeight: "1.6",
+                                        letterSpacing: "-.1px",
+                                        fontWeight: 700,
+                                      }}
+                                    >
+                                      {episode.number}. {episode.title}
+                                    </Box>
+                                    <Box
+                                      sx={{
+                                        fontSize: "12px",
+                                        lineHeight: "1.6",
+                                        letterSpacing: "-.1px",
+                                        fontWeight: 500,
+                                      }}
+                                    >
+                                      {episode.description}
+                                    </Box>
+                                  </Box>
+                                }
+                              >
+                                <Box
+                                  sx={(theme: any) => ({
+                                    margin: "0px 15px 15px",
+                                    fontSize: "3rem",
+                                    fontWeight: 700,
+                                    color:
+                                      theme?.vars.palette?.text?.contrastText,
+                                  })}
+                                >
+                                  {episode.number}
+                                </Box>
+                              </StreamCard>
+                            </Link>
+                          </SwiperSlide>
+                        ))}
+                  </Swiper>
+                </Box>
+              </>
             )}
             {selected === 2 && (
               <Box
